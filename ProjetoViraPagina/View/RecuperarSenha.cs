@@ -16,6 +16,14 @@ namespace Projeto_ViraPagina.View
         public RecuperarSenha()
         {
             InitializeComponent();
+
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            textEmail.PlaceholderText = "Insira seu email aqui";
+            textSenha.PlaceholderText = "Insira sua senha aqui";
+            textEmail.PlaceholderText = "Insira a mesma senha novamente";
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

@@ -18,8 +18,13 @@ namespace Projeto_ViraPagina.View
         public LoginProjeto()
         {
             InitializeComponent();
-            //string email = textEmail.Text;
-            //string senha = textSenha.Text;
+
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            textEmail.PlaceholderText = "Insira seu email aqui";
+            textSenha.PlaceholderText = "Insira sua senha aqui";
         }
 
         private void textEmail_TextChanged(object sender, EventArgs e)
