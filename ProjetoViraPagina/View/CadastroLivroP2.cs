@@ -1,4 +1,5 @@
-﻿using Projeto_ViraPagina.Model;
+﻿using Projeto_ViraPagina.DAO;
+using Projeto_ViraPagina.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,8 @@ namespace Projeto_ViraPagina.View
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
@@ -54,13 +57,22 @@ namespace Projeto_ViraPagina.View
             else
             {
                 MaterialImpresso ultimoItem = MaterialImpresso.ListaMateriaisImpressos.Last();
+                MaterialImpressoDAO DAO = new MaterialImpressoDAO();
 
                 ultimoItem.Classe = textClasse.Text;
                 ultimoItem.ExtraiCircular(textCircular.Text);
                 ultimoItem.Idioma = textIdioma.Text;
+                ultimoItem.Resumo = textResumo.Text;
 
-                ultimoItem.AdicionarMaterialImpressoNoBanco(ultimoItem);
+                DAO.AdicionarMaterialImpressoNoBanco(ultimoItem);
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Principal form = new Principal();
+            form.Show();
+            this.Hide();
         }
     }
 }

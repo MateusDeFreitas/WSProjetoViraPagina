@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Projeto_ViraPagina.View
 {
-    public partial class PrincipalInstrumentos : Form
+    public partial class CadastroMidia : Form
     {
-        public PrincipalInstrumentos()
+        public CadastroMidia()
         {
             InitializeComponent();
 
@@ -23,9 +23,9 @@ namespace Projeto_ViraPagina.View
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        private void btnVoltar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-            MenuAcervos form = new MenuAcervos();
+            PrincipalMidia form = new PrincipalMidia();
             form.Show();
             this.Hide();
         }

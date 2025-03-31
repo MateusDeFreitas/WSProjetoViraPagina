@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Projeto_ViraPagina.View
 {
-    public partial class PrincipalInstrumentos : Form
+    public partial class AtualizacaoMaterialImpresso : Form
     {
-        public PrincipalInstrumentos()
+        public AtualizacaoMaterialImpresso()
         {
             InitializeComponent();
 
@@ -23,9 +23,16 @@ namespace Projeto_ViraPagina.View
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        private void btnVoltar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-            MenuAcervos form = new MenuAcervos();
+            PrincipalLivro form = new PrincipalLivro();
+            form.Show();
+            this.Hide();
+        }
+
+        private void btnProximo_Click(object sender, EventArgs e)
+        {
+            AtualizacaoMaterialImpressoP2 form = new AtualizacaoMaterialImpressoP2();
             form.Show();
             this.Hide();
         }

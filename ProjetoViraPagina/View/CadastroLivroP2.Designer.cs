@@ -63,6 +63,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // panelLivro
             // 
@@ -224,10 +225,11 @@
             textResumo.BorderStyle = BorderStyle.None;
             textResumo.Font = new Font("Arial Narrow", 12F);
             textResumo.ForeColor = Color.FromArgb(130, 119, 106);
-            textResumo.Location = new Point(3, 8);
+            textResumo.Location = new Point(3, 6);
+            textResumo.Multiline = true;
             textResumo.Name = "textResumo";
             textResumo.ScrollBars = ScrollBars.Vertical;
-            textResumo.Size = new Size(308, 19);
+            textResumo.Size = new Size(308, 234);
             textResumo.TabIndex = 87;
             // 
             // label1

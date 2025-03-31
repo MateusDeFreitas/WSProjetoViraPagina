@@ -131,6 +131,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // btnRelatorios
             // 
@@ -179,6 +180,7 @@
             btnAtualizar.TabIndex = 25;
             btnAtualizar.Text = "Atualizar um jogo";
             btnAtualizar.UseVisualStyleBackColor = false;
+            btnAtualizar.Click += btnAtualizar_Click;
             // 
             // btnCriar
             // 
@@ -191,6 +193,7 @@
             btnCriar.TabIndex = 24;
             btnCriar.Text = "Criar um jogo";
             btnCriar.UseVisualStyleBackColor = false;
+            btnCriar.Click += btnCriar_Click;
             // 
             // PrincipalJogos
             // 

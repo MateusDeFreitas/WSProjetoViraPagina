@@ -50,7 +50,7 @@
             btnVoltar.BackColor = Color.DarkRed;
             btnVoltar.Font = new Font("Segoe UI", 12F);
             btnVoltar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnVoltar.Location = new Point(491, 384);
+            btnVoltar.Location = new Point(502, 383);
             btnVoltar.Name = "btnVoltar";
             btnVoltar.Size = new Size(149, 41);
             btnVoltar.TabIndex = 23;
@@ -105,6 +105,7 @@
             btnAtualizar.TabIndex = 19;
             btnAtualizar.Text = "Atualizar mídia";
             btnAtualizar.UseVisualStyleBackColor = false;
+            btnAtualizar.Click += btnAtualizar_Click;
             // 
             // btnCriar
             // 
@@ -117,6 +118,7 @@
             btnCriar.TabIndex = 18;
             btnCriar.Text = "Criar mídia";
             btnCriar.UseVisualStyleBackColor = false;
+            btnCriar.Click += btnCriar_Click;
             // 
             // labelIntro
             // 
@@ -162,12 +164,13 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(2, 13);
+            pictureBox1.Location = new Point(2, 20);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(39, 39);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // PrincipalMidia
             // 

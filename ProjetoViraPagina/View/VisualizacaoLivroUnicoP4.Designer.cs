@@ -1,0 +1,180 @@
+﻿namespace Projeto_ViraPagina.View
+{
+    partial class VisualizacaoLivroUnicoP4
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualizacaoLivroUnicoP4));
+            panelLivro = new Panel();
+            pictureBox1 = new PictureBox();
+            labelLivroCircular = new Label();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            textResumo = new TextBox();
+            btnVoltar = new Button();
+            labelAcervos = new Label();
+            pictureBox2 = new PictureBox();
+            panelLivro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            SuspendLayout();
+            // 
+            // panelLivro
+            // 
+            panelLivro.BackColor = Color.DarkRed;
+            panelLivro.Controls.Add(pictureBox1);
+            panelLivro.Location = new Point(0, 0);
+            panelLivro.Name = "panelLivro";
+            panelLivro.Size = new Size(42, 472);
+            panelLivro.TabIndex = 20;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(1, 15);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(39, 39);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 130;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
+            // labelLivroCircular
+            // 
+            labelLivroCircular.AutoSize = true;
+            labelLivroCircular.Font = new Font("Arial Narrow", 14F);
+            labelLivroCircular.ForeColor = Color.DarkRed;
+            labelLivroCircular.Location = new Point(68, 71);
+            labelLivroCircular.Name = "labelLivroCircular";
+            labelLivroCircular.Size = new Size(69, 23);
+            labelLivroCircular.TabIndex = 90;
+            labelLivroCircular.Text = "Resumo";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.DarkRed;
+            panel1.Controls.Add(panel2);
+            panel1.Location = new Point(68, 101);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(329, 312);
+            panel1.TabIndex = 89;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(250, 243, 224);
+            panel2.Controls.Add(textResumo);
+            panel2.Location = new Point(3, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(323, 306);
+            panel2.TabIndex = 78;
+            // 
+            // textResumo
+            // 
+            textResumo.BackColor = Color.FromArgb(250, 243, 224);
+            textResumo.BorderStyle = BorderStyle.None;
+            textResumo.Font = new Font("Arial Narrow", 12F);
+            textResumo.ForeColor = Color.FromArgb(130, 119, 106);
+            textResumo.Location = new Point(3, 3);
+            textResumo.Multiline = true;
+            textResumo.Name = "textResumo";
+            textResumo.ScrollBars = ScrollBars.Vertical;
+            textResumo.Size = new Size(317, 300);
+            textResumo.TabIndex = 87;
+            // 
+            // btnVoltar
+            // 
+            btnVoltar.BackColor = Color.DarkRed;
+            btnVoltar.Font = new Font("Segoe UI", 12F);
+            btnVoltar.ForeColor = Color.FromArgb(250, 243, 224);
+            btnVoltar.Location = new Point(638, 415);
+            btnVoltar.Name = "btnVoltar";
+            btnVoltar.Size = new Size(128, 35);
+            btnVoltar.TabIndex = 129;
+            btnVoltar.Text = "Voltar";
+            btnVoltar.UseVisualStyleBackColor = false;
+            btnVoltar.Click += btnVoltar_Click;
+            // 
+            // labelAcervos
+            // 
+            labelAcervos.AutoSize = true;
+            labelAcervos.Font = new Font("Arial Narrow", 20F);
+            labelAcervos.ForeColor = Color.DarkRed;
+            labelAcervos.Location = new Point(351, 12);
+            labelAcervos.Name = "labelAcervos";
+            labelAcervos.Size = new Size(154, 31);
+            labelAcervos.TabIndex = 123;
+            labelAcervos.Text = "*Título do livro";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(480, 35);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(321, 403);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 130;
+            pictureBox2.TabStop = false;
+            // 
+            // VisualizacaoLivroUnicoP4
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(250, 243, 224);
+            ClientSize = new Size(800, 450);
+            Controls.Add(labelAcervos);
+            Controls.Add(btnVoltar);
+            Controls.Add(labelLivroCircular);
+            Controls.Add(panel1);
+            Controls.Add(panelLivro);
+            Controls.Add(pictureBox2);
+            Name = "VisualizacaoLivroUnicoP4";
+            Text = "VisualizacaoLivroUnicoP4";
+            panelLivro.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Panel panelLivro;
+        private Label labelLivroCircular;
+        private Panel panel1;
+        private Panel panel2;
+        private TextBox textResumo;
+        private Button btnVoltar;
+        private Label labelAcervos;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+    }
+}

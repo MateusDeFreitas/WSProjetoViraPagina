@@ -19,6 +19,8 @@ namespace Projeto_ViraPagina.View
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)

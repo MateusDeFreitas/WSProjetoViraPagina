@@ -19,6 +19,8 @@ namespace Projeto_ViraPagina.View
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -31,6 +33,27 @@ namespace Projeto_ViraPagina.View
         private void btnCriar_Click(object sender, EventArgs e)
         {
             CadastroLivro form = new CadastroLivro();
+            form.Show();
+            this.Hide();
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            AtualizacaoMaterialImpresso form = new AtualizacaoMaterialImpresso();
+            form.Show();
+            this.Hide();
+        }
+
+        private void btnVerificar_Click(object sender, EventArgs e)
+        {
+            VisualizacaoLivroUnico form = new VisualizacaoLivroUnico();
+            form.Show();
+            this.Hide();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Principal form = new Principal();
             form.Show();
             this.Hide();
         }

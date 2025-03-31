@@ -57,12 +57,13 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(2, 13);
+            pictureBox1.Location = new Point(2, 15);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(39, 39);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // pictureBox2
             // 
@@ -120,6 +121,7 @@
             btnAtualizar.TabIndex = 9;
             btnAtualizar.Text = "Atualizar um MI";
             btnAtualizar.UseVisualStyleBackColor = false;
+            btnAtualizar.Click += btnAtualizar_Click;
             // 
             // btnVerificar
             // 
@@ -132,6 +134,7 @@
             btnVerificar.TabIndex = 11;
             btnVerificar.Text = "Verificar um MI";
             btnVerificar.UseVisualStyleBackColor = false;
+            btnVerificar.Click += btnVerificar_Click;
             // 
             // btnDeletar
             // 

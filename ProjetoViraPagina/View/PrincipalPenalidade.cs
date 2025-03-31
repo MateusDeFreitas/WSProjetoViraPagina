@@ -19,9 +19,18 @@ namespace Projeto_ViraPagina.View
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            Principal form = new Principal();
+            form.Show();
+            this.Hide();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             Principal form = new Principal();
             form.Show();

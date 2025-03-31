@@ -22,6 +22,8 @@ namespace Projeto_ViraPagina.View
             this.MinimizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
+            this.StartPosition = FormStartPosition.CenterScreen;
+
             textPesquisa.PlaceholderText = "Pesquisar";
         }
 
@@ -83,7 +85,7 @@ namespace Projeto_ViraPagina.View
                                 textTelefone.Text = "";
                                 textVinculo.Text = "";
                                 textCodigo.Text = "";
-    
+
                                 tomador.Id = reader["id"].ToString();
                                 tomador.Nome = reader["nome"].ToString();
                                 tomador.Email = reader["id"].ToString();

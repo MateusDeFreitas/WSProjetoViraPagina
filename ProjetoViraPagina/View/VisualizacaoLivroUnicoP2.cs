@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Projeto_ViraPagina.View
 {
-    public partial class PrincipalInstrumentos : Form
+    public partial class VisualizacaoLivroUnicoP2 : Form
     {
-        public PrincipalInstrumentos()
+        public VisualizacaoLivroUnicoP2()
         {
             InitializeComponent();
 
@@ -25,7 +25,14 @@ namespace Projeto_ViraPagina.View
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            MenuAcervos form = new MenuAcervos();
+            VisualizacaoLivroUnico form = new VisualizacaoLivroUnico();
+            form.Show();
+            this.Hide();
+        }
+
+        private void btnProximo_Click(object sender, EventArgs e)
+        {
+            VisualizacaoLivroUnicoP3 form = new VisualizacaoLivroUnicoP3();
             form.Show();
             this.Hide();
         }

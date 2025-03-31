@@ -21,6 +21,8 @@ namespace Projeto_ViraPagina.View
             this.MinimizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
+            this.StartPosition = FormStartPosition.CenterScreen;
+
             textEmail.PlaceholderText = "Insira seu email aqui";
             textSenha.PlaceholderText = "Insira sua senha aqui";
             textEmail.PlaceholderText = "Insira a mesma senha novamente";

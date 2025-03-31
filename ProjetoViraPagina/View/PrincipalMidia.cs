@@ -19,11 +19,34 @@ namespace Projeto_ViraPagina.View
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             MenuAcervos form = new MenuAcervos();
+            form.Show();
+            this.Hide();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Principal form = new Principal();
+            form.Show();
+            this.Hide();
+        }
+
+        private void btnCriar_Click(object sender, EventArgs e)
+        {
+            CadastroMidia form = new CadastroMidia();
+            form.Show();
+            this.Hide();
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            AtualizacaoMidia form = new AtualizacaoMidia();
             form.Show();
             this.Hide();
         }

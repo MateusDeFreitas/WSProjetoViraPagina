@@ -23,6 +23,8 @@ namespace Projeto_ViraPagina.View
             this.MinimizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
+            this.StartPosition = FormStartPosition.CenterScreen;
+
             textEmail.PlaceholderText = "Insira seu email aqui";
             textSenha.PlaceholderText = "Insira sua senha aqui";
         }
@@ -67,22 +69,26 @@ namespace Projeto_ViraPagina.View
                         cmd.Parameters.AddWithValue("@email", email);
 
                         // Obtém a senha armazenada no banco
-                        object resultado = cmd.ExecuteScalar();
-                        if (resultado != null)
+                        MySqlDataReader resultado = cmd.ExecuteReader();
+                        if (resultado.Read())
                         {
-                            string senhaArmazenada = resultado.ToString();
+                            string? senhaArmazenada = resultado["senha"].ToString();
                             if (senha == senhaArmazenada)
                             {
                                 Principal form = new Principal();
                                 form.Show();
                                 this.Hide();
                             }
+                            else
+                            {
+                                MessageBox.Show("Senha incorreta.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Email inexixtente.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Email inexistente.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
 

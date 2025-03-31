@@ -21,6 +21,8 @@ namespace Projeto_ViraPagina.View
             this.MinimizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
+            this.StartPosition = FormStartPosition.CenterScreen;
+
             textAno.PlaceholderText = "dd/mm/aaaa";
         }
 
@@ -79,7 +81,14 @@ namespace Projeto_ViraPagina.View
                 form.Show();
                 this.Hide();
             }
-            
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Principal form = new Principal();
+            form.Show();
+            this.Hide();
         }
     }
 }
