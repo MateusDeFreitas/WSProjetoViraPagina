@@ -64,7 +64,14 @@ namespace Projeto_ViraPagina.View
                 ultimoItem.Idioma = textIdioma.Text;
                 ultimoItem.Resumo = textResumo.Text;
 
-                DAO.AdicionarMaterialImpressoNoBanco(ultimoItem);
+                bool var = DAO.AdicionarMaterialImpressoNoBanco(ultimoItem);
+
+                if (var)
+                {
+                    CadastroLivro form = new CadastroLivro();
+                    form.Show();
+                    this.Hide();
+                }
             }
         }
 

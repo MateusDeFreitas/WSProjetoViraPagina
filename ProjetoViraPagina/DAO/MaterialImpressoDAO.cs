@@ -14,7 +14,7 @@ namespace Projeto_ViraPagina.DAO
     {
 
         private string connectionString = "Server=localhost;Database=bd_virapagina;Uid=root;Pwd=";
-        public void AdicionarMaterialImpressoNoBanco(MaterialImpresso material)
+        public bool AdicionarMaterialImpressoNoBanco(MaterialImpresso material)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -33,7 +33,6 @@ namespace Projeto_ViraPagina.DAO
                         cmd.Parameters.AddWithValue("@p_genero", material.Genero);
                         cmd.Parameters.AddWithValue("@p_dataLancamento", dataFormatadaSQL);
                         cmd.Parameters.AddWithValue("@p_ISBN", material.ISBN);
-
                         cmd.Parameters.AddWithValue("@p_reservaLivro", material.ReservaLivro);
                         cmd.Parameters.AddWithValue("@p_idioma", material.Idioma);
                         cmd.Parameters.AddWithValue("@p_exemplar", material.Exemplar);
@@ -45,12 +44,15 @@ namespace Projeto_ViraPagina.DAO
                         cmd.ExecuteNonQuery();
 
                         MessageBox.Show("Registro inserido com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        return true;
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+                return false;
             }
         }
     }

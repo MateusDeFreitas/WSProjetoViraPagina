@@ -105,7 +105,7 @@
             btnLivros.Name = "btnLivros";
             btnLivros.Size = new Size(149, 41);
             btnLivros.TabIndex = 6;
-            btnLivros.Text = "Livros";
+            btnLivros.Text = "MI";
             btnLivros.UseVisualStyleBackColor = false;
             btnLivros.Click += btnLivros_Click;
             // 

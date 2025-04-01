@@ -9,11 +9,19 @@ namespace Projeto_ViraPagina.Model
     public class Jogo
     {
         public string IdJogo { get; set; }
+        public string Tema { get; set; }
         public string Nome { get; set; }
         public string Marca { get; set; }
         public string Material { get; set; }
         public string NumeroJogadores { get; set; }
         public string Genero { get; set; }
-    }
 
+        public static List<Jogo> ListaJogo = new List<Jogo>();
+
+        public static void AdicionarJogo(Jogo jogo)
+        {
+            ListaJogo.Add(jogo);
+        }
+
+    }
 }

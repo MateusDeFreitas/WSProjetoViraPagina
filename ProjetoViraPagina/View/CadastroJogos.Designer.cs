@@ -33,14 +33,11 @@
             pictureBox1 = new PictureBox();
             labelCadastroJogos = new Label();
             panel3 = new Panel();
-            textIdioma = new TextBox();
+            textMarca = new TextBox();
             labelMarca = new Label();
             panel4 = new Panel();
             textNome = new TextBox();
             labelNome = new Label();
-            panel5 = new Panel();
-            textIdJogo = new TextBox();
-            labelIdJogo = new Label();
             panel1 = new Panel();
             textNumeroJogadores = new TextBox();
             labelNumeroJogadores = new Label();
@@ -51,7 +48,7 @@
             textTema = new TextBox();
             labelTema = new Label();
             panel7 = new Panel();
-            textBox4 = new TextBox();
+            textMaterial = new TextBox();
             labelMaterial = new Label();
             btnCancelar = new Button();
             btnCadastrar = new Button();
@@ -93,28 +90,28 @@
             // panel3
             // 
             panel3.BackColor = Color.DarkRed;
-            panel3.Location = new Point(87, 330);
+            panel3.Location = new Point(99, 246);
             panel3.Name = "panel3";
             panel3.Size = new Size(270, 4);
             panel3.TabIndex = 118;
             // 
-            // textIdioma
+            // textMarca
             // 
-            textIdioma.BackColor = Color.FromArgb(250, 243, 224);
-            textIdioma.BorderStyle = BorderStyle.None;
-            textIdioma.Font = new Font("Arial Narrow", 12F);
-            textIdioma.ForeColor = Color.FromArgb(130, 119, 106);
-            textIdioma.Location = new Point(91, 305);
-            textIdioma.Name = "textIdioma";
-            textIdioma.Size = new Size(257, 19);
-            textIdioma.TabIndex = 117;
+            textMarca.BackColor = Color.FromArgb(250, 243, 224);
+            textMarca.BorderStyle = BorderStyle.None;
+            textMarca.Font = new Font("Arial Narrow", 12F);
+            textMarca.ForeColor = Color.FromArgb(130, 119, 106);
+            textMarca.Location = new Point(103, 221);
+            textMarca.Name = "textMarca";
+            textMarca.Size = new Size(257, 19);
+            textMarca.TabIndex = 117;
             // 
             // labelMarca
             // 
             labelMarca.AutoSize = true;
             labelMarca.Font = new Font("Arial Narrow", 14F);
             labelMarca.ForeColor = Color.DarkRed;
-            labelMarca.Location = new Point(87, 264);
+            labelMarca.Location = new Point(99, 180);
             labelMarca.Name = "labelMarca";
             labelMarca.Size = new Size(54, 23);
             labelMarca.TabIndex = 116;
@@ -123,7 +120,7 @@
             // panel4
             // 
             panel4.BackColor = Color.DarkRed;
-            panel4.Location = new Point(88, 246);
+            panel4.Location = new Point(100, 159);
             panel4.Name = "panel4";
             panel4.Size = new Size(270, 4);
             panel4.TabIndex = 115;
@@ -134,7 +131,7 @@
             textNome.BorderStyle = BorderStyle.None;
             textNome.Font = new Font("Arial Narrow", 12F);
             textNome.ForeColor = Color.FromArgb(130, 119, 106);
-            textNome.Location = new Point(92, 221);
+            textNome.Location = new Point(104, 134);
             textNome.Name = "textNome";
             textNome.Size = new Size(257, 19);
             textNome.TabIndex = 114;
@@ -144,41 +141,11 @@
             labelNome.AutoSize = true;
             labelNome.Font = new Font("Arial Narrow", 14F);
             labelNome.ForeColor = Color.DarkRed;
-            labelNome.Location = new Point(87, 180);
+            labelNome.Location = new Point(99, 96);
             labelNome.Name = "labelNome";
             labelNome.Size = new Size(52, 23);
             labelNome.TabIndex = 113;
             labelNome.Text = "Nome";
-            // 
-            // panel5
-            // 
-            panel5.BackColor = Color.DarkRed;
-            panel5.Location = new Point(87, 159);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(270, 4);
-            panel5.TabIndex = 112;
-            // 
-            // textIdJogo
-            // 
-            textIdJogo.BackColor = Color.FromArgb(250, 243, 224);
-            textIdJogo.BorderStyle = BorderStyle.None;
-            textIdJogo.Font = new Font("Arial Narrow", 12F);
-            textIdJogo.ForeColor = Color.FromArgb(130, 119, 106);
-            textIdJogo.Location = new Point(91, 134);
-            textIdJogo.Name = "textIdJogo";
-            textIdJogo.Size = new Size(257, 19);
-            textIdJogo.TabIndex = 111;
-            // 
-            // labelIdJogo
-            // 
-            labelIdJogo.AutoSize = true;
-            labelIdJogo.Font = new Font("Arial Narrow", 14F);
-            labelIdJogo.ForeColor = Color.DarkRed;
-            labelIdJogo.Location = new Point(87, 93);
-            labelIdJogo.Name = "labelIdJogo";
-            labelIdJogo.Size = new Size(60, 23);
-            labelIdJogo.TabIndex = 110;
-            labelIdJogo.Text = "Código";
             // 
             // panel1
             // 
@@ -273,28 +240,28 @@
             // panel7
             // 
             panel7.BackColor = Color.DarkRed;
-            panel7.Location = new Point(87, 415);
+            panel7.Location = new Point(99, 330);
             panel7.Name = "panel7";
             panel7.Size = new Size(270, 4);
             panel7.TabIndex = 130;
             // 
-            // textBox4
+            // textMaterial
             // 
-            textBox4.BackColor = Color.FromArgb(250, 243, 224);
-            textBox4.BorderStyle = BorderStyle.None;
-            textBox4.Font = new Font("Arial Narrow", 12F);
-            textBox4.ForeColor = Color.FromArgb(130, 119, 106);
-            textBox4.Location = new Point(91, 390);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(257, 19);
-            textBox4.TabIndex = 129;
+            textMaterial.BackColor = Color.FromArgb(250, 243, 224);
+            textMaterial.BorderStyle = BorderStyle.None;
+            textMaterial.Font = new Font("Arial Narrow", 12F);
+            textMaterial.ForeColor = Color.FromArgb(130, 119, 106);
+            textMaterial.Location = new Point(103, 305);
+            textMaterial.Name = "textMaterial";
+            textMaterial.Size = new Size(257, 19);
+            textMaterial.TabIndex = 129;
             // 
             // labelMaterial
             // 
             labelMaterial.AutoSize = true;
             labelMaterial.Font = new Font("Arial Narrow", 14F);
             labelMaterial.ForeColor = Color.DarkRed;
-            labelMaterial.Location = new Point(87, 349);
+            labelMaterial.Location = new Point(99, 265);
             labelMaterial.Name = "labelMaterial";
             labelMaterial.Size = new Size(64, 23);
             labelMaterial.TabIndex = 128;
@@ -324,6 +291,7 @@
             btnCadastrar.TabIndex = 132;
             btnCadastrar.Text = "Cadastrar";
             btnCadastrar.UseVisualStyleBackColor = false;
+            btnCadastrar.Click += btnCadastrar_Click;
             // 
             // CadastroJogos
             // 
@@ -334,7 +302,7 @@
             Controls.Add(btnCadastrar);
             Controls.Add(btnCancelar);
             Controls.Add(panel7);
-            Controls.Add(textBox4);
+            Controls.Add(textMaterial);
             Controls.Add(labelMaterial);
             Controls.Add(panel1);
             Controls.Add(textNumeroJogadores);
@@ -346,14 +314,11 @@
             Controls.Add(textTema);
             Controls.Add(labelTema);
             Controls.Add(panel3);
-            Controls.Add(textIdioma);
+            Controls.Add(textMarca);
             Controls.Add(labelMarca);
             Controls.Add(panel4);
             Controls.Add(textNome);
             Controls.Add(labelNome);
-            Controls.Add(panel5);
-            Controls.Add(textIdJogo);
-            Controls.Add(labelIdJogo);
             Controls.Add(labelCadastroJogos);
             Controls.Add(panelLivro);
             Name = "CadastroJogos";
@@ -369,14 +334,11 @@
         private Panel panelLivro;
         private Label labelCadastroJogos;
         private Panel panel3;
-        private TextBox textIdioma;
+        private TextBox textMarca;
         private Label labelMarca;
         private Panel panel4;
         private TextBox textNome;
         private Label labelNome;
-        private Panel panel5;
-        private TextBox textIdJogo;
-        private Label labelIdJogo;
         private Panel panel1;
         private TextBox textNumeroJogadores;
         private Label labelNumeroJogadores;
@@ -387,7 +349,7 @@
         private TextBox textTema;
         private Label labelTema;
         private Panel panel7;
-        private TextBox textBox4;
+        private TextBox textMaterial;
         private Label labelMaterial;
         private Button btnCancelar;
         private Button btnCadastrar;
