@@ -15,6 +15,13 @@ namespace Projeto_ViraPagina.Model
         public DateTime DataDisponibilidade { get; set; }
         public bool Resgatado { get; set; }
         public TimeSpan TempoReserva { get; set; } // Pode representar um período
+
+        public static List<Reserva> ListaReserva = new List<Reserva>();
+
+        public static void AdicionarPenalidade(Reserva reserva)
+        {
+            ListaReserva.Add(reserva);
+        }
     }
 
 }

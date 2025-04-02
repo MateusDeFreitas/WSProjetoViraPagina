@@ -46,7 +46,7 @@ namespace Projeto_ViraPagina.View
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            AtualizacaoJogos form = new AtualizacaoJogos();
+            EditarJogos form = new EditarJogos();
             form.Show();
             this.Hide();
         }

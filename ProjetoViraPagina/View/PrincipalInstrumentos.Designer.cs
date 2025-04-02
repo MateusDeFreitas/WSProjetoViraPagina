@@ -128,6 +128,7 @@
             btnAtualizar.TabIndex = 19;
             btnAtualizar.Text = "Atualizar um instrumento";
             btnAtualizar.UseVisualStyleBackColor = false;
+            btnAtualizar.Click += btnAtualizar_Click;
             // 
             // btnCriar
             // 

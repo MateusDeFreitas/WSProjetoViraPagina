@@ -17,6 +17,13 @@ namespace Projeto_ViraPagina.Model
         public DateTime DataEmprestimo { get; set; }
         public DateTime DataDevolucao { get; set; }
         public bool Finalizado { get; set; }
+
+        public static List<Emprestimo> ListaEmprestimo = new List<Emprestimo>();
+
+        public static void AdicionarInstrumento(Emprestimo emprestimo)
+        {
+            ListaEmprestimo.Add(emprestimo);
+        }
     }
 
 }

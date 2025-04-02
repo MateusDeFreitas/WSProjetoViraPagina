@@ -34,9 +34,9 @@
             labelIdJogo = new Label();
             labelAcervos = new Label();
             panelLivro = new Panel();
+            pictureBox1 = new PictureBox();
             brnEditar = new Button();
             btnVoltar = new Button();
-            pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             panelLivro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -93,6 +93,16 @@
             panelLivro.Size = new Size(42, 468);
             panelLivro.TabIndex = 117;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(1, 22);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(39, 39);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
+            // 
             // brnEditar
             // 
             brnEditar.BackColor = Color.DarkRed;
@@ -116,21 +126,12 @@
             btnVoltar.TabIndex = 158;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(1, 22);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(39, 39);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 6;
-            pictureBox1.TabStop = false;
+            btnVoltar.Click += btnVoltar_Click;
             // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(480, 35);
+            pictureBox2.Location = new Point(478, 45);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(321, 403);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;

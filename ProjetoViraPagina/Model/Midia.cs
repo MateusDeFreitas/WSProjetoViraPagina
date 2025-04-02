@@ -12,8 +12,15 @@ namespace Projeto_ViraPagina.Model
         public string Titulo { get; set; }
         public string Diretor { get; set; }
         public string Genero { get; set; }
-        public DateTime AnoLancamento { get; set; }
-        public string Productora { get; set; }
+        public string AnoLancamento { get; set; }
+        public string Produtora { get; set; }
         public string Tipo { get; set; }
+
+        public static List<Midia> ListaMidia = new List<Midia>();
+
+        public static void AdicionarMidia(Midia midia)
+        {
+            ListaMidia.Add(midia);
+        }
     }
 }

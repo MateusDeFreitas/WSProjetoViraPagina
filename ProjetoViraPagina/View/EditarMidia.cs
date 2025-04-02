@@ -15,6 +15,19 @@ namespace Projeto_ViraPagina.View
         public EditarMidia()
         {
             InitializeComponent();
+
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            this.StartPosition = FormStartPosition.CenterScreen;
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            PrincipalMidia form = new PrincipalMidia();
+            form.Show();
+            this.Hide();
         }
     }
 }

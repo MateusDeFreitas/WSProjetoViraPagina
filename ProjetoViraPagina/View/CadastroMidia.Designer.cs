@@ -52,9 +52,6 @@
             panel4 = new Panel();
             textTitulo = new TextBox();
             labelTitulo = new Label();
-            panel5 = new Panel();
-            textIdMidia = new TextBox();
-            labelCodMidia = new Label();
             panelLivro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -84,7 +81,7 @@
             labelCadastroMidia.AutoSize = true;
             labelCadastroMidia.Font = new Font("Arial Narrow", 20F);
             labelCadastroMidia.ForeColor = Color.DarkRed;
-            labelCadastroMidia.Location = new Point(287, 18);
+            labelCadastroMidia.Location = new Point(306, 18);
             labelCadastroMidia.Name = "labelCadastroMidia";
             labelCadastroMidia.Size = new Size(191, 31);
             labelCadastroMidia.TabIndex = 110;
@@ -95,19 +92,20 @@
             btnCadastrar.BackColor = Color.DarkRed;
             btnCadastrar.Font = new Font("Segoe UI", 12F);
             btnCadastrar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnCadastrar.Location = new Point(599, 393);
+            btnCadastrar.Location = new Point(407, 403);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(128, 35);
             btnCadastrar.TabIndex = 179;
             btnCadastrar.Text = "Cadastrar";
             btnCadastrar.UseVisualStyleBackColor = false;
+            btnCadastrar.Click += btnCadastrar_Click;
             // 
             // btnCancelar
             // 
             btnCancelar.BackColor = Color.DarkRed;
             btnCancelar.Font = new Font("Segoe UI", 12F);
             btnCancelar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnCancelar.Location = new Point(456, 393);
+            btnCancelar.Location = new Point(264, 403);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(128, 35);
             btnCancelar.TabIndex = 178;
@@ -118,7 +116,7 @@
             // panel7
             // 
             panel7.BackColor = Color.DarkRed;
-            panel7.Location = new Point(91, 409);
+            panel7.Location = new Point(84, 324);
             panel7.Name = "panel7";
             panel7.Size = new Size(270, 4);
             panel7.TabIndex = 177;
@@ -129,7 +127,7 @@
             textGeneroMidia.BorderStyle = BorderStyle.None;
             textGeneroMidia.Font = new Font("Arial Narrow", 12F);
             textGeneroMidia.ForeColor = Color.FromArgb(130, 119, 106);
-            textGeneroMidia.Location = new Point(92, 384);
+            textGeneroMidia.Location = new Point(85, 299);
             textGeneroMidia.Name = "textGeneroMidia";
             textGeneroMidia.Size = new Size(257, 19);
             textGeneroMidia.TabIndex = 176;
@@ -139,7 +137,7 @@
             labelGeneroMidia.AutoSize = true;
             labelGeneroMidia.Font = new Font("Arial Narrow", 14F);
             labelGeneroMidia.ForeColor = Color.DarkRed;
-            labelGeneroMidia.Location = new Point(91, 343);
+            labelGeneroMidia.Location = new Point(84, 258);
             labelGeneroMidia.Name = "labelGeneroMidia";
             labelGeneroMidia.Size = new Size(63, 23);
             labelGeneroMidia.TabIndex = 175;
@@ -238,7 +236,7 @@
             // panel3
             // 
             panel3.BackColor = Color.DarkRed;
-            panel3.Location = new Point(91, 324);
+            panel3.Location = new Point(84, 240);
             panel3.Name = "panel3";
             panel3.Size = new Size(270, 4);
             panel3.TabIndex = 165;
@@ -249,7 +247,7 @@
             textDiretor.BorderStyle = BorderStyle.None;
             textDiretor.Font = new Font("Arial Narrow", 12F);
             textDiretor.ForeColor = Color.FromArgb(130, 119, 106);
-            textDiretor.Location = new Point(92, 299);
+            textDiretor.Location = new Point(85, 215);
             textDiretor.Name = "textDiretor";
             textDiretor.Size = new Size(257, 19);
             textDiretor.TabIndex = 164;
@@ -259,7 +257,7 @@
             labelDiretor.AutoSize = true;
             labelDiretor.Font = new Font("Arial Narrow", 14F);
             labelDiretor.ForeColor = Color.DarkRed;
-            labelDiretor.Location = new Point(92, 258);
+            labelDiretor.Location = new Point(85, 174);
             labelDiretor.Name = "labelDiretor";
             labelDiretor.Size = new Size(55, 23);
             labelDiretor.TabIndex = 163;
@@ -268,7 +266,7 @@
             // panel4
             // 
             panel4.BackColor = Color.DarkRed;
-            panel4.Location = new Point(91, 240);
+            panel4.Location = new Point(84, 153);
             panel4.Name = "panel4";
             panel4.Size = new Size(270, 4);
             panel4.TabIndex = 162;
@@ -279,7 +277,7 @@
             textTitulo.BorderStyle = BorderStyle.None;
             textTitulo.Font = new Font("Arial Narrow", 12F);
             textTitulo.ForeColor = Color.FromArgb(130, 119, 106);
-            textTitulo.Location = new Point(92, 215);
+            textTitulo.Location = new Point(85, 128);
             textTitulo.Name = "textTitulo";
             textTitulo.Size = new Size(257, 19);
             textTitulo.TabIndex = 161;
@@ -289,41 +287,11 @@
             labelTitulo.AutoSize = true;
             labelTitulo.Font = new Font("Arial Narrow", 14F);
             labelTitulo.ForeColor = Color.DarkRed;
-            labelTitulo.Location = new Point(91, 174);
+            labelTitulo.Location = new Point(84, 87);
             labelTitulo.Name = "labelTitulo";
             labelTitulo.Size = new Size(46, 23);
             labelTitulo.TabIndex = 160;
             labelTitulo.Text = "Título";
-            // 
-            // panel5
-            // 
-            panel5.BackColor = Color.DarkRed;
-            panel5.Location = new Point(92, 153);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(270, 4);
-            panel5.TabIndex = 159;
-            // 
-            // textIdMidia
-            // 
-            textIdMidia.BackColor = Color.FromArgb(250, 243, 224);
-            textIdMidia.BorderStyle = BorderStyle.None;
-            textIdMidia.Font = new Font("Arial Narrow", 12F);
-            textIdMidia.ForeColor = Color.FromArgb(130, 119, 106);
-            textIdMidia.Location = new Point(92, 128);
-            textIdMidia.Name = "textIdMidia";
-            textIdMidia.Size = new Size(257, 19);
-            textIdMidia.TabIndex = 158;
-            // 
-            // labelCodMidia
-            // 
-            labelCodMidia.AutoSize = true;
-            labelCodMidia.Font = new Font("Arial Narrow", 14F);
-            labelCodMidia.ForeColor = Color.DarkRed;
-            labelCodMidia.Location = new Point(92, 87);
-            labelCodMidia.Name = "labelCodMidia";
-            labelCodMidia.Size = new Size(60, 23);
-            labelCodMidia.TabIndex = 157;
-            labelCodMidia.Text = "Código";
             // 
             // CadastroMidia
             // 
@@ -351,9 +319,6 @@
             Controls.Add(panel4);
             Controls.Add(textTitulo);
             Controls.Add(labelTitulo);
-            Controls.Add(panel5);
-            Controls.Add(textIdMidia);
-            Controls.Add(labelCodMidia);
             Controls.Add(labelCadastroMidia);
             Controls.Add(panelLivro);
             Name = "CadastroMidia";
@@ -388,9 +353,6 @@
         private Panel panel4;
         private TextBox textTitulo;
         private Label labelTitulo;
-        private Panel panel5;
-        private TextBox textIdMidia;
-        private Label labelCodMidia;
         private PictureBox pictureBox1;
     }
 }

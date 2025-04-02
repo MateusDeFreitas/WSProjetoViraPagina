@@ -36,5 +36,12 @@ namespace Projeto_ViraPagina.View
             form.Show();
             this.Hide();
         }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            EditarInstrumentos form = new EditarInstrumentos();
+            form.Show();
+            this.Hide();
+        }
     }
 }

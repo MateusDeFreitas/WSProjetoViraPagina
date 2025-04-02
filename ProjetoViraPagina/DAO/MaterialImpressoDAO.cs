@@ -21,7 +21,7 @@ namespace Projeto_ViraPagina.DAO
                 try
                 {
                     conn.Open();
-                    using (MySqlCommand cmd = new MySqlCommand("InserirMaterialImpresso", conn))
+                    using (MySqlCommand cmd = new MySqlCommand("inserirMaterialImpresso", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 

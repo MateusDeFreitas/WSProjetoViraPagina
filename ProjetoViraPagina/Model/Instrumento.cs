@@ -13,5 +13,12 @@ namespace Projeto_ViraPagina.Model
         public string Marca { get; set; }
         public string Modelo { get; set; }
         public string NumeroSerie { get; set; }
+
+        public static List<Instrumento> ListaInstrumento = new List<Instrumento>();
+
+        public static void AdicionarInstrumento(Instrumento instrumento)
+        {
+            ListaInstrumento.Add(instrumento);
+        }
     }
 }

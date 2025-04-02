@@ -34,13 +34,13 @@
             labelIdJogo = new Label();
             labelAcervos = new Label();
             panelLivro = new Panel();
+            pictureBox1 = new PictureBox();
             brnEditar = new Button();
             btnVoltar = new Button();
             pictureBox2 = new PictureBox();
-            pictureBox1 = new PictureBox();
             panelLivro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panel5
@@ -93,6 +93,16 @@
             panelLivro.Size = new Size(42, 468);
             panelLivro.TabIndex = 134;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(2, 20);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(39, 39);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
+            // 
             // brnEditar
             // 
             brnEditar.BackColor = Color.DarkRed;
@@ -116,6 +126,7 @@
             btnVoltar.TabIndex = 158;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = false;
+            btnVoltar.Click += btnVoltar_Click;
             // 
             // pictureBox2
             // 
@@ -126,16 +137,6 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 160;
             pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(2, 20);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(39, 39);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 5;
-            pictureBox1.TabStop = false;
             // 
             // EditarInstrumentos
             // 
@@ -154,8 +155,8 @@
             Name = "EditarInstrumentos";
             Text = "AtualizacaoInstrumentosP0";
             panelLivro.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

@@ -14,6 +14,13 @@ namespace Projeto_ViraPagina.Model
         public DateTime DataPenalidade { get; set; }
         public string CodPenalidade { get; set; } // Corrigindo o nome do campo
         public bool PenalidadeAtiva { get; set; } // Nome mais claro
+
+        public static List<Penalidade> ListaPenalidade = new List<Penalidade>();
+
+        public static void AdicionarPenalidade(Penalidade penalidade)
+        {
+            ListaPenalidade.Add(penalidade);
+        }
     }
 
 }

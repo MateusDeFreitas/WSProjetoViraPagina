@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditarMaterialImpresso));
             labelAcervos = new Label();
             panelLivro = new Panel();
+            pictureBox1 = new PictureBox();
             panel5 = new Panel();
             textIdJogo = new TextBox();
             labelIdJogo = new Label();
             brnEditar = new Button();
             btnVoltar = new Button();
-            pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             panelLivro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -62,6 +62,16 @@
             panelLivro.Name = "panelLivro";
             panelLivro.Size = new Size(42, 468);
             panelLivro.TabIndex = 14;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(1, 20);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(39, 39);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 162;
+            pictureBox1.TabStop = false;
             // 
             // panel5
             // 
@@ -116,16 +126,7 @@
             btnVoltar.TabIndex = 160;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(1, 20);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(39, 39);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 162;
-            pictureBox1.TabStop = false;
+            btnVoltar.Click += btnVoltar_Click;
             // 
             // pictureBox2
             // 
