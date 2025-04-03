@@ -1,16 +1,22 @@
 ﻿using MySql.Data.MySqlClient;
 using Projeto_ViraPagina.Model;
+using Projeto_ViraPagina.View;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Projeto_ViraPagina.DAO
 {
-    class MaterialImpressoDAO
+    public class MaterialImpressoDAO
     {
 
         private string connectionString = "Server=localhost;Database=bd_virapagina;Uid=root;Pwd=";
@@ -54,6 +60,94 @@ namespace Projeto_ViraPagina.DAO
                 }
                 return false;
             }
+        }
+
+        public bool idExiste(string id)
+        {
+            bool redistroExistente = false;
+
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    con.Open();
+                    string query = "SELECT COUNT(*) FROM materialimpresso WHERE id = @id";
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        int count = Convert.ToInt32(cmd.ExecuteScalar());
+                        redistroExistente = (count > 0); // Se existir algum registro com esse email
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao buscar registro: " + ex.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
+                return redistroExistente;
+            }
+        }
+
+        public MaterialImpresso lerMaterialImpresso(string id)
+        {
+            MaterialImpresso mi = new MaterialImpresso();
+            bool redistroExistente = false;
+
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    con.Open();
+                    string query = "SELECT COUNT(*) FROM materialimpresso WHERE id = @id";
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        int count = Convert.ToInt32(cmd.ExecuteScalar());
+                        redistroExistente = (count > 0); // Se existir algum registro com esse email
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao buscar registro: " + ex.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
+                if (redistroExistente)
+                {
+                    string query = "SELECT * FROM materialimpresso WHERE id = @id";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+
+                        // Obtém a senha armazenada no banco
+                        using (MySqlDataReader resultado = cmd.ExecuteReader())
+                        {
+                            if (resultado.Read())
+                            {
+                                mi.Id = resultado["id"].ToString();
+                                mi.Titulo = resultado["titulo"].ToString();
+                                mi.Autor = resultado["autor"].ToString();
+                                mi.Genero = resultado["genero"].ToString();
+                                mi.DataLancamento = mi.ConverterData(resultado["dataLancamento"].ToString());
+                                //mi.DataLancamento = resultado["dataLancamento"].ToString();
+                                mi.ISBN = resultado["ISBN"].ToString();
+                                mi.ReservaLivro = mi.ConverterBool(resultado["livroReservado"]);
+                                mi.Idioma = resultado["idioma"].ToString();
+                                mi.Exemplar = resultado["exemplar"].ToString();
+                                mi.Editora = resultado["editora"].ToString();
+                                mi.Classe = resultado["classe"].ToString();
+                                mi.Circular = mi.ConverterBool(resultado["circular"]);
+                                mi.Resumo = resultado["resumo"].ToString();
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Material impresso inesistente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            return mi;
         }
     }
 }

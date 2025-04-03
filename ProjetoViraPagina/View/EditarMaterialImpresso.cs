@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Projeto_ViraPagina.DAO;
+using Projeto_ViraPagina.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,6 +30,27 @@ namespace Projeto_ViraPagina.View
             PrincipalLivro form = new PrincipalLivro();
             form.Show();
             this.Hide();
+        }
+
+        private void brnEditar_Click(object sender, EventArgs e)
+        {
+            MaterialImpresso mi = new MaterialImpresso();
+            MaterialImpressoDAO DAO = new MaterialImpressoDAO();
+
+            mi.Id = textId.Text;
+
+            MaterialImpresso.AdicionarMaterialImpresso(mi);
+
+            if (DAO.idExiste(mi.Id))
+            {
+                AtualizacaoMaterialImpresso form = new AtualizacaoMaterialImpresso();
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Erro ao buscar registro: Código identificador inexistente.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

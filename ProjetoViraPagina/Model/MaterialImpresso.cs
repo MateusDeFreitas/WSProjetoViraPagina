@@ -32,6 +32,28 @@ namespace Projeto_ViraPagina.Model
             ListaMateriaisImpressos.Add(MI);
         }
 
+        public string ConverterData(string data)
+        {
+            if (string.IsNullOrWhiteSpace(data))
+                return "Sem dados"; // Retorna "Sem dados" se a string for nula ou vazia
+
+            DateTime dataFormatada;
+            if (DateTime.TryParseExact(data, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataFormatada))
+            {
+                return dataFormatada.ToString("dd/MM/yyyy");
+            }
+
+            return "Data inválida"; // Se a conversão falhar, retorna "Data inválida"
+        }
+
+        public bool ConverterBool(object valor)
+        {
+            if (valor == null || valor == DBNull.Value)
+                return false; // Retorna falso se for NULL
+
+            return Convert.ToBoolean(valor);
+        }
+
         public void ExtraiCircular(string input)
         {
             if (input.ToLower() == "sim")

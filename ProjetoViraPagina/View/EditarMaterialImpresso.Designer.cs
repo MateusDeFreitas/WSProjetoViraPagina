@@ -33,7 +33,7 @@
             panelLivro = new Panel();
             pictureBox1 = new PictureBox();
             panel5 = new Panel();
-            textIdJogo = new TextBox();
+            textId = new TextBox();
             labelIdJogo = new Label();
             brnEditar = new Button();
             btnVoltar = new Button();
@@ -81,16 +81,16 @@
             panel5.Size = new Size(270, 4);
             panel5.TabIndex = 115;
             // 
-            // textIdJogo
+            // textId
             // 
-            textIdJogo.BackColor = Color.FromArgb(250, 243, 224);
-            textIdJogo.BorderStyle = BorderStyle.None;
-            textIdJogo.Font = new Font("Arial Narrow", 12F);
-            textIdJogo.ForeColor = Color.FromArgb(130, 119, 106);
-            textIdJogo.Location = new Point(278, 196);
-            textIdJogo.Name = "textIdJogo";
-            textIdJogo.Size = new Size(257, 19);
-            textIdJogo.TabIndex = 114;
+            textId.BackColor = Color.FromArgb(250, 243, 224);
+            textId.BorderStyle = BorderStyle.None;
+            textId.Font = new Font("Arial Narrow", 12F);
+            textId.ForeColor = Color.FromArgb(130, 119, 106);
+            textId.Location = new Point(278, 196);
+            textId.Name = "textId";
+            textId.Size = new Size(257, 19);
+            textId.TabIndex = 114;
             // 
             // labelIdJogo
             // 
@@ -114,6 +114,7 @@
             brnEditar.TabIndex = 161;
             brnEditar.Text = "Editar";
             brnEditar.UseVisualStyleBackColor = false;
+            brnEditar.Click += brnEditar_Click;
             // 
             // btnVoltar
             // 
@@ -147,7 +148,7 @@
             Controls.Add(brnEditar);
             Controls.Add(btnVoltar);
             Controls.Add(panel5);
-            Controls.Add(textIdJogo);
+            Controls.Add(textId);
             Controls.Add(labelIdJogo);
             Controls.Add(labelAcervos);
             Controls.Add(panelLivro);
@@ -165,7 +166,7 @@
         private Label labelAcervos;
         private Panel panelLivro;
         private Panel panel5;
-        private TextBox textIdJogo;
+        private TextBox textId;
         private Label labelIdJogo;
         private Button brnEditar;
         private Button btnVoltar;
