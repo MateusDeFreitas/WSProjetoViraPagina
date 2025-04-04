@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Projeto_ViraPagina.DAO;
+using Projeto_ViraPagina.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,6 +25,20 @@ namespace Projeto_ViraPagina.View
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
+        private void AtualizacaoMaterialImpressoP2_Load(object sender, EventArgs e)
+        {
+            MaterialImpresso ultimoItem = MaterialImpresso.ListaMateriaisImpressos.Last();
+            MaterialImpresso mi = new MaterialImpresso();
+            MaterialImpressoDAO DAO = new MaterialImpressoDAO();
+
+            mi = DAO.lerMaterialImpresso(ultimoItem.Id);
+
+            textCircular.Text = mi.FormatarCircular(ultimoItem.Circular);
+            textIdioma.Text = mi.Idioma;
+            textClasse.Text = mi.Classe;
+            textResumo.Text = mi.Resumo;
+        }
+
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             PrincipalLivro form = new PrincipalLivro();
@@ -42,6 +58,23 @@ namespace Projeto_ViraPagina.View
             Principal form = new Principal();
             form.Show();
             this.Hide();
+        }
+
+        private void btnProximo_Click(object sender, EventArgs e)
+        {
+            MaterialImpresso ultimoItem = MaterialImpresso.ListaMateriaisImpressos.Last();
+            MaterialImpressoDAO DAO = new MaterialImpressoDAO();
+            extractInputs(ultimoItem);
+
+            DAO.AtualizarMaterialImpressoNoBanco(ultimoItem);
+        }
+
+        private void extractInputs(MaterialImpresso mi)
+        {
+            mi.ExtraiCircular(textCircular.Text);
+            mi.Idioma = textIdioma.Text;
+            mi.Classe = textClasse.Text;
+            mi.Resumo = textResumo.Text;
         }
     }
 }

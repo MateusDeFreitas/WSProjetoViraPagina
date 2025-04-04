@@ -56,14 +56,30 @@ namespace Projeto_ViraPagina.Model
 
         public void ExtraiCircular(string input)
         {
-            if (input.ToLower() == "sim")
+            if (input.ToLower() == "sim" 
+                || input.ToLower() == "circulável" 
+                || input.ToLower() == "circulavel")
             {
                 this.Circular = true;
             }
-            else if (input.ToLower() == "não" || input.ToLower() == "nao")
+            else if (input.ToLower() == "não" 
+                || input.ToLower() == "nao" 
+                || input.ToLower() == " não circulável" 
+                || input.ToLower() == " não circulavel"
+                || input.ToLower() == " nao circulável"
+                || input.ToLower() == " nao circulavel")
             {
                 this.Circular = false;
             }
+        }
+
+        public string FormatarCircular(bool input)
+        {
+            if (input)
+            {
+                return "Circulável";
+            }
+            return "Não circulável";
         }
     }
 }

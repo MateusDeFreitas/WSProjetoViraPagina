@@ -28,19 +28,9 @@ namespace Projeto_ViraPagina.View
         private void AtualizacaoMaterialImpresso_Load(object sender, EventArgs e)
         {
             MaterialImpresso ultimoItem = MaterialImpresso.ListaMateriaisImpressos.Last();
-            MaterialImpresso mi = new MaterialImpresso();
             MaterialImpressoDAO DAO = new MaterialImpressoDAO();
 
-            mi = DAO.lerMaterialImpresso(ultimoItem.Id);
-
-            textIdLivro.Text = mi.Id;
-            textAnoLancamento.Text = mi.DataLancamento;
-            textTitulo.Text = mi.Titulo;
-            textExemplar.Text = mi.Exemplar;
-            textAutor.Text = mi.Autor;
-            textGenero.Text = mi.Genero;
-            textEditora.Text = mi.Editora;
-            textISBN.Text = mi.ISBN;
+            LoadInputs(DAO.lerMaterialImpresso(ultimoItem.Id));
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -52,7 +42,7 @@ namespace Projeto_ViraPagina.View
 
         private void btnProximo_Click(object sender, EventArgs e)
         {
-            MaterialImpresso mi = new MaterialImpresso();
+            MaterialImpresso ultimoItem = MaterialImpresso.ListaMateriaisImpressos.Last();
 
             if (textIdLivro.Text == "")
             {
@@ -88,14 +78,7 @@ namespace Projeto_ViraPagina.View
             }
             else
             {
-                mi.Id = textIdLivro.Text;
-                mi.DataLancamento = textAnoLancamento.Text;
-                mi.Titulo = textTitulo.Text;
-                mi.Exemplar = textExemplar.Text;
-                mi.Autor = textAutor.Text;
-                mi.Genero = textGenero.Text;
-                mi.Editora = textEditora.Text;
-                mi.ISBN = textISBN.Text;
+                extractInputs(ultimoItem);
 
                 AtualizacaoMaterialImpressoP2 form = new AtualizacaoMaterialImpressoP2();
                 form.Show();
@@ -108,6 +91,29 @@ namespace Projeto_ViraPagina.View
             Principal form = new Principal();
             form.Show();
             this.Hide();
+        }
+        private void LoadInputs(MaterialImpresso mi)
+        {
+            textIdLivro.Text = mi.Id;
+            textAnoLancamento.Text = mi.DataLancamento;
+            textTitulo.Text = mi.Titulo;
+            textExemplar.Text = mi.Exemplar;
+            textAutor.Text = mi.Autor;
+            textGenero.Text = mi.Genero;
+            textEditora.Text = mi.Editora;
+            textISBN.Text = mi.ISBN;
+        }
+
+        private void extractInputs(MaterialImpresso mi)
+        {
+            mi.Id = textIdLivro.Text;
+            mi.DataLancamento = textAnoLancamento.Text;
+            mi.Titulo = textTitulo.Text;
+            mi.Exemplar = textExemplar.Text;
+            mi.Autor = textAutor.Text;
+            mi.Genero = textGenero.Text;
+            mi.Editora = textEditora.Text;
+            mi.ISBN = textISBN.Text;
         }
     }
 }

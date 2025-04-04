@@ -81,6 +81,7 @@
             btnVerificar.TabIndex = 21;
             btnVerificar.Text = "Verificar mídia";
             btnVerificar.UseVisualStyleBackColor = false;
+            btnVerificar.Click += btnVerificar_Click;
             // 
             // btnDeletar
             // 

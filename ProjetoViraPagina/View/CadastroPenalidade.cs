@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Projeto_ViraPagina.View
 {
-    public partial class EditarMidia : Form
+    public partial class CadastroPenalidade : Form
     {
-        public EditarMidia()
+        public CadastroPenalidade()
         {
             InitializeComponent();
 
@@ -21,13 +21,6 @@ namespace Projeto_ViraPagina.View
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
             this.StartPosition = FormStartPosition.CenterScreen;
-        }
-
-        private void btnVoltar_Click(object sender, EventArgs e)
-        {
-            PrincipalMidia form = new PrincipalMidia();
-            form.Show();
-            this.Hide();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

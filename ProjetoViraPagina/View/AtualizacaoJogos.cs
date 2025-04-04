@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace Projeto_ViraPagina.View
 {
     public partial class AtualizacaoJogos : Form
-    {
+    { 
         public AtualizacaoJogos()
         {
             InitializeComponent();

@@ -34,12 +34,12 @@
             labelTituloPrincipal = new Label();
             label5 = new Label();
             panelLivro = new Panel();
+            pictureBox1 = new PictureBox();
             panelNome = new Panel();
             textTitulo = new TextBox();
             labelTitulo = new Label();
             btnCadastrar = new Button();
             btnCancelar = new Button();
-            pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             panelLivro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -96,6 +96,17 @@
             panelLivro.Size = new Size(42, 468);
             panelLivro.TabIndex = 69;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(1, 16);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(39, 39);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 76;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // panelNome
             // 
             panelNome.BackColor = Color.DarkRed;
@@ -149,16 +160,6 @@
             btnCancelar.TabIndex = 74;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(1, 16);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(39, 39);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 76;
-            pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 

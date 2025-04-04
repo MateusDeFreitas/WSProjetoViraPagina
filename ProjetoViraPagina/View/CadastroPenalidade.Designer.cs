@@ -1,6 +1,6 @@
 ﻿namespace Projeto_ViraPagina.View
 {
-    partial class CadastrarPenalidade
+    partial class CadastroPenalidade
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastrarPenalidade));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroPenalidade));
             btnCadastrar = new Button();
             btnCancelar = new Button();
             labelTituloPrincipal = new Label();
             panelLivro = new Panel();
+            pictureBox1 = new PictureBox();
             panel3 = new Panel();
             textIdioma = new TextBox();
             labelMarca = new Label();
@@ -42,7 +43,6 @@
             panel5 = new Panel();
             textIdJogo = new TextBox();
             labelIdJogo = new Label();
-            pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             panelLivro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -92,6 +92,17 @@
             panelLivro.Name = "panelLivro";
             panelLivro.Size = new Size(42, 468);
             panelLivro.TabIndex = 154;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(2, 19);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(39, 39);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 171;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // panel3
             // 
@@ -183,16 +194,6 @@
             labelIdJogo.TabIndex = 162;
             labelIdJogo.Text = "Código usuário";
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(1, 19);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(39, 39);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 171;
-            pictureBox1.TabStop = false;
-            // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
@@ -203,7 +204,7 @@
             pictureBox2.TabIndex = 172;
             pictureBox2.TabStop = false;
             // 
-            // CadastrarPenalidade
+            // CadastroPenalidade
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -223,7 +224,7 @@
             Controls.Add(labelTituloPrincipal);
             Controls.Add(panelLivro);
             Controls.Add(pictureBox2);
-            Name = "CadastrarPenalidade";
+            Name = "CadastroPenalidade";
             Text = "CadastrarPenalidade";
             panelLivro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

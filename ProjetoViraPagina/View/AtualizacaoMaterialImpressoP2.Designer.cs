@@ -37,13 +37,13 @@
             textResumo = new TextBox();
             labelTituloPrincipal = new Label();
             panel3 = new Panel();
-            textIdioma = new TextBox();
+            textClasse = new TextBox();
             labelClasse = new Label();
             panel4 = new Panel();
-            textCircular = new TextBox();
+            textIdioma = new TextBox();
             labelIdioma = new Label();
             panel5 = new Panel();
-            textClasse = new TextBox();
+            textCircular = new TextBox();
             labelCircular = new Label();
             buttonCancelar = new Button();
             btnProximo = new Button();
@@ -135,16 +135,16 @@
             panel3.Size = new Size(270, 4);
             panel3.TabIndex = 98;
             // 
-            // textIdioma
+            // textClasse
             // 
-            textIdioma.BackColor = Color.FromArgb(250, 243, 224);
-            textIdioma.BorderStyle = BorderStyle.None;
-            textIdioma.Font = new Font("Arial Narrow", 12F);
-            textIdioma.ForeColor = Color.FromArgb(130, 119, 106);
-            textIdioma.Location = new Point(482, 302);
-            textIdioma.Name = "textIdioma";
-            textIdioma.Size = new Size(257, 19);
-            textIdioma.TabIndex = 97;
+            textClasse.BackColor = Color.FromArgb(250, 243, 224);
+            textClasse.BorderStyle = BorderStyle.None;
+            textClasse.Font = new Font("Arial Narrow", 12F);
+            textClasse.ForeColor = Color.FromArgb(130, 119, 106);
+            textClasse.Location = new Point(482, 302);
+            textClasse.Name = "textClasse";
+            textClasse.Size = new Size(257, 19);
+            textClasse.TabIndex = 97;
             // 
             // labelClasse
             // 
@@ -165,16 +165,16 @@
             panel4.Size = new Size(270, 4);
             panel4.TabIndex = 95;
             // 
-            // textCircular
+            // textIdioma
             // 
-            textCircular.BackColor = Color.FromArgb(250, 243, 224);
-            textCircular.BorderStyle = BorderStyle.None;
-            textCircular.Font = new Font("Arial Narrow", 12F);
-            textCircular.ForeColor = Color.FromArgb(130, 119, 106);
-            textCircular.Location = new Point(483, 218);
-            textCircular.Name = "textCircular";
-            textCircular.Size = new Size(257, 19);
-            textCircular.TabIndex = 94;
+            textIdioma.BackColor = Color.FromArgb(250, 243, 224);
+            textIdioma.BorderStyle = BorderStyle.None;
+            textIdioma.Font = new Font("Arial Narrow", 12F);
+            textIdioma.ForeColor = Color.FromArgb(130, 119, 106);
+            textIdioma.Location = new Point(483, 218);
+            textIdioma.Name = "textIdioma";
+            textIdioma.Size = new Size(257, 19);
+            textIdioma.TabIndex = 94;
             // 
             // labelIdioma
             // 
@@ -195,16 +195,16 @@
             panel5.Size = new Size(270, 4);
             panel5.TabIndex = 92;
             // 
-            // textClasse
+            // textCircular
             // 
-            textClasse.BackColor = Color.FromArgb(250, 243, 224);
-            textClasse.BorderStyle = BorderStyle.None;
-            textClasse.Font = new Font("Arial Narrow", 12F);
-            textClasse.ForeColor = Color.FromArgb(130, 119, 106);
-            textClasse.Location = new Point(482, 131);
-            textClasse.Name = "textClasse";
-            textClasse.Size = new Size(257, 19);
-            textClasse.TabIndex = 91;
+            textCircular.BackColor = Color.FromArgb(250, 243, 224);
+            textCircular.BorderStyle = BorderStyle.None;
+            textCircular.Font = new Font("Arial Narrow", 12F);
+            textCircular.ForeColor = Color.FromArgb(130, 119, 106);
+            textCircular.Location = new Point(482, 131);
+            textCircular.Name = "textCircular";
+            textCircular.Size = new Size(257, 19);
+            textCircular.TabIndex = 91;
             // 
             // labelCircular
             // 
@@ -239,8 +239,9 @@
             btnProximo.Name = "btnProximo";
             btnProximo.Size = new Size(128, 35);
             btnProximo.TabIndex = 99;
-            btnProximo.Text = "Próximo";
+            btnProximo.Text = "Atualizar";
             btnProximo.UseVisualStyleBackColor = false;
+            btnProximo.Click += btnProximo_Click;
             // 
             // btnVoltar
             // 
@@ -265,13 +266,13 @@
             Controls.Add(buttonCancelar);
             Controls.Add(btnProximo);
             Controls.Add(panel3);
-            Controls.Add(textIdioma);
+            Controls.Add(textClasse);
             Controls.Add(labelClasse);
             Controls.Add(panel4);
-            Controls.Add(textCircular);
+            Controls.Add(textIdioma);
             Controls.Add(labelIdioma);
             Controls.Add(panel5);
-            Controls.Add(textClasse);
+            Controls.Add(textCircular);
             Controls.Add(labelCircular);
             Controls.Add(labelTituloPrincipal);
             Controls.Add(labelLivroCircular);
@@ -279,6 +280,7 @@
             Controls.Add(panelLivro);
             Name = "AtualizacaoMaterialImpressoP2";
             Text = "AtualizacaoMaterialImpressoP2";
+            Load += AtualizacaoMaterialImpressoP2_Load;
             panelLivro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
@@ -297,13 +299,13 @@
         private TextBox textResumo;
         private Label labelTituloPrincipal;
         private Panel panel3;
-        private TextBox textIdioma;
+        private TextBox textClasse;
         private Label labelClasse;
         private Panel panel4;
-        private TextBox textCircular;
+        private TextBox textIdioma;
         private Label labelIdioma;
         private Panel panel5;
-        private TextBox textClasse;
+        private TextBox textCircular;
         private Label labelCircular;
         private Button buttonCancelar;
         private Button btnProximo;

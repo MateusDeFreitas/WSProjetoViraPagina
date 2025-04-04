@@ -52,5 +52,12 @@ namespace Projeto_ViraPagina.View
                 MessageBox.Show("Erro ao buscar registro: Código identificador inexistente.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Principal form = new Principal();
+            form.Show();
+            this.Hide();
+        }
     }
 }

@@ -38,7 +38,6 @@
             panelEmail = new Panel();
             labelAutor = new Label();
             textTitulo = new TextBox();
-            textIdLivro = new TextBox();
             labelTitulo = new Label();
             labelIdLivro = new Label();
             panel2 = new Panel();
@@ -58,6 +57,7 @@
             labelISBN = new Label();
             btnCancelar = new Button();
             btnProximo = new Button();
+            textIdLivro = new Label();
             panelLivro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -74,7 +74,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(1, 9);
+            pictureBox1.Location = new Point(2, 9);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(39, 39);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -149,17 +149,6 @@
             textTitulo.Name = "textTitulo";
             textTitulo.Size = new Size(293, 19);
             textTitulo.TabIndex = 25;
-            // 
-            // textIdLivro
-            // 
-            textIdLivro.BackColor = Color.FromArgb(250, 243, 224);
-            textIdLivro.BorderStyle = BorderStyle.None;
-            textIdLivro.Font = new Font("Arial Narrow", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textIdLivro.ForeColor = Color.FromArgb(130, 119, 106);
-            textIdLivro.Location = new Point(81, 118);
-            textIdLivro.Name = "textIdLivro";
-            textIdLivro.Size = new Size(293, 19);
-            textIdLivro.TabIndex = 24;
             // 
             // labelTitulo
             // 
@@ -359,12 +348,24 @@
             btnProximo.UseVisualStyleBackColor = false;
             btnProximo.Click += btnProximo_Click;
             // 
+            // textIdLivro
+            // 
+            textIdLivro.AutoSize = true;
+            textIdLivro.Font = new Font("Arial Narrow", 12F);
+            textIdLivro.ForeColor = Color.FromArgb(130, 119, 106);
+            textIdLivro.Location = new Point(81, 118);
+            textIdLivro.Name = "textIdLivro";
+            textIdLivro.Size = new Size(13, 20);
+            textIdLivro.TabIndex = 48;
+            textIdLivro.Text = " ";
+            // 
             // AtualizacaoMaterialImpresso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(250, 243, 224);
             ClientSize = new Size(800, 450);
+            Controls.Add(textIdLivro);
             Controls.Add(btnCancelar);
             Controls.Add(btnProximo);
             Controls.Add(panel6);
@@ -388,7 +389,6 @@
             Controls.Add(panelEmail);
             Controls.Add(labelAutor);
             Controls.Add(textTitulo);
-            Controls.Add(textIdLivro);
             Controls.Add(labelTitulo);
             Controls.Add(labelIdLivro);
             Controls.Add(labelAcervos);
@@ -412,7 +412,6 @@
         private Panel panelEmail;
         private Label labelAutor;
         private TextBox textTitulo;
-        private TextBox textIdLivro;
         private Label labelTitulo;
         private Label labelIdLivro;
         private Panel panel2;
@@ -433,5 +432,6 @@
         private Button btnCancelar;
         private Button btnProximo;
         private PictureBox pictureBox1;
+        private Label textIdLivro;
     }
 }
