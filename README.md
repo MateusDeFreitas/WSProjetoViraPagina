@@ -8,11 +8,11 @@ Sistema de gestão para bibliotecas desenvolvido em **C# com Windows Forms**, vo
 
 O **ViraPágina** é um projeto acadêmico criado como parte do curso técnico de Desenvolvimento de Sistemas pelo SENAC. O sistema tem como objetivo **otimizar a rotina de bibliotecários** por meio de funcionalidades CRUD completas para o gerenciamento de:
 
-- 📖 Livros  
+- 📖 Acervos  
 - 👥 Usuários  
-- 🔄 Empréstimos e devoluções  
+- 🔄 Empréstimos, reservas e devoluções  
 
-Durante o desenvolvimento, trabalhamos com **levantamento e validação de requisitos com bibliotecárias reais**, garantindo que a solução atenda às demandas práticas do dia a dia em bibliotecas.
+Durante o desenvolvimento, trabalhamos com **levantamento e validação de requisitos com bibliotecárias da intituição que participamos**, garantindo que a solução atenda às demandas práticas do dia a dia em bibliotecas.
 
 ---
 
