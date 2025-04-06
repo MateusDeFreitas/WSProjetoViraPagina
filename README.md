@@ -50,7 +50,7 @@ Este projeto está sendo desenvolvido por uma equipe enxuta de **2 pessoas**, co
 ## 🧪 Prototipagem
 
 Primeira versão do protótipo, que criamos pelo Figma:  
-🔗 [Clique para visualizar no Figma]([https://www.figma.com/proto/7lAH4RmMyctJQdXjgrxfZK/ViraPágina)
+🔗 [Clique para visualizar no Figma](https://www.figma.com/proto/7lAH4RmMyctJQdXjgrxfZK/ViraPágina?node-id=0-1&p=f&t=yUS90dq26ok5lTou-0)
 
 ---
 
