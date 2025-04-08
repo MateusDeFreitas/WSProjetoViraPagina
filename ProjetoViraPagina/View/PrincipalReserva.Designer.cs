@@ -91,6 +91,7 @@
             btnCriar.TabIndex = 28;
             btnCriar.Text = "Gerar reservas";
             btnCriar.UseVisualStyleBackColor = false;
+            btnCriar.Click += btnCriar_Click;
             // 
             // labelIntro
             // 

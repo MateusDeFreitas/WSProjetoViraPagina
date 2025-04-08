@@ -55,12 +55,13 @@
             btnCadastrar.BackColor = Color.DarkRed;
             btnCadastrar.Font = new Font("Segoe UI", 12F);
             btnCadastrar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnCadastrar.Location = new Point(425, 403);
+            btnCadastrar.Location = new Point(417, 403);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(128, 35);
             btnCadastrar.TabIndex = 201;
             btnCadastrar.Text = "Cadastrar";
             btnCadastrar.UseVisualStyleBackColor = false;
+            btnCadastrar.Click += btnCadastrar_Click;
             // 
             // btnCancelar
             // 

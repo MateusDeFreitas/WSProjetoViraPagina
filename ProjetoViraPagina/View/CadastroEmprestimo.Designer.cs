@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroEmprestimo));
             panel5 = new Panel();
-            textExemplar = new TextBox();
+            textAcervo = new TextBox();
             labelTituloPrincipal = new Label();
             label5 = new Label();
             panelLivro = new Panel();
             pictureBox1 = new PictureBox();
             panelNome = new Panel();
-            textTitulo = new TextBox();
+            textUsuario = new TextBox();
             labelTitulo = new Label();
             btnCadastrar = new Button();
             btnCancelar = new Button();
@@ -54,16 +54,16 @@
             panel5.Size = new Size(270, 4);
             panel5.TabIndex = 73;
             // 
-            // textExemplar
+            // textAcervo
             // 
-            textExemplar.BackColor = Color.FromArgb(250, 243, 224);
-            textExemplar.BorderStyle = BorderStyle.None;
-            textExemplar.Font = new Font("Arial Narrow", 12F);
-            textExemplar.ForeColor = Color.FromArgb(130, 119, 106);
-            textExemplar.Location = new Point(459, 216);
-            textExemplar.Name = "textExemplar";
-            textExemplar.Size = new Size(257, 19);
-            textExemplar.TabIndex = 72;
+            textAcervo.BackColor = Color.FromArgb(250, 243, 224);
+            textAcervo.BorderStyle = BorderStyle.None;
+            textAcervo.Font = new Font("Arial Narrow", 12F);
+            textAcervo.ForeColor = Color.FromArgb(130, 119, 106);
+            textAcervo.Location = new Point(459, 216);
+            textAcervo.Name = "textAcervo";
+            textAcervo.Size = new Size(257, 19);
+            textAcervo.TabIndex = 72;
             // 
             // labelTituloPrincipal
             // 
@@ -115,16 +115,16 @@
             panelNome.Size = new Size(270, 4);
             panelNome.TabIndex = 68;
             // 
-            // textTitulo
+            // textUsuario
             // 
-            textTitulo.BackColor = Color.FromArgb(250, 243, 224);
-            textTitulo.BorderStyle = BorderStyle.None;
-            textTitulo.Font = new Font("Arial Narrow", 12F);
-            textTitulo.ForeColor = Color.FromArgb(130, 119, 106);
-            textTitulo.Location = new Point(110, 216);
-            textTitulo.Name = "textTitulo";
-            textTitulo.Size = new Size(257, 19);
-            textTitulo.TabIndex = 67;
+            textUsuario.BackColor = Color.FromArgb(250, 243, 224);
+            textUsuario.BorderStyle = BorderStyle.None;
+            textUsuario.Font = new Font("Arial Narrow", 12F);
+            textUsuario.ForeColor = Color.FromArgb(130, 119, 106);
+            textUsuario.Location = new Point(110, 216);
+            textUsuario.Name = "textUsuario";
+            textUsuario.Size = new Size(257, 19);
+            textUsuario.TabIndex = 67;
             // 
             // labelTitulo
             // 
@@ -133,9 +133,9 @@
             labelTitulo.ForeColor = Color.DarkRed;
             labelTitulo.Location = new Point(106, 175);
             labelTitulo.Name = "labelTitulo";
-            labelTitulo.Size = new Size(116, 23);
+            labelTitulo.Size = new Size(121, 23);
             labelTitulo.TabIndex = 66;
-            labelTitulo.Text = "Código usuário";
+            labelTitulo.Text = "Código tomador";
             // 
             // btnCadastrar
             // 
@@ -148,6 +148,7 @@
             btnCadastrar.TabIndex = 75;
             btnCadastrar.Text = "Cadastrar";
             btnCadastrar.UseVisualStyleBackColor = false;
+            btnCadastrar.Click += btnCadastrar_Click;
             // 
             // btnCancelar
             // 
@@ -160,6 +161,7 @@
             btnCancelar.TabIndex = 74;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // pictureBox2
             // 
@@ -180,12 +182,12 @@
             Controls.Add(btnCadastrar);
             Controls.Add(btnCancelar);
             Controls.Add(panel5);
-            Controls.Add(textExemplar);
+            Controls.Add(textAcervo);
             Controls.Add(labelTituloPrincipal);
             Controls.Add(label5);
             Controls.Add(panelLivro);
             Controls.Add(panelNome);
-            Controls.Add(textTitulo);
+            Controls.Add(textUsuario);
             Controls.Add(labelTitulo);
             Controls.Add(pictureBox2);
             Name = "CadastroEmprestimo";
@@ -200,12 +202,12 @@
         #endregion
 
         private Panel panel5;
-        private TextBox textExemplar;
+        private TextBox textAcervo;
         private Label labelTituloPrincipal;
         private Label label5;
         private Panel panelLivro;
         private Panel panelNome;
-        private TextBox textTitulo;
+        private TextBox textUsuario;
         private Label labelTitulo;
         private Button btnCadastrar;
         private Button btnCancelar;

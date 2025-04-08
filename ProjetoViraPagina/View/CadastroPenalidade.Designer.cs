@@ -35,14 +35,14 @@
             panelLivro = new Panel();
             pictureBox1 = new PictureBox();
             panel3 = new Panel();
-            textIdioma = new TextBox();
-            labelMarca = new Label();
+            textTipo = new TextBox();
+            labelPenalidade = new Label();
             panel4 = new Panel();
-            textNome = new TextBox();
-            labelNome = new Label();
+            textIdEmprestimo = new TextBox();
+            labelIdEmprestimo = new Label();
             panel5 = new Panel();
-            textIdJogo = new TextBox();
-            labelIdJogo = new Label();
+            textIdUsuario = new TextBox();
+            labelIdUsuario = new Label();
             pictureBox2 = new PictureBox();
             panelLivro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -54,31 +54,33 @@
             btnCadastrar.BackColor = Color.DarkRed;
             btnCadastrar.Font = new Font("Segoe UI", 12F);
             btnCadastrar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnCadastrar.Location = new Point(412, 382);
+            btnCadastrar.Location = new Point(430, 385);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(128, 35);
             btnCadastrar.TabIndex = 160;
             btnCadastrar.Text = "Cadastrar";
             btnCadastrar.UseVisualStyleBackColor = false;
+            btnCadastrar.Click += btnCadastrar_Click;
             // 
             // btnCancelar
             // 
             btnCancelar.BackColor = Color.DarkRed;
             btnCancelar.Font = new Font("Segoe UI", 12F);
             btnCancelar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnCancelar.Location = new Point(269, 382);
+            btnCancelar.Location = new Point(287, 385);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(128, 35);
             btnCancelar.TabIndex = 159;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // labelTituloPrincipal
             // 
             labelTituloPrincipal.AutoSize = true;
             labelTituloPrincipal.Font = new Font("Arial Narrow", 20F);
             labelTituloPrincipal.ForeColor = Color.DarkRed;
-            labelTituloPrincipal.Location = new Point(293, 10);
+            labelTituloPrincipal.Location = new Point(314, 10);
             labelTituloPrincipal.Name = "labelTituloPrincipal";
             labelTituloPrincipal.Size = new Size(221, 31);
             labelTituloPrincipal.TabIndex = 155;
@@ -112,27 +114,27 @@
             panel3.Size = new Size(270, 4);
             panel3.TabIndex = 170;
             // 
-            // textIdioma
+            // textTipo
             // 
-            textIdioma.BackColor = Color.FromArgb(250, 243, 224);
-            textIdioma.BorderStyle = BorderStyle.None;
-            textIdioma.Font = new Font("Arial Narrow", 12F);
-            textIdioma.ForeColor = Color.FromArgb(130, 119, 106);
-            textIdioma.Location = new Point(80, 298);
-            textIdioma.Name = "textIdioma";
-            textIdioma.Size = new Size(257, 19);
-            textIdioma.TabIndex = 169;
+            textTipo.BackColor = Color.FromArgb(250, 243, 224);
+            textTipo.BorderStyle = BorderStyle.None;
+            textTipo.Font = new Font("Arial Narrow", 12F);
+            textTipo.ForeColor = Color.FromArgb(130, 119, 106);
+            textTipo.Location = new Point(80, 298);
+            textTipo.Name = "textTipo";
+            textTipo.Size = new Size(257, 19);
+            textTipo.TabIndex = 169;
             // 
-            // labelMarca
+            // labelPenalidade
             // 
-            labelMarca.AutoSize = true;
-            labelMarca.Font = new Font("Arial Narrow", 14F);
-            labelMarca.ForeColor = Color.DarkRed;
-            labelMarca.Location = new Point(76, 257);
-            labelMarca.Name = "labelMarca";
-            labelMarca.Size = new Size(135, 23);
-            labelMarca.TabIndex = 168;
-            labelMarca.Text = "Tipo de pnalidade";
+            labelPenalidade.AutoSize = true;
+            labelPenalidade.Font = new Font("Arial Narrow", 14F);
+            labelPenalidade.ForeColor = Color.DarkRed;
+            labelPenalidade.Location = new Point(76, 257);
+            labelPenalidade.Name = "labelPenalidade";
+            labelPenalidade.Size = new Size(144, 23);
+            labelPenalidade.TabIndex = 168;
+            labelPenalidade.Text = "Tipo de penalidade";
             // 
             // panel4
             // 
@@ -142,27 +144,27 @@
             panel4.Size = new Size(270, 4);
             panel4.TabIndex = 167;
             // 
-            // textNome
+            // textIdEmprestimo
             // 
-            textNome.BackColor = Color.FromArgb(250, 243, 224);
-            textNome.BorderStyle = BorderStyle.None;
-            textNome.Font = new Font("Arial Narrow", 12F);
-            textNome.ForeColor = Color.FromArgb(130, 119, 106);
-            textNome.Location = new Point(81, 214);
-            textNome.Name = "textNome";
-            textNome.Size = new Size(257, 19);
-            textNome.TabIndex = 166;
+            textIdEmprestimo.BackColor = Color.FromArgb(250, 243, 224);
+            textIdEmprestimo.BorderStyle = BorderStyle.None;
+            textIdEmprestimo.Font = new Font("Arial Narrow", 12F);
+            textIdEmprestimo.ForeColor = Color.FromArgb(130, 119, 106);
+            textIdEmprestimo.Location = new Point(81, 214);
+            textIdEmprestimo.Name = "textIdEmprestimo";
+            textIdEmprestimo.Size = new Size(257, 19);
+            textIdEmprestimo.TabIndex = 166;
             // 
-            // labelNome
+            // labelIdEmprestimo
             // 
-            labelNome.AutoSize = true;
-            labelNome.Font = new Font("Arial Narrow", 14F);
-            labelNome.ForeColor = Color.DarkRed;
-            labelNome.Location = new Point(76, 173);
-            labelNome.Name = "labelNome";
-            labelNome.Size = new Size(111, 23);
-            labelNome.TabIndex = 165;
-            labelNome.Text = "Código acervo";
+            labelIdEmprestimo.AutoSize = true;
+            labelIdEmprestimo.Font = new Font("Arial Narrow", 14F);
+            labelIdEmprestimo.ForeColor = Color.DarkRed;
+            labelIdEmprestimo.Location = new Point(76, 173);
+            labelIdEmprestimo.Name = "labelIdEmprestimo";
+            labelIdEmprestimo.Size = new Size(145, 23);
+            labelIdEmprestimo.TabIndex = 165;
+            labelIdEmprestimo.Text = "Código empréstimo";
             // 
             // panel5
             // 
@@ -172,27 +174,27 @@
             panel5.Size = new Size(270, 4);
             panel5.TabIndex = 164;
             // 
-            // textIdJogo
+            // textIdUsuario
             // 
-            textIdJogo.BackColor = Color.FromArgb(250, 243, 224);
-            textIdJogo.BorderStyle = BorderStyle.None;
-            textIdJogo.Font = new Font("Arial Narrow", 12F);
-            textIdJogo.ForeColor = Color.FromArgb(130, 119, 106);
-            textIdJogo.Location = new Point(80, 127);
-            textIdJogo.Name = "textIdJogo";
-            textIdJogo.Size = new Size(257, 19);
-            textIdJogo.TabIndex = 163;
+            textIdUsuario.BackColor = Color.FromArgb(250, 243, 224);
+            textIdUsuario.BorderStyle = BorderStyle.None;
+            textIdUsuario.Font = new Font("Arial Narrow", 12F);
+            textIdUsuario.ForeColor = Color.FromArgb(130, 119, 106);
+            textIdUsuario.Location = new Point(80, 127);
+            textIdUsuario.Name = "textIdUsuario";
+            textIdUsuario.Size = new Size(257, 19);
+            textIdUsuario.TabIndex = 163;
             // 
-            // labelIdJogo
+            // labelIdUsuario
             // 
-            labelIdJogo.AutoSize = true;
-            labelIdJogo.Font = new Font("Arial Narrow", 14F);
-            labelIdJogo.ForeColor = Color.DarkRed;
-            labelIdJogo.Location = new Point(76, 86);
-            labelIdJogo.Name = "labelIdJogo";
-            labelIdJogo.Size = new Size(116, 23);
-            labelIdJogo.TabIndex = 162;
-            labelIdJogo.Text = "Código usuário";
+            labelIdUsuario.AutoSize = true;
+            labelIdUsuario.Font = new Font("Arial Narrow", 14F);
+            labelIdUsuario.ForeColor = Color.DarkRed;
+            labelIdUsuario.Location = new Point(76, 86);
+            labelIdUsuario.Name = "labelIdUsuario";
+            labelIdUsuario.Size = new Size(121, 23);
+            labelIdUsuario.TabIndex = 162;
+            labelIdUsuario.Text = "Código tomador";
             // 
             // pictureBox2
             // 
@@ -211,14 +213,14 @@
             BackColor = Color.FromArgb(250, 243, 224);
             ClientSize = new Size(800, 450);
             Controls.Add(panel3);
-            Controls.Add(textIdioma);
-            Controls.Add(labelMarca);
+            Controls.Add(textTipo);
+            Controls.Add(labelPenalidade);
             Controls.Add(panel4);
-            Controls.Add(textNome);
-            Controls.Add(labelNome);
+            Controls.Add(textIdEmprestimo);
+            Controls.Add(labelIdEmprestimo);
             Controls.Add(panel5);
-            Controls.Add(textIdJogo);
-            Controls.Add(labelIdJogo);
+            Controls.Add(textIdUsuario);
+            Controls.Add(labelIdUsuario);
             Controls.Add(btnCadastrar);
             Controls.Add(btnCancelar);
             Controls.Add(labelTituloPrincipal);
@@ -240,14 +242,14 @@
         private Label labelTituloPrincipal;
         private Panel panelLivro;
         private Panel panel3;
-        private TextBox textIdioma;
-        private Label labelMarca;
+        private TextBox textTipo;
+        private Label labelPenalidade;
         private Panel panel4;
-        private TextBox textNome;
-        private Label labelNome;
+        private TextBox textIdEmprestimo;
+        private Label labelIdEmprestimo;
         private Panel panel5;
-        private TextBox textIdJogo;
-        private Label labelIdJogo;
+        private TextBox textIdUsuario;
+        private Label labelIdUsuario;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
     }

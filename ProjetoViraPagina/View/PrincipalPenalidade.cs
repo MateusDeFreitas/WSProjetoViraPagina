@@ -36,5 +36,12 @@ namespace Projeto_ViraPagina.View
             form.Show();
             this.Hide();
         }
+
+        private void btnCriar_Click(object sender, EventArgs e)
+        {
+            CadastroPenalidade form = new CadastroPenalidade();
+            form.Show();
+            this.Hide();
+        }
     }
 }

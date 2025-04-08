@@ -43,5 +43,12 @@ namespace Projeto_ViraPagina.View
             form.Show();
             this.Hide();
         }
+
+        private void btnCriar_Click(object sender, EventArgs e)
+        {
+            CadastroInstrumentos form = new CadastroInstrumentos();
+            form.Show();
+            this.Hide();
+        }
     }
 }

@@ -8,11 +8,11 @@ namespace Projeto_ViraPagina.Model
 {
     public class Penalidade
     {
-        public uint Id { get; set; } 
-        public int IdUsuario { get; set; } 
-        public string IdEmprestimo { get; set; } 
-        public DateTime DataPenalidade { get; set; }
-        public string CodPenalidade { get; set; } 
+        public string? Id { get; set; } 
+        public string? IdUsuario { get; set; } 
+        public string? IdEmprestimo { get; set; } 
+        public string? DataPenalidade { get; set; }
+        public string? CodPenalidade { get; set; } 
         public bool PenalidadeAtiva { get; set; }
 
         public static List<Penalidade> ListaPenalidade = new List<Penalidade>();

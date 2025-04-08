@@ -91,6 +91,7 @@
             btnCriar.TabIndex = 18;
             btnCriar.Text = "Gerar empréstimo";
             btnCriar.UseVisualStyleBackColor = false;
+            btnCriar.Click += btnCriar_Click;
             // 
             // labelIntro
             // 

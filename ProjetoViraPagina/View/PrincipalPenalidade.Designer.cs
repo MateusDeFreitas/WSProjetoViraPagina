@@ -91,6 +91,7 @@
             btnCriar.TabIndex = 36;
             btnCriar.Text = "Gerar penalidades";
             btnCriar.UseVisualStyleBackColor = false;
+            btnCriar.Click += btnCriar_Click;
             // 
             // labelIntro
             // 

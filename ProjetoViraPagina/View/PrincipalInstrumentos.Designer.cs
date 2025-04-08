@@ -141,6 +141,7 @@
             btnCriar.TabIndex = 18;
             btnCriar.Text = "Criar um instrumento";
             btnCriar.UseVisualStyleBackColor = false;
+            btnCriar.Click += btnCriar_Click;
             // 
             // labelIntro
             // 
