@@ -9,7 +9,6 @@ namespace Projeto_ViraPagina.Model
     public class Jogo
     {
         public string IdJogo { get; set; }
-        public string Tema { get; set; }
         public string Nome { get; set; }
         public string Marca { get; set; }
         public string Material { get; set; }

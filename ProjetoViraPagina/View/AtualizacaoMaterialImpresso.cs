@@ -30,7 +30,7 @@ namespace Projeto_ViraPagina.View
             MaterialImpresso ultimoItem = MaterialImpresso.ListaMateriaisImpressos.Last();
             MaterialImpressoDAO DAO = new MaterialImpressoDAO();
 
-            LoadInputs(DAO.lerMaterialImpresso(ultimoItem.Id));
+            CarregarInputs(DAO.lerMaterialImpresso(ultimoItem.Id));
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -78,7 +78,7 @@ namespace Projeto_ViraPagina.View
             }
             else
             {
-                extractInputs(ultimoItem);
+                extrairInputs(ultimoItem);
 
                 AtualizacaoMaterialImpressoP2 form = new AtualizacaoMaterialImpressoP2();
                 form.Show();
@@ -92,7 +92,7 @@ namespace Projeto_ViraPagina.View
             form.Show();
             this.Hide();
         }
-        private void LoadInputs(MaterialImpresso mi)
+        private void CarregarInputs(MaterialImpresso mi)
         {
             textIdLivro.Text = mi.Id;
             textAnoLancamento.Text = mi.DataLancamento;
@@ -104,7 +104,7 @@ namespace Projeto_ViraPagina.View
             textISBN.Text = mi.ISBN;
         }
 
-        private void extractInputs(MaterialImpresso mi)
+        private void extrairInputs(MaterialImpresso mi)
         {
             mi.Id = textIdLivro.Text;
             mi.DataLancamento = textAnoLancamento.Text;

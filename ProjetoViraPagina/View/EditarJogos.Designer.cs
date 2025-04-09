@@ -115,6 +115,7 @@
             brnEditar.TabIndex = 159;
             brnEditar.Text = "Editar";
             brnEditar.UseVisualStyleBackColor = false;
+            brnEditar.Click += brnEditar_Click;
             // 
             // btnVoltar
             // 

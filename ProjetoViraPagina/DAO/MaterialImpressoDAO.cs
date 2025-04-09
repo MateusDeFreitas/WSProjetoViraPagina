@@ -20,6 +20,7 @@ namespace Projeto_ViraPagina.DAO
     {
 
         private string connectionString = "Server=localhost;Database=bd_virapagina;Uid=root;Pwd=";
+
         public bool AdicionarMaterialImpressoNoBanco(MaterialImpresso material)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -62,59 +63,19 @@ namespace Projeto_ViraPagina.DAO
             }
         }
 
-        public bool idExiste(string id)
-        {
-            bool redistroExistente = false;
-
-            using (MySqlConnection con = new MySqlConnection(connectionString))
-            {
-                try
-                {
-                    con.Open();
-                    string query = "SELECT COUNT(*) FROM materialimpresso WHERE id = @id";
-                    using (MySqlCommand cmd = new MySqlCommand(query, con))
-                    {
-                        cmd.Parameters.AddWithValue("@id", id);
-                        int count = Convert.ToInt32(cmd.ExecuteScalar());
-                        redistroExistente = (count > 0); // Se existir algum registro com esse email
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao buscar registro: " + ex.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-
-                return redistroExistente;
-            }
-        }
-
         public MaterialImpresso lerMaterialImpresso(string id)
         {
             MaterialImpresso mi = new MaterialImpresso();
-            bool redistroExistente = false;
+            UtilDAO utilDAO = new UtilDAO();
+            bool redistroExistente = utilDAO.idMaterialImpressoExiste(id);
 
             using (MySqlConnection con = new MySqlConnection(connectionString))
             {
-                try
-                {
-                    con.Open();
-                    string query = "SELECT COUNT(*) FROM materialimpresso WHERE id = @id";
-                    using (MySqlCommand cmd = new MySqlCommand(query, con))
-                    {
-                        cmd.Parameters.AddWithValue("@id", id);
-                        int count = Convert.ToInt32(cmd.ExecuteScalar());
-                        redistroExistente = (count > 0); // Se existir algum registro com esse email
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao buscar registro: " + ex.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-
                 if (redistroExistente)
                 {
                     string query = "SELECT * FROM materialimpresso WHERE id = @id";
 
+                    con.Open();
                     using (MySqlCommand cmd = new MySqlCommand(query, con))
                     {
                         cmd.Parameters.AddWithValue("@id", id);

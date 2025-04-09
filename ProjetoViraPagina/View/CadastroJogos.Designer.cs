@@ -44,9 +44,6 @@
             panel2 = new Panel();
             textGenero = new TextBox();
             labelGenero = new Label();
-            panel6 = new Panel();
-            textTema = new TextBox();
-            labelTema = new Label();
             panel7 = new Panel();
             textMaterial = new TextBox();
             labelMaterial = new Label();
@@ -150,7 +147,7 @@
             // panel1
             // 
             panel1.BackColor = Color.DarkRed;
-            panel1.Location = new Point(454, 330);
+            panel1.Location = new Point(454, 243);
             panel1.Name = "panel1";
             panel1.Size = new Size(270, 4);
             panel1.TabIndex = 127;
@@ -161,7 +158,7 @@
             textNumeroJogadores.BorderStyle = BorderStyle.None;
             textNumeroJogadores.Font = new Font("Arial Narrow", 12F);
             textNumeroJogadores.ForeColor = Color.FromArgb(130, 119, 106);
-            textNumeroJogadores.Location = new Point(458, 305);
+            textNumeroJogadores.Location = new Point(458, 218);
             textNumeroJogadores.Name = "textNumeroJogadores";
             textNumeroJogadores.Size = new Size(257, 19);
             textNumeroJogadores.TabIndex = 126;
@@ -171,7 +168,7 @@
             labelNumeroJogadores.AutoSize = true;
             labelNumeroJogadores.Font = new Font("Arial Narrow", 14F);
             labelNumeroJogadores.ForeColor = Color.DarkRed;
-            labelNumeroJogadores.Location = new Point(454, 264);
+            labelNumeroJogadores.Location = new Point(454, 177);
             labelNumeroJogadores.Name = "labelNumeroJogadores";
             labelNumeroJogadores.Size = new Size(162, 23);
             labelNumeroJogadores.TabIndex = 125;
@@ -180,7 +177,7 @@
             // panel2
             // 
             panel2.BackColor = Color.DarkRed;
-            panel2.Location = new Point(455, 246);
+            panel2.Location = new Point(455, 159);
             panel2.Name = "panel2";
             panel2.Size = new Size(270, 4);
             panel2.TabIndex = 124;
@@ -191,7 +188,7 @@
             textGenero.BorderStyle = BorderStyle.None;
             textGenero.Font = new Font("Arial Narrow", 12F);
             textGenero.ForeColor = Color.FromArgb(130, 119, 106);
-            textGenero.Location = new Point(459, 221);
+            textGenero.Location = new Point(459, 134);
             textGenero.Name = "textGenero";
             textGenero.Size = new Size(257, 19);
             textGenero.TabIndex = 123;
@@ -201,41 +198,11 @@
             labelGenero.AutoSize = true;
             labelGenero.Font = new Font("Arial Narrow", 14F);
             labelGenero.ForeColor = Color.DarkRed;
-            labelGenero.Location = new Point(454, 180);
+            labelGenero.Location = new Point(454, 93);
             labelGenero.Name = "labelGenero";
             labelGenero.Size = new Size(63, 23);
             labelGenero.TabIndex = 122;
             labelGenero.Text = "Gênero";
-            // 
-            // panel6
-            // 
-            panel6.BackColor = Color.DarkRed;
-            panel6.Location = new Point(454, 159);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(270, 4);
-            panel6.TabIndex = 121;
-            // 
-            // textTema
-            // 
-            textTema.BackColor = Color.FromArgb(250, 243, 224);
-            textTema.BorderStyle = BorderStyle.None;
-            textTema.Font = new Font("Arial Narrow", 12F);
-            textTema.ForeColor = Color.FromArgb(130, 119, 106);
-            textTema.Location = new Point(458, 134);
-            textTema.Name = "textTema";
-            textTema.Size = new Size(257, 19);
-            textTema.TabIndex = 120;
-            // 
-            // labelTema
-            // 
-            labelTema.AutoSize = true;
-            labelTema.Font = new Font("Arial Narrow", 14F);
-            labelTema.ForeColor = Color.DarkRed;
-            labelTema.Location = new Point(454, 93);
-            labelTema.Name = "labelTema";
-            labelTema.Size = new Size(50, 23);
-            labelTema.TabIndex = 119;
-            labelTema.Text = "Tema";
             // 
             // panel7
             // 
@@ -310,9 +277,6 @@
             Controls.Add(panel2);
             Controls.Add(textGenero);
             Controls.Add(labelGenero);
-            Controls.Add(panel6);
-            Controls.Add(textTema);
-            Controls.Add(labelTema);
             Controls.Add(panel3);
             Controls.Add(textMarca);
             Controls.Add(labelMarca);
@@ -345,9 +309,6 @@
         private Panel panel2;
         private TextBox textGenero;
         private Label labelGenero;
-        private Panel panel6;
-        private TextBox textTema;
-        private Label labelTema;
         private Panel panel7;
         private TextBox textMaterial;
         private Label labelMaterial;

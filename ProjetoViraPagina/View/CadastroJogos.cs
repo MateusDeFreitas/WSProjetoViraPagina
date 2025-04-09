@@ -47,11 +47,7 @@ namespace Projeto_ViraPagina.View
             //    MessageBox.Show("Insirá um valor válido no campo código", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             //}
             
-            if (textTema.Text == "")
-            {
-                MessageBox.Show("Insirá um valor válido no campo tema", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else if (textNome.Text == "")
+            if (textNome.Text == "")
             {
                 MessageBox.Show("Insirá um valor válido no campo nome", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -77,7 +73,6 @@ namespace Projeto_ViraPagina.View
                 JogoDAO jogoDAO = new JogoDAO();
 
                 //jogo.IdJogo = textIdJogo.Text;
-                jogo.Tema = textTema.Text;
                 jogo.Nome = textNome.Text;
                 jogo.Genero = textGenero.Text;
                 jogo.Marca = textMarca.Text;
@@ -88,7 +83,6 @@ namespace Projeto_ViraPagina.View
 
                 if (var)
                 {
-                    textTema.Text = "";
                     textNome.Text = "";
                     textGenero.Text = "";
                     textMarca.Text = "";

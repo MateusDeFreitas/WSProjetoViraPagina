@@ -34,7 +34,7 @@
             btnCadastrar = new Button();
             btnCancelar = new Button();
             panel7 = new Panel();
-            textBox4 = new TextBox();
+            textMaterial = new TextBox();
             labelMaterial = new Label();
             panel1 = new Panel();
             textNumeroJogadores = new TextBox();
@@ -42,19 +42,16 @@
             panel2 = new Panel();
             textGenero = new TextBox();
             labelGenero = new Label();
-            panel6 = new Panel();
-            textTema = new TextBox();
-            labelTema = new Label();
             panel3 = new Panel();
-            textIdioma = new TextBox();
+            textMarca = new TextBox();
             labelMarca = new Label();
             panel4 = new Panel();
             textNome = new TextBox();
             labelNome = new Label();
             panel5 = new Panel();
-            textIdJogo = new TextBox();
             labelIdJogo = new Label();
             labelAtualizacaoJogos = new Label();
+            textIdJogo = new Label();
             panelLivro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -71,7 +68,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(2, 8);
+            pictureBox1.Location = new Point(2, 13);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(39, 39);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -84,19 +81,20 @@
             btnCadastrar.BackColor = Color.DarkRed;
             btnCadastrar.Font = new Font("Segoe UI", 12F);
             btnCadastrar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnCadastrar.Location = new Point(597, 403);
+            btnCadastrar.Location = new Point(391, 403);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(128, 35);
             btnCadastrar.TabIndex = 156;
-            btnCadastrar.Text = "Cadastrar";
+            btnCadastrar.Text = "Atualizar";
             btnCadastrar.UseVisualStyleBackColor = false;
+            btnCadastrar.Click += btnCadastrar_Click;
             // 
             // btnCancelar
             // 
             btnCancelar.BackColor = Color.DarkRed;
             btnCancelar.Font = new Font("Segoe UI", 12F);
             btnCancelar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnCancelar.Location = new Point(454, 403);
+            btnCancelar.Location = new Point(248, 403);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(128, 35);
             btnCancelar.TabIndex = 155;
@@ -107,28 +105,28 @@
             // panel7
             // 
             panel7.BackColor = Color.DarkRed;
-            panel7.Location = new Point(71, 413);
+            panel7.Location = new Point(455, 157);
             panel7.Name = "panel7";
             panel7.Size = new Size(270, 4);
             panel7.TabIndex = 154;
             // 
-            // textBox4
+            // textMaterial
             // 
-            textBox4.BackColor = Color.FromArgb(250, 243, 224);
-            textBox4.BorderStyle = BorderStyle.None;
-            textBox4.Font = new Font("Arial Narrow", 12F);
-            textBox4.ForeColor = Color.FromArgb(130, 119, 106);
-            textBox4.Location = new Point(72, 388);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(257, 19);
-            textBox4.TabIndex = 153;
+            textMaterial.BackColor = Color.FromArgb(250, 243, 224);
+            textMaterial.BorderStyle = BorderStyle.None;
+            textMaterial.Font = new Font("Arial Narrow", 12F);
+            textMaterial.ForeColor = Color.FromArgb(130, 119, 106);
+            textMaterial.Location = new Point(456, 132);
+            textMaterial.Name = "textMaterial";
+            textMaterial.Size = new Size(257, 19);
+            textMaterial.TabIndex = 153;
             // 
             // labelMaterial
             // 
             labelMaterial.AutoSize = true;
             labelMaterial.Font = new Font("Arial Narrow", 14F);
             labelMaterial.ForeColor = Color.DarkRed;
-            labelMaterial.Location = new Point(71, 347);
+            labelMaterial.Location = new Point(455, 91);
             labelMaterial.Name = "labelMaterial";
             labelMaterial.Size = new Size(64, 23);
             labelMaterial.TabIndex = 152;
@@ -194,36 +192,6 @@
             labelGenero.TabIndex = 146;
             labelGenero.Text = "Gênero";
             // 
-            // panel6
-            // 
-            panel6.BackColor = Color.DarkRed;
-            panel6.Location = new Point(454, 157);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(270, 4);
-            panel6.TabIndex = 145;
-            // 
-            // textTema
-            // 
-            textTema.BackColor = Color.FromArgb(250, 243, 224);
-            textTema.BorderStyle = BorderStyle.None;
-            textTema.Font = new Font("Arial Narrow", 12F);
-            textTema.ForeColor = Color.FromArgb(130, 119, 106);
-            textTema.Location = new Point(458, 132);
-            textTema.Name = "textTema";
-            textTema.Size = new Size(257, 19);
-            textTema.TabIndex = 144;
-            // 
-            // labelTema
-            // 
-            labelTema.AutoSize = true;
-            labelTema.Font = new Font("Arial Narrow", 14F);
-            labelTema.ForeColor = Color.DarkRed;
-            labelTema.Location = new Point(454, 91);
-            labelTema.Name = "labelTema";
-            labelTema.Size = new Size(50, 23);
-            labelTema.TabIndex = 143;
-            labelTema.Text = "Tema";
-            // 
             // panel3
             // 
             panel3.BackColor = Color.DarkRed;
@@ -232,16 +200,16 @@
             panel3.Size = new Size(270, 4);
             panel3.TabIndex = 142;
             // 
-            // textIdioma
+            // textMarca
             // 
-            textIdioma.BackColor = Color.FromArgb(250, 243, 224);
-            textIdioma.BorderStyle = BorderStyle.None;
-            textIdioma.Font = new Font("Arial Narrow", 12F);
-            textIdioma.ForeColor = Color.FromArgb(130, 119, 106);
-            textIdioma.Location = new Point(72, 303);
-            textIdioma.Name = "textIdioma";
-            textIdioma.Size = new Size(257, 19);
-            textIdioma.TabIndex = 141;
+            textMarca.BackColor = Color.FromArgb(250, 243, 224);
+            textMarca.BorderStyle = BorderStyle.None;
+            textMarca.Font = new Font("Arial Narrow", 12F);
+            textMarca.ForeColor = Color.FromArgb(130, 119, 106);
+            textMarca.Location = new Point(72, 303);
+            textMarca.Name = "textMarca";
+            textMarca.Size = new Size(257, 19);
+            textMarca.TabIndex = 141;
             // 
             // labelMarca
             // 
@@ -292,17 +260,6 @@
             panel5.Size = new Size(270, 4);
             panel5.TabIndex = 136;
             // 
-            // textIdJogo
-            // 
-            textIdJogo.BackColor = Color.FromArgb(250, 243, 224);
-            textIdJogo.BorderStyle = BorderStyle.None;
-            textIdJogo.Font = new Font("Arial Narrow", 12F);
-            textIdJogo.ForeColor = Color.FromArgb(130, 119, 106);
-            textIdJogo.Location = new Point(72, 132);
-            textIdJogo.Name = "textIdJogo";
-            textIdJogo.Size = new Size(257, 19);
-            textIdJogo.TabIndex = 135;
-            // 
             // labelIdJogo
             // 
             labelIdJogo.AutoSize = true;
@@ -319,11 +276,22 @@
             labelAtualizacaoJogos.AutoSize = true;
             labelAtualizacaoJogos.Font = new Font("Arial Narrow", 20F);
             labelAtualizacaoJogos.ForeColor = Color.DarkRed;
-            labelAtualizacaoJogos.Location = new Point(296, 15);
+            labelAtualizacaoJogos.Location = new Point(287, 21);
             labelAtualizacaoJogos.Name = "labelAtualizacaoJogos";
             labelAtualizacaoJogos.Size = new Size(215, 31);
             labelAtualizacaoJogos.TabIndex = 133;
             labelAtualizacaoJogos.Text = "Atualização de jogos";
+            // 
+            // textIdJogo
+            // 
+            textIdJogo.AutoSize = true;
+            textIdJogo.Font = new Font("Arial Narrow", 12F);
+            textIdJogo.ForeColor = Color.FromArgb(130, 119, 106);
+            textIdJogo.Location = new Point(73, 131);
+            textIdJogo.Name = "textIdJogo";
+            textIdJogo.Size = new Size(17, 20);
+            textIdJogo.TabIndex = 157;
+            textIdJogo.Text = "  ";
             // 
             // AtualizacaoJogos
             // 
@@ -331,10 +299,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(250, 243, 224);
             ClientSize = new Size(757, 450);
+            Controls.Add(textIdJogo);
             Controls.Add(btnCadastrar);
             Controls.Add(btnCancelar);
             Controls.Add(panel7);
-            Controls.Add(textBox4);
+            Controls.Add(textMaterial);
             Controls.Add(labelMaterial);
             Controls.Add(panel1);
             Controls.Add(textNumeroJogadores);
@@ -342,22 +311,19 @@
             Controls.Add(panel2);
             Controls.Add(textGenero);
             Controls.Add(labelGenero);
-            Controls.Add(panel6);
-            Controls.Add(textTema);
-            Controls.Add(labelTema);
             Controls.Add(panel3);
-            Controls.Add(textIdioma);
+            Controls.Add(textMarca);
             Controls.Add(labelMarca);
             Controls.Add(panel4);
             Controls.Add(textNome);
             Controls.Add(labelNome);
             Controls.Add(panel5);
-            Controls.Add(textIdJogo);
             Controls.Add(labelIdJogo);
             Controls.Add(labelAtualizacaoJogos);
             Controls.Add(panelLivro);
             Name = "AtualizacaoJogos";
             Text = "AtualizacaoJogos";
+            Load += AtualizacaoJogos_Load;
             panelLivro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -370,7 +336,7 @@
         private Button btnCadastrar;
         private Button btnCancelar;
         private Panel panel7;
-        private TextBox textBox4;
+        private TextBox textMaterial;
         private Label labelMaterial;
         private Panel panel1;
         private TextBox textNumeroJogadores;
@@ -378,19 +344,16 @@
         private Panel panel2;
         private TextBox textGenero;
         private Label labelGenero;
-        private Panel panel6;
-        private TextBox textTema;
-        private Label labelTema;
         private Panel panel3;
-        private TextBox textIdioma;
+        private TextBox textMarca;
         private Label labelMarca;
         private Panel panel4;
         private TextBox textNome;
         private Label labelNome;
         private Panel panel5;
-        private TextBox textIdJogo;
         private Label labelIdJogo;
         private Label labelAtualizacaoJogos;
         private PictureBox pictureBox1;
+        private Label textIdJogo;
     }
 }

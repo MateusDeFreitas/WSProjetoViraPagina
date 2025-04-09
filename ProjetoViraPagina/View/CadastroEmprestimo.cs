@@ -52,11 +52,11 @@ namespace Projeto_ViraPagina.View
             {
                 MessageBox.Show("Insirá um valor válido no campo código do acervo", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else if ((utilDAO.IdMidiaExixte(textAcervo.Text)           ||
-                     utilDAO.IdJogoExixte(textAcervo.Text)             ||
-                     utilDAO.IdMaterialImpressoExixte(textAcervo.Text) ||
-                     utilDAO.IdInstrumentoExixte(textAcervo.Text))     &&
-                     utilDAO.IdTomadorExixte(textUsuario.Text)
+            else if ((utilDAO.IdMidiaExiste(textAcervo.Text)           ||
+                     utilDAO.IdJogoExiste(textAcervo.Text)             ||
+                     utilDAO.IdMaterialImpressoExiste(textAcervo.Text) ||
+                     utilDAO.IdInstrumentoExiste(textAcervo.Text))     &&
+                     utilDAO.IdTomadorExiste(textUsuario.Text)
                      )
             {
                 InstanciarEmprestimo(emprestimo, utilDAO);
@@ -67,7 +67,7 @@ namespace Projeto_ViraPagina.View
                     textAcervo.Text = "";
                 }
             }
-            else if (!utilDAO.IdTomadorExixte(textUsuario.Text))
+            else if (!utilDAO.IdTomadorExiste(textUsuario.Text))
             {
                 MessageBox.Show("Código de tomdor não encontrado.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -80,19 +80,19 @@ namespace Projeto_ViraPagina.View
         {
             emprestimo.IdUsuario = textUsuario.Text;
 
-            if (utilDAO.IdMidiaExixte(textAcervo.Text))
+            if (utilDAO.IdMidiaExiste(textAcervo.Text))
             {
                 emprestimo.IdMidia = textAcervo.Text;
             }
-            else if (utilDAO.IdMaterialImpressoExixte(textAcervo.Text))
+            else if (utilDAO.IdMaterialImpressoExiste(textAcervo.Text))
             {
                 emprestimo.IdMaterialImpresso = textAcervo.Text;
             }
-            else if (utilDAO.IdInstrumentoExixte(textAcervo.Text))
+            else if (utilDAO.IdInstrumentoExiste(textAcervo.Text))
             {
                 emprestimo.IdInstrumento = textAcervo.Text;
             }
-            else if (utilDAO.IdJogoExixte(textAcervo.Text))
+            else if (utilDAO.IdJogoExiste(textAcervo.Text))
             {
                 emprestimo.IdJogo = textAcervo.Text;
             }

@@ -39,7 +39,9 @@ namespace Projeto_ViraPagina.View
 
         private void btnCriar_Click(object sender, EventArgs e)
         {
-            
+            CadastrarReservas form = new CadastrarReservas();
+            form.Show();
+            this.Hide();
         }
     }
 }

@@ -10,7 +10,8 @@ namespace Projeto_ViraPagina.DAO
     public class UtilDAO
     {
         private string connectionString = "Server=localhost;Database=bd_virapagina;Uid=root;Pwd=";
-        public bool IdMaterialImpressoExixte(string id)
+
+        public bool IdMaterialImpressoExiste(string id)
         {
             using (MySqlConnection con = new MySqlConnection(connectionString))
             {
@@ -33,7 +34,7 @@ namespace Projeto_ViraPagina.DAO
             }
         }
 
-        public bool IdInstrumentoExixte(string id)
+        public bool IdInstrumentoExiste(string id)
         {
             using (MySqlConnection con = new MySqlConnection(connectionString))
             {
@@ -56,7 +57,7 @@ namespace Projeto_ViraPagina.DAO
             }
         }
 
-        public bool IdJogoExixte(string id)
+        public bool IdJogoExiste(string id)
         {
             using (MySqlConnection con = new MySqlConnection(connectionString))
             {
@@ -79,7 +80,7 @@ namespace Projeto_ViraPagina.DAO
             }
         }
 
-        public bool IdMidiaExixte(string id)
+        public bool IdMidiaExiste(string id)
         {
             using (MySqlConnection con = new MySqlConnection(connectionString))
             {
@@ -102,7 +103,7 @@ namespace Projeto_ViraPagina.DAO
             }
         }
 
-        public bool IdEmprestimoExixte(string id)
+        public bool IdEmprestimoExiste(string id)
         {
             using (MySqlConnection con = new MySqlConnection(connectionString))
             {
@@ -125,7 +126,7 @@ namespace Projeto_ViraPagina.DAO
             }
         }
 
-        public bool IdTomadorExixte(string id)
+        public bool IdTomadorExiste(string id)
         {
             using (MySqlConnection con = new MySqlConnection(connectionString))
             {
@@ -145,6 +146,58 @@ namespace Projeto_ViraPagina.DAO
                     Console.WriteLine("Erro ao buscar identificdor: " + ex.Message);
                 }
                 return false;
+            }
+        }
+
+        public bool idMaterialImpressoExiste(string id)
+        {
+            bool redistroExistente = false;
+
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    con.Open();
+                    string query1 = "SELECT COUNT(*) FROM materialimpresso WHERE id = @id";
+                    using (MySqlCommand cmd = new MySqlCommand(query1, con))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        int count = Convert.ToInt32(cmd.ExecuteScalar());
+                        redistroExistente = (count > 0); // Se existir algum registro com esse email
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao buscar registro: " + ex.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
+                return redistroExistente;
+            }
+        }
+
+        public bool idPenalidadeExiste(string id)
+        {
+            bool redistroExistente = false;
+
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    con.Open();
+                    string query1 = "SELECT COUNT(*) FROM penalidade WHERE id = @id";
+                    using (MySqlCommand cmd = new MySqlCommand(query1, con))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        int count = Convert.ToInt32(cmd.ExecuteScalar());
+                        redistroExistente = (count > 0); // Se existir algum registro com esse email
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao buscar registro: " + ex.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
+                return redistroExistente;
             }
         }
     }

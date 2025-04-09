@@ -62,11 +62,35 @@ namespace Projeto_ViraPagina.View
 
         private void btnProximo_Click(object sender, EventArgs e)
         {
-            MaterialImpresso ultimoItem = MaterialImpresso.ListaMateriaisImpressos.Last();
-            MaterialImpressoDAO DAO = new MaterialImpressoDAO();
-            extractInputs(ultimoItem);
+            if (textResumo.Text == "")
+            {
+                MessageBox.Show("Insira um valor válido no campo resumo.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (textCircular.Text == "")
+            {
+                MessageBox.Show("Insira um valor válido no campo livro circular.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (textIdioma.Text == "")
+            {
+                MessageBox.Show("Insira um valor válido no campo idioma.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (textClasse.Text == "")
+            {
+                MessageBox.Show("Insira um valor válido no campo classe.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                MaterialImpresso ultimoItem = MaterialImpresso.ListaMateriaisImpressos.Last();
+                MaterialImpressoDAO DAO = new MaterialImpressoDAO();
+                extractInputs(ultimoItem);
 
-            DAO.AtualizarMaterialImpressoNoBanco(ultimoItem);
+                if (DAO.AtualizarMaterialImpressoNoBanco(ultimoItem))
+                {
+                    EditarMaterialImpresso form = new EditarMaterialImpresso();
+                    form.Show();
+                    this.Hide();
+                }
+            }
         }
 
         private void extractInputs(MaterialImpresso mi)

@@ -35,13 +35,13 @@ namespace Projeto_ViraPagina.View
         private void brnEditar_Click(object sender, EventArgs e)
         {
             MaterialImpresso mi = new MaterialImpresso();
-            MaterialImpressoDAO DAO = new MaterialImpressoDAO();
+            UtilDAO utilDAO = new UtilDAO();
 
-            mi.Id = textId.Text;
+            IntanciarId(mi);
 
             MaterialImpresso.AdicionarMaterialImpresso(mi);
 
-            if (DAO.idExiste(mi.Id))
+            if (utilDAO.idMaterialImpressoExiste(mi.Id))
             {
                 AtualizacaoMaterialImpresso form = new AtualizacaoMaterialImpresso();
                 form.Show();
@@ -58,6 +58,11 @@ namespace Projeto_ViraPagina.View
             Principal form = new Principal();
             form.Show();
             this.Hide();
+        }
+
+        private void IntanciarId (MaterialImpresso mi)
+        {
+            mi.Id = textId.Text;
         }
     }
 }

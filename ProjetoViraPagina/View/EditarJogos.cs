@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Projeto_ViraPagina.DAO;
+using Projeto_ViraPagina.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,6 +37,32 @@ namespace Projeto_ViraPagina.View
             Principal form = new Principal();
             form.Show();
             this.Hide();
+        }
+
+        private void brnEditar_Click(object sender, EventArgs e)
+        {
+            Jogo jogo = new Jogo();
+            UtilDAO utilDAO = new UtilDAO();
+
+            IntanciarId(jogo);
+
+            Jogo.AdicionarJogo(jogo);
+
+            if (utilDAO.IdJogoExiste(jogo.IdJogo))
+            {
+                AtualizacaoJogos form = new AtualizacaoJogos();
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Erro ao buscar registro: Código identificador inexistente.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void IntanciarId(Jogo jogo)
+        {
+            jogo.IdJogo = textIdJogo.Text;
         }
     }
 }

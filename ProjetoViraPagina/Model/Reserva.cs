@@ -8,13 +8,13 @@ namespace Projeto_ViraPagina.Model
 {
     public class Reserva
     {
-        public uint Id { get; set; } // INT UNSIGNED -> uint
-        public int IdUsuario { get; set; } // Não pode ser nulo
-        public string IdMaterialImpresso { get; set; } // Não pode ser nulo
-        public DateTime DataReserva { get; set; }
-        public DateTime DataDisponibilidade { get; set; }
-        public bool Resgatado { get; set; }
-        public TimeSpan TempoReserva { get; set; } // Pode representar um período
+        public string? Id { get; set; } // INT UNSIGNED -> uint
+        public string? IdUsuario { get; set; } // Não pode ser nulo
+        public string? IdMaterialImpresso { get; set; } // Não pode ser nulo
+        public string? DataReserva { get; set; }
+        public string? DataDisponibilidade { get; set; }
+        public bool? Resgatado { get; set; }
+        public string? TempoReserva { get; set; } // Pode representar um período
 
         public static List<Reserva> ListaReserva = new List<Reserva>();
 
