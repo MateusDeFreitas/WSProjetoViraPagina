@@ -30,8 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AtualizacaoMidia));
             panelLivro = new Panel();
+            pictureBox1 = new PictureBox();
             labelAtualizacaoMidia = new Label();
-            btnCadastrar = new Button();
+            btnAtualizar = new Button();
             btnCancelar = new Button();
             panel7 = new Panel();
             textGeneroMidia = new TextBox();
@@ -52,9 +53,8 @@
             textTitulo = new TextBox();
             labelTitulo = new Label();
             panel5 = new Panel();
-            textIdMidia = new TextBox();
             labelCodMidia = new Label();
-            pictureBox1 = new PictureBox();
+            textIdMidia = new Label();
             panelLivro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -68,6 +68,17 @@
             panelLivro.Size = new Size(42, 472);
             panelLivro.TabIndex = 21;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(1, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(39, 39);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 7;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // labelAtualizacaoMidia
             // 
             labelAtualizacaoMidia.AutoSize = true;
@@ -79,17 +90,18 @@
             labelAtualizacaoMidia.TabIndex = 111;
             labelAtualizacaoMidia.Text = "Atualizaçao de mídia";
             // 
-            // btnCadastrar
+            // btnAtualizar
             // 
-            btnCadastrar.BackColor = Color.DarkRed;
-            btnCadastrar.Font = new Font("Segoe UI", 12F);
-            btnCadastrar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnCadastrar.Location = new Point(603, 393);
-            btnCadastrar.Name = "btnCadastrar";
-            btnCadastrar.Size = new Size(128, 35);
-            btnCadastrar.TabIndex = 202;
-            btnCadastrar.Text = "Cadastrar";
-            btnCadastrar.UseVisualStyleBackColor = false;
+            btnAtualizar.BackColor = Color.DarkRed;
+            btnAtualizar.Font = new Font("Segoe UI", 12F);
+            btnAtualizar.ForeColor = Color.FromArgb(250, 243, 224);
+            btnAtualizar.Location = new Point(603, 393);
+            btnAtualizar.Name = "btnAtualizar";
+            btnAtualizar.Size = new Size(128, 35);
+            btnAtualizar.TabIndex = 202;
+            btnAtualizar.Text = "Atualizar";
+            btnAtualizar.UseVisualStyleBackColor = false;
+            btnAtualizar.Click += btnAtualizar_Click;
             // 
             // btnCancelar
             // 
@@ -292,17 +304,6 @@
             panel5.Size = new Size(270, 4);
             panel5.TabIndex = 182;
             // 
-            // textIdMidia
-            // 
-            textIdMidia.BackColor = Color.FromArgb(250, 243, 224);
-            textIdMidia.BorderStyle = BorderStyle.None;
-            textIdMidia.Font = new Font("Arial Narrow", 12F);
-            textIdMidia.ForeColor = Color.FromArgb(130, 119, 106);
-            textIdMidia.Location = new Point(96, 130);
-            textIdMidia.Name = "textIdMidia";
-            textIdMidia.Size = new Size(257, 19);
-            textIdMidia.TabIndex = 181;
-            // 
             // labelCodMidia
             // 
             labelCodMidia.AutoSize = true;
@@ -314,16 +315,16 @@
             labelCodMidia.TabIndex = 180;
             labelCodMidia.Text = "Código";
             // 
-            // pictureBox1
+            // textIdMidia
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(1, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(39, 39);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 7;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            textIdMidia.AutoSize = true;
+            textIdMidia.Font = new Font("Arial Narrow", 12F);
+            textIdMidia.ForeColor = Color.FromArgb(130, 119, 106);
+            textIdMidia.Location = new Point(98, 129);
+            textIdMidia.Name = "textIdMidia";
+            textIdMidia.Size = new Size(13, 20);
+            textIdMidia.TabIndex = 203;
+            textIdMidia.Text = " ";
             // 
             // AtualizacaoMidia
             // 
@@ -331,7 +332,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(250, 243, 224);
             ClientSize = new Size(800, 450);
-            Controls.Add(btnCadastrar);
+            Controls.Add(textIdMidia);
+            Controls.Add(btnAtualizar);
             Controls.Add(btnCancelar);
             Controls.Add(panel7);
             Controls.Add(textGeneroMidia);
@@ -352,12 +354,12 @@
             Controls.Add(textTitulo);
             Controls.Add(labelTitulo);
             Controls.Add(panel5);
-            Controls.Add(textIdMidia);
             Controls.Add(labelCodMidia);
             Controls.Add(labelAtualizacaoMidia);
             Controls.Add(panelLivro);
             Name = "AtualizacaoMidia";
             Text = "AtualizacaoMidia";
+            Load += AtualizacaoMidia_Load;
             panelLivro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -368,7 +370,7 @@
 
         private Panel panelLivro;
         private Label labelAtualizacaoMidia;
-        private Button btnCadastrar;
+        private Button btnAtualizar;
         private Button btnCancelar;
         private Panel panel7;
         private TextBox textGeneroMidia;
@@ -389,8 +391,8 @@
         private TextBox textTitulo;
         private Label labelTitulo;
         private Panel panel5;
-        private TextBox textIdMidia;
         private Label labelCodMidia;
         private PictureBox pictureBox1;
+        private Label textIdMidia;
     }
 }

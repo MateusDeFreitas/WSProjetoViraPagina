@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Projeto_ViraPagina.DAO;
+using Projeto_ViraPagina.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,6 +37,38 @@ namespace Projeto_ViraPagina.View
             Principal form = new Principal();
             form.Show();
             this.Hide();
+        }
+
+        private void brnEditar_Click(object sender, EventArgs e)
+        {
+            if (textIdMidia.Text == "")
+            {
+                MessageBox.Show("Insira um valor no campo código.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                Midia midia = new Midia();
+                UtilDAO utilDAO = new UtilDAO();
+
+                InstanciarId(midia);
+                Midia.AdicionarMidia(midia);
+
+                if (utilDAO.IdMidiaExiste(midia.IdMidia))
+                {
+                    AtualizacaoMidia form = new AtualizacaoMidia();
+                    form.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao buscar registro: Código identificador inexistente.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void InstanciarId (Midia midia)
+        {
+            midia.IdMidia = textIdMidia.Text;
         }
     }
 }

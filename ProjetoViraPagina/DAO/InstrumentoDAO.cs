@@ -42,5 +42,45 @@ namespace Projeto_ViraPagina.DAO
                 return false;
             }
         }
+
+        public Instrumento LerInstrumento(string id)
+        {
+            Instrumento instrumento = new Instrumento();
+            UtilDAO utilDAO = new UtilDAO();
+
+            bool redistroExistente = utilDAO.IdInstrumentoExiste(id);
+
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                if (redistroExistente)
+                {
+                    string query = "SELECT * FROM instrumento WHERE idInstrumento = @id";
+
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+
+                        // Obtém a senha armazenada no banco
+                        using (MySqlDataReader resultado = cmd.ExecuteReader())
+                        {
+                            if (resultado.Read())
+                            {
+                                instrumento.IdInstrumento = resultado["idInstrumento"].ToString();
+                                instrumento.Categoria = resultado["categoria"].ToString();
+                                instrumento.Marca = resultado["marca"].ToString(); ;
+                                instrumento.Modelo = resultado["modelo"].ToString();
+                                instrumento.NumeroSerie = resultado["numeroSerie"].ToString();
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Instrumento inexistente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            return instrumento;
+        }
     }
 }

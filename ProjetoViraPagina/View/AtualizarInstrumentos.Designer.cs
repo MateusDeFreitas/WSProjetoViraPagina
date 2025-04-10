@@ -48,7 +48,7 @@
             labelAtualizacaoInstrumentos = new Label();
             panelLivro = new Panel();
             pictureBox1 = new PictureBox();
-            textCodigo = new Label();
+            textIdInstrumento = new Label();
             panelLivro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -247,16 +247,16 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
-            // textCodigo
+            // textIdInstrumento
             // 
-            textCodigo.AutoSize = true;
-            textCodigo.Font = new Font("Arial Narrow", 12F);
-            textCodigo.ForeColor = Color.FromArgb(130, 119, 106);
-            textCodigo.Location = new Point(71, 120);
-            textCodigo.Name = "textCodigo";
-            textCodigo.Size = new Size(13, 20);
-            textCodigo.TabIndex = 182;
-            textCodigo.Text = " ";
+            textIdInstrumento.AutoSize = true;
+            textIdInstrumento.Font = new Font("Arial Narrow", 12F);
+            textIdInstrumento.ForeColor = Color.FromArgb(130, 119, 106);
+            textIdInstrumento.Location = new Point(71, 120);
+            textIdInstrumento.Name = "textIdInstrumento";
+            textIdInstrumento.Size = new Size(13, 20);
+            textIdInstrumento.TabIndex = 182;
+            textIdInstrumento.Text = " ";
             // 
             // AtualizarInstrumentos
             // 
@@ -264,7 +264,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(250, 243, 224);
             ClientSize = new Size(800, 450);
-            Controls.Add(textCodigo);
+            Controls.Add(textIdInstrumento);
             Controls.Add(btnAtualizar);
             Controls.Add(btnCancelar);
             Controls.Add(panel7);
@@ -285,6 +285,7 @@
             Controls.Add(panelLivro);
             Name = "AtualizarInstrumentos";
             Text = "AtualizarInstrumentos";
+            Load += AtualizarInstrumentos_Load_1;
             panelLivro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -311,7 +312,7 @@
         private Label labelIdJogo;
         private Label labelAtualizacaoInstrumentos;
         private Panel panelLivro;
-        private Label textCodigo;
+        private Label textIdInstrumento;
         private PictureBox pictureBox1;
     }
 }

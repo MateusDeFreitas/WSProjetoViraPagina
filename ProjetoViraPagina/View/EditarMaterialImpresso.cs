@@ -34,22 +34,29 @@ namespace Projeto_ViraPagina.View
 
         private void brnEditar_Click(object sender, EventArgs e)
         {
-            MaterialImpresso mi = new MaterialImpresso();
-            UtilDAO utilDAO = new UtilDAO();
-
-            IntanciarId(mi);
-
-            MaterialImpresso.AdicionarMaterialImpresso(mi);
-
-            if (utilDAO.idMaterialImpressoExiste(mi.Id))
+            if (textId.Text == "")
             {
-                AtualizacaoMaterialImpresso form = new AtualizacaoMaterialImpresso();
-                form.Show();
-                this.Hide();
+                MessageBox.Show("Insira um valor no campo código", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
-                MessageBox.Show("Erro ao buscar registro: Código identificador inexistente.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MaterialImpresso mi = new MaterialImpresso();
+                UtilDAO utilDAO = new UtilDAO();
+
+                IntanciarId(mi);
+
+                MaterialImpresso.AdicionarMaterialImpresso(mi);
+
+                if (utilDAO.idMaterialImpressoExiste(mi.Id))
+                {
+                    AtualizacaoMaterialImpresso form = new AtualizacaoMaterialImpresso();
+                    form.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao buscar registro: Código identificador inexistente.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
         }
 

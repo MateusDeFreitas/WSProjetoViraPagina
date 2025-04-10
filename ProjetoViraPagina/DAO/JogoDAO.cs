@@ -13,6 +13,7 @@ namespace Projeto_ViraPagina.DAO
     class JogoDAO
     {
         private string connectionString = "Server=localhost;Database=bd_virapagina;Uid=root;Pwd=";
+
         public bool AdicionarJogoNoBanco(Jogo jogo)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))

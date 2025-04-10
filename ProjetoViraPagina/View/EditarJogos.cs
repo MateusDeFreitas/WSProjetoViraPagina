@@ -41,26 +41,33 @@ namespace Projeto_ViraPagina.View
 
         private void brnEditar_Click(object sender, EventArgs e)
         {
-            Jogo jogo = new Jogo();
-            UtilDAO utilDAO = new UtilDAO();
-
-            IntanciarId(jogo);
-
-            Jogo.AdicionarJogo(jogo);
-
-            if (utilDAO.IdJogoExiste(jogo.IdJogo))
+            if (textIdJogo.Text == "")
             {
-                AtualizacaoJogos form = new AtualizacaoJogos();
-                form.Show();
-                this.Hide();
+                MessageBox.Show("Insira um valor no campo código", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
-                MessageBox.Show("Erro ao buscar registro: Código identificador inexistente.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                Jogo jogo = new Jogo();
+                UtilDAO utilDAO = new UtilDAO();
+
+                InstanciarId(jogo);
+
+                Jogo.AdicionarJogo(jogo);
+
+                if (utilDAO.IdJogoExiste(jogo.IdJogo))
+                {
+                    AtualizacaoJogos form = new AtualizacaoJogos();
+                    form.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao buscar registro: Código identificador inexistente.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
         }
 
-        private void IntanciarId(Jogo jogo)
+        private void InstanciarId(Jogo jogo)
         {
             jogo.IdJogo = textIdJogo.Text;
         }

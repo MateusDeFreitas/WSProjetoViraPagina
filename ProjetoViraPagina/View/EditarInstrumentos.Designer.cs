@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditarInstrumentos));
             panel5 = new Panel();
-            textIdJogo = new TextBox();
+            textIdInstrumento = new TextBox();
             labelIdJogo = new Label();
             labelAcervos = new Label();
             panelLivro = new Panel();
+            pictureBox1 = new PictureBox();
             brnEditar = new Button();
             btnVoltar = new Button();
             pictureBox2 = new PictureBox();
-            pictureBox1 = new PictureBox();
             panelLivro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panel5
@@ -51,16 +51,16 @@
             panel5.Size = new Size(270, 4);
             panel5.TabIndex = 139;
             // 
-            // textIdJogo
+            // textIdInstrumento
             // 
-            textIdJogo.BackColor = Color.FromArgb(250, 243, 224);
-            textIdJogo.BorderStyle = BorderStyle.None;
-            textIdJogo.Font = new Font("Arial Narrow", 12F);
-            textIdJogo.ForeColor = Color.FromArgb(130, 119, 106);
-            textIdJogo.Location = new Point(274, 190);
-            textIdJogo.Name = "textIdJogo";
-            textIdJogo.Size = new Size(257, 19);
-            textIdJogo.TabIndex = 138;
+            textIdInstrumento.BackColor = Color.FromArgb(250, 243, 224);
+            textIdInstrumento.BorderStyle = BorderStyle.None;
+            textIdInstrumento.Font = new Font("Arial Narrow", 12F);
+            textIdInstrumento.ForeColor = Color.FromArgb(130, 119, 106);
+            textIdInstrumento.Location = new Point(274, 190);
+            textIdInstrumento.Name = "textIdInstrumento";
+            textIdInstrumento.Size = new Size(257, 19);
+            textIdInstrumento.TabIndex = 138;
             // 
             // labelIdJogo
             // 
@@ -93,6 +93,17 @@
             panelLivro.Size = new Size(42, 468);
             panelLivro.TabIndex = 134;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(2, 21);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(39, 39);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 172;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click_1;
+            // 
             // brnEditar
             // 
             brnEditar.BackColor = Color.DarkRed;
@@ -104,6 +115,7 @@
             brnEditar.TabIndex = 159;
             brnEditar.Text = "Editar";
             brnEditar.UseVisualStyleBackColor = false;
+            brnEditar.Click += brnEditar_Click;
             // 
             // btnVoltar
             // 
@@ -128,17 +140,6 @@
             pictureBox2.TabIndex = 160;
             pictureBox2.TabStop = false;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, 21);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(39, 39);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 172;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click_1;
-            // 
             // EditarInstrumentos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -148,7 +149,7 @@
             Controls.Add(brnEditar);
             Controls.Add(btnVoltar);
             Controls.Add(panel5);
-            Controls.Add(textIdJogo);
+            Controls.Add(textIdInstrumento);
             Controls.Add(labelIdJogo);
             Controls.Add(labelAcervos);
             Controls.Add(panelLivro);
@@ -156,15 +157,15 @@
             Name = "EditarInstrumentos";
             Text = "AtualizacaoInstrumentosP0";
             panelLivro.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
         private Panel panel5;
-        private TextBox textIdJogo;
+        private TextBox textIdInstrumento;
         private Label labelIdJogo;
         private Label labelAcervos;
         private Panel panelLivro;

@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditarMidia));
             panel5 = new Panel();
-            textIdJogo = new TextBox();
+            textIdMidia = new TextBox();
             labelIdJogo = new Label();
             labelAcervos = new Label();
             panelLivro = new Panel();
@@ -51,16 +51,16 @@
             panel5.Size = new Size(270, 4);
             panel5.TabIndex = 131;
             // 
-            // textIdJogo
+            // textIdMidia
             // 
-            textIdJogo.BackColor = Color.FromArgb(250, 243, 224);
-            textIdJogo.BorderStyle = BorderStyle.None;
-            textIdJogo.Font = new Font("Arial Narrow", 12F);
-            textIdJogo.ForeColor = Color.FromArgb(130, 119, 106);
-            textIdJogo.Location = new Point(277, 191);
-            textIdJogo.Name = "textIdJogo";
-            textIdJogo.Size = new Size(257, 19);
-            textIdJogo.TabIndex = 130;
+            textIdMidia.BackColor = Color.FromArgb(250, 243, 224);
+            textIdMidia.BorderStyle = BorderStyle.None;
+            textIdMidia.Font = new Font("Arial Narrow", 12F);
+            textIdMidia.ForeColor = Color.FromArgb(130, 119, 106);
+            textIdMidia.Location = new Point(277, 191);
+            textIdMidia.Name = "textIdMidia";
+            textIdMidia.Size = new Size(257, 19);
+            textIdMidia.TabIndex = 130;
             // 
             // labelIdJogo
             // 
@@ -115,6 +115,7 @@
             brnEditar.TabIndex = 159;
             brnEditar.Text = "Editar";
             brnEditar.UseVisualStyleBackColor = false;
+            brnEditar.Click += brnEditar_Click;
             // 
             // btnVoltar
             // 
@@ -148,7 +149,7 @@
             Controls.Add(brnEditar);
             Controls.Add(btnVoltar);
             Controls.Add(panel5);
-            Controls.Add(textIdJogo);
+            Controls.Add(textIdMidia);
             Controls.Add(labelIdJogo);
             Controls.Add(labelAcervos);
             Controls.Add(panelLivro);
@@ -164,7 +165,7 @@
 
         #endregion
         private Panel panel5;
-        private TextBox textIdJogo;
+        private TextBox textIdMidia;
         private Label labelIdJogo;
         private Label labelAcervos;
         private Panel panelLivro;

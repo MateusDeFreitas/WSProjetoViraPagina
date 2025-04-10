@@ -44,5 +44,83 @@ namespace Projeto_ViraPagina.DAO
                 return false;
             }
         }
+
+        public Midia lerMidia(string id)
+        {
+            Midia midia = new Midia();
+            UtilDAO utilDAO = new UtilDAO();
+
+            bool redistroExistente = utilDAO.IdMidiaExiste(id);
+
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                if (redistroExistente)
+                {
+                    string query = "SELECT * FROM midia WHERE idMidia = @id";
+
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+
+                        // Obtém a senha armazenada no banco
+                        using (MySqlDataReader resultado = cmd.ExecuteReader())
+                        {
+                            if (resultado.Read())
+                            {
+                                midia.IdMidia = resultado["idMidia"].ToString();
+                                midia.Titulo = resultado["titulo"].ToString();
+                                midia.Diretor = resultado["diretor"].ToString();
+                                midia.Genero = resultado["genero"].ToString();
+                                midia.AnoLancamento = resultado["anoLancamento"].ToString();
+                                midia.Produtora = resultado["produtora"].ToString();
+                                midia.Tipo = resultado["tipo"].ToString();
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Midia inesistente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            return midia;
+        }
+
+        public bool AtualizarMidiaNoBanco(Midia midia)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("atualizarMidia", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_idMidia", midia.IdMidia);
+                        cmd.Parameters.AddWithValue("@p_titulo", midia.Titulo);
+                        cmd.Parameters.AddWithValue("@p_diretor", midia.Diretor);
+                        cmd.Parameters.AddWithValue("@p_genero", midia.Genero);
+                        cmd.Parameters.AddWithValue("@p_anoLancamento", midia.AnoLancamento);
+                        cmd.Parameters.AddWithValue("@p_produtora", midia.Produtora);
+                        cmd.Parameters.AddWithValue("@p_tipo", midia.Tipo);
+
+
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Registro atualizado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        return true;
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                return false;
+            }
+        }
     }
 }
