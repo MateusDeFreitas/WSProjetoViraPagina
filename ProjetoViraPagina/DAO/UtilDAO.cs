@@ -23,7 +23,7 @@ namespace Projeto_ViraPagina.DAO
                     {
                         cmd.Parameters.AddWithValue("@id", id);
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
-                        return (count > 0); // Se existir algum registro com esse email
+                        return (count > 0); 
                     }
                 }
                 catch (Exception ex)
@@ -46,7 +46,7 @@ namespace Projeto_ViraPagina.DAO
                     {
                         cmd.Parameters.AddWithValue("@id", id);
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
-                        return (count > 0); // Se existir algum registro com esse email
+                        return (count > 0); 
                     }
                 }
                 catch (Exception ex)
@@ -69,7 +69,7 @@ namespace Projeto_ViraPagina.DAO
                     {
                         cmd.Parameters.AddWithValue("@id", id);
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
-                        return (count > 0); // Se existir algum registro com esse email
+                        return (count > 0); 
                     }
                 }
                 catch (Exception ex)
@@ -92,7 +92,7 @@ namespace Projeto_ViraPagina.DAO
                     {
                         cmd.Parameters.AddWithValue("@id", id);
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
-                        return (count > 0); // Se existir algum registro com esse email
+                        return (count > 0); 
                     }
                 }
                 catch (Exception ex)
@@ -115,7 +115,7 @@ namespace Projeto_ViraPagina.DAO
                     {
                         cmd.Parameters.AddWithValue("@id", id);
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
-                        return (count > 0); // Se existir algum registro com esse email
+                        return (count > 0); 
                     }
                 }
                 catch (Exception ex)
@@ -138,7 +138,7 @@ namespace Projeto_ViraPagina.DAO
                     {
                         cmd.Parameters.AddWithValue("@id", id);
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
-                        return (count > 0); // Se existir algum registro com esse email
+                        return (count > 0); 
                     }
                 }
                 catch (Exception ex)
@@ -149,33 +149,7 @@ namespace Projeto_ViraPagina.DAO
             }
         }
 
-        public bool idMaterialImpressoExiste(string id)
-        {
-            bool redistroExistente = false;
-
-            using (MySqlConnection con = new MySqlConnection(connectionString))
-            {
-                try
-                {
-                    con.Open();
-                    string query1 = "SELECT COUNT(*) FROM materialimpresso WHERE id = @id";
-                    using (MySqlCommand cmd = new MySqlCommand(query1, con))
-                    {
-                        cmd.Parameters.AddWithValue("@id", id);
-                        int count = Convert.ToInt32(cmd.ExecuteScalar());
-                        redistroExistente = (count > 0); // Se existir algum registro com esse email
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao buscar registro: " + ex.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-
-                return redistroExistente;
-            }
-        }
-
-        public bool idPenalidadeExiste(string id)
+        public bool IdPenalidadeExiste(string id)
         {
             bool redistroExistente = false;
 
@@ -189,7 +163,7 @@ namespace Projeto_ViraPagina.DAO
                     {
                         cmd.Parameters.AddWithValue("@id", id);
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
-                        redistroExistente = (count > 0); // Se existir algum registro com esse email
+                        redistroExistente = (count > 0); 
                     }
                 }
                 catch (Exception ex)
@@ -200,5 +174,54 @@ namespace Projeto_ViraPagina.DAO
                 return redistroExistente;
             }
         }
+
+        public bool NumeroDeSerieExiste(string numeroSerie)
+        {
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    con.Open();
+                    string query1 = "SELECT COUNT(1) FROM instrumento WHERE numeroSerie = @numeroSerie";
+                    using (MySqlCommand cmd = new MySqlCommand(query1, con))
+                    {
+                        cmd.Parameters.AddWithValue("@numeroSerie", numeroSerie);
+                        int count = Convert.ToInt32(cmd.ExecuteScalar());
+                        return (count > 0); 
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Erro ao buscar identificdor: " + ex.Message);
+                }
+                return false;
+            }
+        }
+
+        //public bool idMaterialImpressoExiste(string id)
+        //{
+        //    bool redistroExistente = false;
+
+        //    using (MySqlConnection con = new MySqlConnection(connectionString))
+        //    {
+        //        try
+        //        {
+        //            con.Open();
+        //            string query1 = "SELECT COUNT(*) FROM materialimpresso WHERE id = @id";
+        //            using (MySqlCommand cmd = new MySqlCommand(query1, con))
+        //            {
+        //                cmd.Parameters.AddWithValue("@id", id);
+        //                int count = Convert.ToInt32(cmd.ExecuteScalar());
+        //                redistroExistente = (count > 0); // Se existir algum registro com esse email
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show("Erro ao buscar registro: " + ex.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        //        }
+
+        //        return redistroExistente;
+        //    }
+        //}
     }
 }

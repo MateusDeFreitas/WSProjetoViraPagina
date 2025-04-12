@@ -79,6 +79,7 @@
             btnVerificar.TabIndex = 37;
             btnVerificar.Text = "Visualizar penalidades";
             btnVerificar.UseVisualStyleBackColor = false;
+            btnVerificar.Click += btnVerificar_Click;
             // 
             // btnCriar
             // 

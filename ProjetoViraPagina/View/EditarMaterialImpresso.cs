@@ -47,7 +47,7 @@ namespace Projeto_ViraPagina.View
 
                 MaterialImpresso.AdicionarMaterialImpresso(mi);
 
-                if (utilDAO.idMaterialImpressoExiste(mi.Id))
+                if (utilDAO.IdMaterialImpressoExiste(mi.Id))
                 {
                     AtualizacaoMaterialImpresso form = new AtualizacaoMaterialImpresso();
                     form.Show();

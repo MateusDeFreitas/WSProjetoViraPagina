@@ -156,6 +156,7 @@
             btnVerificar.TabIndex = 27;
             btnVerificar.Text = "Verificar um jogo";
             btnVerificar.UseVisualStyleBackColor = false;
+            btnVerificar.Click += btnVerificar_Click;
             // 
             // btnDeletar
             // 

@@ -46,7 +46,7 @@ namespace Projeto_ViraPagina.View
 
         private void btnVerificar_Click(object sender, EventArgs e)
         {
-            VisualizacaoLivroUnico form = new VisualizacaoLivroUnico();
+            VisualizacaoMaterialImpresso form = new VisualizacaoMaterialImpresso();
             form.Show();
             this.Hide();
         }

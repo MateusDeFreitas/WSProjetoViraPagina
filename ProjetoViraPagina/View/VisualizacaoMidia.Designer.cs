@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualizacaoMidia));
             panelLivro = new Panel();
-            pictureBox1 = new PictureBox();
-            labelAtualizacaoInstrumentos = new Label();
+            labelVisualizacaoMidia = new Label();
             panel5 = new Panel();
-            textVisualizacaoMidia = new TextBox();
+            texPesquisarVisualizacaoMidia = new TextBox();
             btnVoltar = new Button();
             dgvVisualizacaoMidia = new DataGridView();
             Codigo = new DataGridViewTextBoxColumn();
@@ -40,65 +40,57 @@
             Diretor = new DataGridViewTextBoxColumn();
             Genero = new DataGridViewTextBoxColumn();
             AnoLancamento = new DataGridViewTextBoxColumn();
+            pictureBox1 = new PictureBox();
             panelLivro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvVisualizacaoMidia).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panelLivro
             // 
             panelLivro.BackColor = Color.DarkRed;
             panelLivro.Controls.Add(pictureBox1);
-            panelLivro.Location = new Point(-1, -11);
+            panelLivro.Location = new Point(-1, -4);
             panelLivro.Name = "panelLivro";
             panelLivro.Size = new Size(42, 472);
             panelLivro.TabIndex = 158;
             // 
-            // pictureBox1
+            // labelVisualizacaoMidia
             // 
-            pictureBox1.Location = new Point(2, 8);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(39, 39);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 157;
-            pictureBox1.TabStop = false;
-            // 
-            // labelAtualizacaoInstrumentos
-            // 
-            labelAtualizacaoInstrumentos.AutoSize = true;
-            labelAtualizacaoInstrumentos.Font = new Font("Arial Narrow", 20F);
-            labelAtualizacaoInstrumentos.ForeColor = Color.DarkRed;
-            labelAtualizacaoInstrumentos.Location = new Point(285, 9);
-            labelAtualizacaoInstrumentos.Name = "labelAtualizacaoInstrumentos";
-            labelAtualizacaoInstrumentos.Size = new Size(226, 31);
-            labelAtualizacaoInstrumentos.TabIndex = 159;
-            labelAtualizacaoInstrumentos.Text = "Visualização de mídia";
+            labelVisualizacaoMidia.AutoSize = true;
+            labelVisualizacaoMidia.Font = new Font("Arial Narrow", 20F);
+            labelVisualizacaoMidia.ForeColor = Color.DarkRed;
+            labelVisualizacaoMidia.Location = new Point(283, 16);
+            labelVisualizacaoMidia.Name = "labelVisualizacaoMidia";
+            labelVisualizacaoMidia.Size = new Size(237, 31);
+            labelVisualizacaoMidia.TabIndex = 159;
+            labelVisualizacaoMidia.Text = "Visualização de mídias";
             // 
             // panel5
             // 
             panel5.BackColor = Color.DarkRed;
-            panel5.Location = new Point(211, 95);
+            panel5.Location = new Point(211, 102);
             panel5.Name = "panel5";
             panel5.Size = new Size(382, 4);
             panel5.TabIndex = 164;
             // 
-            // textVisualizacaoMidia
+            // texPesquisarVisualizacaoMidia
             // 
-            textVisualizacaoMidia.BackColor = Color.FromArgb(250, 243, 224);
-            textVisualizacaoMidia.BorderStyle = BorderStyle.None;
-            textVisualizacaoMidia.Font = new Font("Arial Narrow", 12F);
-            textVisualizacaoMidia.ForeColor = Color.FromArgb(130, 119, 106);
-            textVisualizacaoMidia.Location = new Point(206, 70);
-            textVisualizacaoMidia.Name = "textVisualizacaoMidia";
-            textVisualizacaoMidia.Size = new Size(386, 19);
-            textVisualizacaoMidia.TabIndex = 163;
+            texPesquisarVisualizacaoMidia.BackColor = Color.FromArgb(250, 243, 224);
+            texPesquisarVisualizacaoMidia.BorderStyle = BorderStyle.None;
+            texPesquisarVisualizacaoMidia.Font = new Font("Arial Narrow", 12F);
+            texPesquisarVisualizacaoMidia.ForeColor = Color.FromArgb(130, 119, 106);
+            texPesquisarVisualizacaoMidia.Location = new Point(206, 77);
+            texPesquisarVisualizacaoMidia.Name = "texPesquisarVisualizacaoMidia";
+            texPesquisarVisualizacaoMidia.Size = new Size(386, 19);
+            texPesquisarVisualizacaoMidia.TabIndex = 163;
             // 
             // btnVoltar
             // 
             btnVoltar.BackColor = Color.DarkRed;
             btnVoltar.Font = new Font("Segoe UI", 12F);
             btnVoltar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnVoltar.Location = new Point(351, 394);
+            btnVoltar.Location = new Point(351, 401);
             btnVoltar.Name = "btnVoltar";
             btnVoltar.Size = new Size(128, 35);
             btnVoltar.TabIndex = 182;
@@ -110,7 +102,7 @@
             dgvVisualizacaoMidia.BackgroundColor = Color.FromArgb(250, 243, 224);
             dgvVisualizacaoMidia.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvVisualizacaoMidia.Columns.AddRange(new DataGridViewColumn[] { Codigo, Título, Diretor, Genero, AnoLancamento });
-            dgvVisualizacaoMidia.Location = new Point(51, 118);
+            dgvVisualizacaoMidia.Location = new Point(51, 125);
             dgvVisualizacaoMidia.Name = "dgvVisualizacaoMidia";
             dgvVisualizacaoMidia.Size = new Size(739, 239);
             dgvVisualizacaoMidia.TabIndex = 183;
@@ -144,9 +136,17 @@
             AnoLancamento.HeaderText = "Ano de lançamento";
             AnoLancamento.Name = "AnoLancamento";
             AnoLancamento.Width = 145;
-
-            dgvVisualizacaoMidia.Rows.Add("MD001", "O Senhor dos Anéis", "Peter Jackson", "Fantasia", "2001");
-            dgvVisualizacaoMidia.Rows.Add("MD002", "Matrix", "Lana Wachowski", "Ficção Científica", "1999");
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(2, 20);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(39, 39);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // VisualizacaoMidia
             // 
@@ -157,15 +157,15 @@
             Controls.Add(dgvVisualizacaoMidia);
             Controls.Add(btnVoltar);
             Controls.Add(panel5);
-            Controls.Add(textVisualizacaoMidia);
-            Controls.Add(labelAtualizacaoInstrumentos);
+            Controls.Add(texPesquisarVisualizacaoMidia);
+            Controls.Add(labelVisualizacaoMidia);
             Controls.Add(panelLivro);
             Name = "VisualizacaoMidia";
             Text = "VisualizacaoMidia";
             Load += VisualizacaoMidia_Load;
             panelLivro.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvVisualizacaoMidia).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -173,10 +173,9 @@
         #endregion
 
         private Panel panelLivro;
-        private PictureBox pictureBox1;
-        private Label labelAtualizacaoInstrumentos;
+        private Label labelVisualizacaoMidia;
         private Panel panel5;
-        private TextBox textVisualizacaoMidia;
+        private TextBox texPesquisarVisualizacaoMidia;
         private Button btnVoltar;
         private DataGridView dgvVisualizacaoMidia;
         private DataGridViewTextBoxColumn Codigo;
@@ -184,5 +183,6 @@
         private DataGridViewTextBoxColumn Diretor;
         private DataGridViewTextBoxColumn Genero;
         private DataGridViewTextBoxColumn AnoLancamento;
+        private PictureBox pictureBox1;
     }
 }

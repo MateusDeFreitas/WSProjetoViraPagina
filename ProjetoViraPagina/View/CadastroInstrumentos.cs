@@ -34,6 +34,8 @@ namespace Projeto_ViraPagina.View
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            UtilDAO utilDAO = new UtilDAO();
+
             if (textCategoria.Text == "")
             {
                 MessageBox.Show("Insirá um valor válido no campo categoria", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -49,6 +51,10 @@ namespace Projeto_ViraPagina.View
             else if (textNumeroSerie.Text == "")
             {
                 MessageBox.Show("Insirá um valor válido no campo número de séire", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (utilDAO.NumeroDeSerieExiste(textNumeroSerie.Text))
+            {
+                MessageBox.Show("Esse número de série já foi registrado.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {

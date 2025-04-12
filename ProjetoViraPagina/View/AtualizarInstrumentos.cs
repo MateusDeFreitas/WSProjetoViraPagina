@@ -66,8 +66,15 @@ namespace Projeto_ViraPagina.View
             this.Hide();
         }
 
-        private void btnAtualizar_Click(object sender, EventArgs e)
+        private void btnAtualizar_Click_1(object sender, EventArgs e)
         {
+            UtilDAO utilDAO = new UtilDAO();
+            Instrumento ultimoItem = Instrumento.ListaInstrumento.Last();
+            Instrumento instrumento = new Instrumento();
+            InstrumentoDAO instrumentoDAO = new InstrumentoDAO();
+
+            
+
             if (textIdInstrumento.Text == "")
             {
                 MessageBox.Show("Insira um valor válido no campo código.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -88,19 +95,20 @@ namespace Projeto_ViraPagina.View
             {
                 MessageBox.Show("Insira um valor válido no campo número série.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+            else if (utilDAO.NumeroDeSerieExiste(textNumeroSerie.Text) && textIdInstrumento.Text != instrumentoDAO.LerInstrumentoPeloNueroDeSerie(textNumeroSerie.Text).IdInstrumento)
+            {
+                MessageBox.Show("Esse número de série já existe.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
             else
             {
-                Instrumento instrumento = new Instrumento();
-                InstrumentoDAO instrumentoDAO = new InstrumentoDAO();
-
                 ExtrairInputs(instrumento);
 
-                //if (instrumentoDAO.AtualizarInstrumentoNoBanco(instrumento))
-                //{
-                //    EditarInstrumentos form = new EditarInstrumentos();
-                //    form.Show();
-                //    this.Hide();
-                //}
+                if (instrumentoDAO.AtualizarInstrumentoNoBanco(instrumento))
+                {
+                    EditarInstrumentos form = new EditarInstrumentos();
+                    form.Show();
+                    this.Hide();
+                }
             }
         }
     }

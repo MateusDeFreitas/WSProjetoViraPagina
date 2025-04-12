@@ -67,7 +67,7 @@ namespace Projeto_ViraPagina.DAO
         {
             MaterialImpresso mi = new MaterialImpresso();
             UtilDAO utilDAO = new UtilDAO();
-            bool redistroExistente = utilDAO.idMaterialImpressoExiste(id);
+            bool redistroExistente = utilDAO.IdMaterialImpressoExiste(id);
 
             using (MySqlConnection con = new MySqlConnection(connectionString))
             {

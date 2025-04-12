@@ -104,6 +104,7 @@
             btnVerificar.TabIndex = 21;
             btnVerificar.Text = "Verificar um instrumento";
             btnVerificar.UseVisualStyleBackColor = false;
+            btnVerificar.Click += btnVerificar_Click;
             // 
             // btnDeletar
             // 

@@ -43,5 +43,12 @@ namespace Projeto_ViraPagina.View
             form.Show();
             this.Hide();
         }
+
+        private void btnVerificar_Click(object sender, EventArgs e)
+        {
+            VisualizacaoPenalidade form = new VisualizacaoPenalidade();
+            form.Show();
+            this.Hide();
+        }
     }
 }

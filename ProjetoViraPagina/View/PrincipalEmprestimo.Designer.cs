@@ -79,6 +79,7 @@
             btnVerificar.TabIndex = 20;
             btnVerificar.Text = "Verificar um empréstimo";
             btnVerificar.UseVisualStyleBackColor = false;
+            btnVerificar.Click += btnVerificar_Click;
             // 
             // btnCriar
             // 

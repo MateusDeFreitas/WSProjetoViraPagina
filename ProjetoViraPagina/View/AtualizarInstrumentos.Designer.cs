@@ -64,6 +64,7 @@
             btnAtualizar.TabIndex = 181;
             btnAtualizar.Text = "Atualizar";
             btnAtualizar.UseVisualStyleBackColor = false;
+            btnAtualizar.Click += btnAtualizar_Click_1;
             // 
             // btnCancelar
             // 

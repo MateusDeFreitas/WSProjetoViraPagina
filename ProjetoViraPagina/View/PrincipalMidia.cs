@@ -53,6 +53,9 @@ namespace Projeto_ViraPagina.View
 
         private void btnVerificar_Click(object sender, EventArgs e)
         {
+            VisualizacaoMidia form = new VisualizacaoMidia();
+            form.Show();
+            this.Hide();
         }
     }
 }

@@ -50,5 +50,12 @@ namespace Projeto_ViraPagina.View
             form.Show();
             this.Hide();
         }
+
+        private void btnVerificar_Click(object sender, EventArgs e)
+        {
+            VisualizacaoInstrumentos form = new VisualizacaoInstrumentos();
+            form.Show();
+            this.Hide();
+        }
     }
 }

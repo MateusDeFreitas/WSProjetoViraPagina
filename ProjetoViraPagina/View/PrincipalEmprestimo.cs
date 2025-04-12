@@ -43,5 +43,12 @@ namespace Projeto_ViraPagina.View
             form.Show();
             this.Hide();
         }
+
+        private void btnVerificar_Click(object sender, EventArgs e)
+        {
+            VisualizacaoEmprestimos form = new VisualizacaoEmprestimos();
+            form.Show();
+            this.Hide();
+        }
     }
 }
