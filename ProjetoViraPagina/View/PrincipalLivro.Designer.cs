@@ -147,6 +147,7 @@
             btnDeletar.TabIndex = 10;
             btnDeletar.Text = "Deletar um MI";
             btnDeletar.UseVisualStyleBackColor = false;
+            btnDeletar.Click += btnDeletar_Click;
             // 
             // btnRelatorios
             // 

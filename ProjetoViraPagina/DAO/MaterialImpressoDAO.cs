@@ -154,5 +154,45 @@ namespace Projeto_ViraPagina.DAO
                 return false;
             }
         }
+
+        public List<MaterialImpresso> BuscarMateriaisImpressos()
+        {
+            List<MaterialImpresso> lista = new List<MaterialImpresso>();
+            MaterialImpresso mi = new MaterialImpresso();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    MySqlCommand cmd = new MySqlCommand("lerMateriaisImpressos", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MaterialImpresso material = new MaterialImpresso()
+                            {
+                                Id = reader["id"].ToString(),
+                                Titulo = reader["titulo"].ToString(),
+                                Autor = reader["autor"].ToString(),
+                                Classe = reader["classe"].ToString(),
+                                Idioma = reader["idioma"].ToString()
+                            };
+
+                            lista.Add(material);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.Message);
+                }
+            }
+
+            return lista;
+        }
     }
 }

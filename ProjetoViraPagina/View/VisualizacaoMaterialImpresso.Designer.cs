@@ -48,11 +48,19 @@
             // 
             // dgvVisualizacaoMaterialImpresso
             // 
+            dgvVisualizacaoMaterialImpresso.AllowUserToAddRows = false;
+            dgvVisualizacaoMaterialImpresso.AllowUserToDeleteRows = false;
+            dgvVisualizacaoMaterialImpresso.AllowUserToResizeColumns = false;
+            dgvVisualizacaoMaterialImpresso.AllowUserToResizeRows = false;
             dgvVisualizacaoMaterialImpresso.BackgroundColor = Color.FromArgb(250, 243, 224);
+            dgvVisualizacaoMaterialImpresso.BorderStyle = BorderStyle.None;
+            dgvVisualizacaoMaterialImpresso.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dgvVisualizacaoMaterialImpresso.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvVisualizacaoMaterialImpresso.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvVisualizacaoMaterialImpresso.Columns.AddRange(new DataGridViewColumn[] { CodigoLivro, Título, Autor, Classe, Idioma });
             dgvVisualizacaoMaterialImpresso.Location = new Point(51, 126);
             dgvVisualizacaoMaterialImpresso.Name = "dgvVisualizacaoMaterialImpresso";
+            dgvVisualizacaoMaterialImpresso.ReadOnly = true;
             dgvVisualizacaoMaterialImpresso.Size = new Size(739, 239);
             dgvVisualizacaoMaterialImpresso.TabIndex = 189;
             // 
@@ -60,30 +68,35 @@
             // 
             CodigoLivro.HeaderText = "Código";
             CodigoLivro.Name = "CodigoLivro";
+            CodigoLivro.ReadOnly = true;
             CodigoLivro.Width = 145;
             // 
             // Título
             // 
             Título.HeaderText = "Título";
             Título.Name = "Título";
+            Título.ReadOnly = true;
             Título.Width = 145;
             // 
             // Autor
             // 
             Autor.HeaderText = "Autor";
             Autor.Name = "Autor";
+            Autor.ReadOnly = true;
             Autor.Width = 145;
             // 
             // Classe
             // 
             Classe.HeaderText = "Classe";
             Classe.Name = "Classe";
+            Classe.ReadOnly = true;
             Classe.Width = 145;
             // 
             // Idioma
             // 
             Idioma.HeaderText = "Idioma";
             Idioma.Name = "Idioma";
+            Idioma.ReadOnly = true;
             Idioma.Width = 145;
             // 
             // btnVoltar

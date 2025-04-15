@@ -57,5 +57,12 @@ namespace Projeto_ViraPagina.View
             form.Show();
             this.Hide();
         }
+
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+            VisualizacaoMaterialImpresso form = new VisualizacaoMaterialImpresso();
+            form.Show();
+            this.Hide();
+        }
     }
 }
