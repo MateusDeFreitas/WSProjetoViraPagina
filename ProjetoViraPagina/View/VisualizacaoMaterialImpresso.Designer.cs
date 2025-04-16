@@ -48,21 +48,56 @@
             // 
             // dgvVisualizacaoMaterialImpresso
             // 
+            dgvVisualizacaoMaterialImpresso.Name = "dgvVisualizacaoMaterialImpresso";
+
             dgvVisualizacaoMaterialImpresso.AllowUserToAddRows = false;
             dgvVisualizacaoMaterialImpresso.AllowUserToDeleteRows = false;
             dgvVisualizacaoMaterialImpresso.AllowUserToResizeColumns = false;
             dgvVisualizacaoMaterialImpresso.AllowUserToResizeRows = false;
-            dgvVisualizacaoMaterialImpresso.BackgroundColor = Color.FromArgb(250, 243, 224);
+            dgvVisualizacaoMaterialImpresso.RowHeadersVisible = false;
+            dgvVisualizacaoMaterialImpresso.EnableHeadersVisualStyles = false;
+            dgvVisualizacaoMaterialImpresso.ReadOnly = true;
+
             dgvVisualizacaoMaterialImpresso.BorderStyle = BorderStyle.None;
             dgvVisualizacaoMaterialImpresso.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dgvVisualizacaoMaterialImpresso.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvVisualizacaoMaterialImpresso.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             dgvVisualizacaoMaterialImpresso.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvVisualizacaoMaterialImpresso.Columns.AddRange(new DataGridViewColumn[] { CodigoLivro, Título, Autor, Classe, Idioma });
+            dgvVisualizacaoMaterialImpresso.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
             dgvVisualizacaoMaterialImpresso.Location = new Point(51, 126);
-            dgvVisualizacaoMaterialImpresso.Name = "dgvVisualizacaoMaterialImpresso";
-            dgvVisualizacaoMaterialImpresso.ReadOnly = true;
             dgvVisualizacaoMaterialImpresso.Size = new Size(739, 239);
             dgvVisualizacaoMaterialImpresso.TabIndex = 189;
+
+            dgvVisualizacaoMaterialImpresso.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+            dgvVisualizacaoMaterialImpresso.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvVisualizacaoMaterialImpresso.ColumnHeadersHeight = 35;
+            dgvVisualizacaoMaterialImpresso.RowTemplate.Height = 40;
+            dgvVisualizacaoMaterialImpresso.DefaultCellStyle.Padding = new Padding(0, 5, 0, 5);
+
+            // cor de fundo da tabela
+            dgvVisualizacaoMaterialImpresso.BackgroundColor = Color.FromArgb(250, 243, 224);
+
+            // cores linha par
+            dgvVisualizacaoMaterialImpresso.RowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#FFFFFF");
+            dgvVisualizacaoMaterialImpresso.RowsDefaultCellStyle.ForeColor = ColorTranslator.FromHtml("#44444E");
+
+            // cores linha impar
+            dgvVisualizacaoMaterialImpresso.AlternatingRowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#ECECEC");
+            dgvVisualizacaoMaterialImpresso.AlternatingRowsDefaultCellStyle.ForeColor = ColorTranslator.FromHtml("#44444E");
+
+            // cores linha selecionada
+            dgvVisualizacaoMaterialImpresso.DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#D3DCE3");
+            dgvVisualizacaoMaterialImpresso.DefaultCellStyle.SelectionForeColor = ColorTranslator.FromHtml("#000000");
+
+            // Estilo do cabeçalho selecionado
+            dgvVisualizacaoMaterialImpresso.ColumnHeadersDefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#dea275");
+            dgvVisualizacaoMaterialImpresso.ColumnHeadersDefaultCellStyle.SelectionForeColor = ColorTranslator.FromHtml("#FFFFFF");
+
+            // cores cabeçalho
+            dgvVisualizacaoMaterialImpresso.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#dea275");
+            dgvVisualizacaoMaterialImpresso.ColumnHeadersDefaultCellStyle.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
+
             // 
             // CodigoLivro
             // 
