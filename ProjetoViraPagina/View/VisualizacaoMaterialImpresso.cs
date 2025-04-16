@@ -24,6 +24,19 @@ namespace Projeto_ViraPagina.View
 
             this.StartPosition = FormStartPosition.CenterScreen;
         }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Principal form = new Principal();
+            form.Show();
+            this.Hide();
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            PrincipalLivro form = new PrincipalLivro();
+            form.Show();
+            this.Hide();
+        }
 
         private void CarregarGrid()
         {
@@ -37,6 +50,7 @@ namespace Projeto_ViraPagina.View
 
             dgvVisualizacaoMaterialImpresso.Columns.Add(new DataGridViewTextBoxColumn()
             {
+                Name = "Codigo",
                 HeaderText = "Código",
                 DataPropertyName = "Id",
                 Width = 100
@@ -73,9 +87,9 @@ namespace Projeto_ViraPagina.View
             DataGridViewImageColumn colunaImagem = new DataGridViewImageColumn();
             colunaImagem.Name = "Excluir";
             colunaImagem.HeaderText = "";
-            colunaImagem.Image = Image.FromFile("ImagemX.png"); // Ou use Resources se for embedado
+            colunaImagem.Image = Image.FromFile("ImagemX.png");
             colunaImagem.Width = 45;
-            colunaImagem.ImageLayout = DataGridViewImageCellLayout.Zoom; // Deixa a imagem ajustada
+            colunaImagem.ImageLayout = DataGridViewImageCellLayout.Zoom;
             dgvVisualizacaoMaterialImpresso.Columns.Add(colunaImagem);
 
             // Vincula os dados
@@ -86,36 +100,28 @@ namespace Projeto_ViraPagina.View
         {
             MaterialImpressoDAO materialImpressoDAO = new MaterialImpressoDAO();
 
-            // Configurações dataGridView
-            this.BackColor = ColorTranslator.FromHtml("#FFF4E3");
-            dgvVisualizacaoMaterialImpresso.BackgroundColor = ColorTranslator.FromHtml("#FFF4E3");
-
             List<MaterialImpresso> materiais = materialImpressoDAO.BuscarMateriaisImpressos();
             CarregarGrid();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void dgvVisualizacaoMaterialImpresso_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            Principal form = new Principal();
-            form.Show();
-            this.Hide();
-        }
-
-        private void ColorirLinhasAlternadas()
-        {
-            for (int i = 0; i < dgvVisualizacaoMaterialImpresso.Rows.Count; i++)
+            if (e.RowIndex >= 0 && dgvVisualizacaoMaterialImpresso.Columns[e.ColumnIndex].Name == "Excluir")
             {
-                if (i % 2 == 0) // Linhas pares (0, 2, 4...) = Bege amarronzado (#A67B5B)
+                // Pega o ID da linha selecionada
+                string idMaterial = dgvVisualizacaoMaterialImpresso.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
+
+                // Confirma exclusão
+                DialogResult result = MessageBox.Show("Deseja excluir este material?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
                 {
-                    dgvVisualizacaoMaterialImpresso.Rows[i].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#A67B5B");
-                }
-                else // Linhas ímpares (1, 3, 5...) = Vermelho escuro (#8B0000)
-                {
-                    dgvVisualizacaoMaterialImpresso.Rows[i].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#8B0000");
-                    dgvVisualizacaoMaterialImpresso.Rows[i].DefaultCellStyle.ForeColor = Color.White; // Texto branco para contraste
+                    MaterialImpressoDAO materialImpressoDAO = new MaterialImpressoDAO();
+                    materialImpressoDAO.ExcluirMaterialImpressoNoBanco(idMaterial);
+
+                    CarregarGrid();
                 }
             }
-
         }
     }
 }

@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualizacaoMaterialImpresso));
             dgvVisualizacaoMaterialImpresso = new DataGridView();
             CodigoLivro = new DataGridViewTextBoxColumn();
@@ -48,56 +52,47 @@
             // 
             // dgvVisualizacaoMaterialImpresso
             // 
-            dgvVisualizacaoMaterialImpresso.Name = "dgvVisualizacaoMaterialImpresso";
-
             dgvVisualizacaoMaterialImpresso.AllowUserToAddRows = false;
-            dgvVisualizacaoMaterialImpresso.AllowUserToDeleteRows = false;
             dgvVisualizacaoMaterialImpresso.AllowUserToResizeColumns = false;
             dgvVisualizacaoMaterialImpresso.AllowUserToResizeRows = false;
-            dgvVisualizacaoMaterialImpresso.RowHeadersVisible = false;
-            dgvVisualizacaoMaterialImpresso.EnableHeadersVisualStyles = false;
-            dgvVisualizacaoMaterialImpresso.ReadOnly = true;
-
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(236, 236, 236);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(68, 68, 78);
+            dgvVisualizacaoMaterialImpresso.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvVisualizacaoMaterialImpresso.BackgroundColor = Color.FromArgb(255, 244, 227);
             dgvVisualizacaoMaterialImpresso.BorderStyle = BorderStyle.None;
             dgvVisualizacaoMaterialImpresso.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dgvVisualizacaoMaterialImpresso.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvVisualizacaoMaterialImpresso.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(222, 162, 117);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(222, 162, 117);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvVisualizacaoMaterialImpresso.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvVisualizacaoMaterialImpresso.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvVisualizacaoMaterialImpresso.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.Padding = new Padding(0, 5, 0, 5);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(211, 220, 227);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(0, 0, 0);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvVisualizacaoMaterialImpresso.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvVisualizacaoMaterialImpresso.EnableHeadersVisualStyles = false;
             dgvVisualizacaoMaterialImpresso.Location = new Point(51, 126);
+            dgvVisualizacaoMaterialImpresso.Name = "dgvVisualizacaoMaterialImpresso";
+            dgvVisualizacaoMaterialImpresso.ReadOnly = true;
+            dgvVisualizacaoMaterialImpresso.RowHeadersVisible = false;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(68, 68, 78);
+            dgvVisualizacaoMaterialImpresso.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dgvVisualizacaoMaterialImpresso.RowTemplate.Height = 40;
+            dgvVisualizacaoMaterialImpresso.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvVisualizacaoMaterialImpresso.Size = new Size(739, 239);
             dgvVisualizacaoMaterialImpresso.TabIndex = 189;
-
-            dgvVisualizacaoMaterialImpresso.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-            dgvVisualizacaoMaterialImpresso.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            dgvVisualizacaoMaterialImpresso.ColumnHeadersHeight = 35;
-            dgvVisualizacaoMaterialImpresso.RowTemplate.Height = 40;
-            dgvVisualizacaoMaterialImpresso.DefaultCellStyle.Padding = new Padding(0, 5, 0, 5);
-
-            // cor de fundo da tabela
-            dgvVisualizacaoMaterialImpresso.BackgroundColor = Color.FromArgb(250, 243, 224);
-
-            // cores linha par
-            dgvVisualizacaoMaterialImpresso.RowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#FFFFFF");
-            dgvVisualizacaoMaterialImpresso.RowsDefaultCellStyle.ForeColor = ColorTranslator.FromHtml("#44444E");
-
-            // cores linha impar
-            dgvVisualizacaoMaterialImpresso.AlternatingRowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#ECECEC");
-            dgvVisualizacaoMaterialImpresso.AlternatingRowsDefaultCellStyle.ForeColor = ColorTranslator.FromHtml("#44444E");
-
-            // cores linha selecionada
-            dgvVisualizacaoMaterialImpresso.DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#D3DCE3");
-            dgvVisualizacaoMaterialImpresso.DefaultCellStyle.SelectionForeColor = ColorTranslator.FromHtml("#000000");
-
-            // Estilo do cabeçalho selecionado
-            dgvVisualizacaoMaterialImpresso.ColumnHeadersDefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#dea275");
-            dgvVisualizacaoMaterialImpresso.ColumnHeadersDefaultCellStyle.SelectionForeColor = ColorTranslator.FromHtml("#FFFFFF");
-
-            // cores cabeçalho
-            dgvVisualizacaoMaterialImpresso.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#dea275");
-            dgvVisualizacaoMaterialImpresso.ColumnHeadersDefaultCellStyle.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
-
+            dgvVisualizacaoMaterialImpresso.CellContentClick += dgvVisualizacaoMaterialImpresso_CellContentClick_1;
             // 
             // CodigoLivro
             // 
@@ -145,6 +140,7 @@
             btnVoltar.TabIndex = 188;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = false;
+            btnVoltar.Click += btnVoltar_Click;
             // 
             // panel5
             // 

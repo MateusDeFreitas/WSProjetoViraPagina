@@ -194,5 +194,34 @@ namespace Projeto_ViraPagina.DAO
 
             return lista;
         }
+
+        public bool ExcluirMaterialImpressoNoBanco(string id)
+        {
+            UtilDAO utilDAO = new UtilDAO();
+            bool redistroExistente = utilDAO.IdMaterialImpressoExiste(id);
+
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                if (redistroExistente)
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("deletarMaterialImpresso", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("p_idMaterial", id);
+
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show($"Material impresso {id} deletado", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Material impresso inesistente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            return false;
+        }
     }
 }
