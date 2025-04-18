@@ -46,12 +46,19 @@ namespace Projeto_ViraPagina.View
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            EditarJogos form = new EditarJogos();
+            VisualizacaoJogos form = new VisualizacaoJogos();
             form.Show();
             this.Hide();
         }
 
         private void btnVerificar_Click(object sender, EventArgs e)
+        {
+            VisualizacaoJogos form = new VisualizacaoJogos();
+            form.Show();
+            this.Hide();
+        }
+
+        private void btnDeletar_Click(object sender, EventArgs e)
         {
             VisualizacaoJogos form = new VisualizacaoJogos();
             form.Show();

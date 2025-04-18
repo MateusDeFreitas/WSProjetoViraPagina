@@ -169,6 +169,7 @@
             btnDeletar.TabIndex = 26;
             btnDeletar.Text = "Deletar um jogo";
             btnDeletar.UseVisualStyleBackColor = false;
+            btnDeletar.Click += btnDeletar_Click;
             // 
             // btnAtualizar
             // 

@@ -86,7 +86,7 @@ namespace Projeto_ViraPagina.View
 
                 if (DAO.AtualizarMaterialImpressoNoBanco(ultimoItem))
                 {
-                    EditarMaterialImpresso form = new EditarMaterialImpresso();
+                    VisualizacaoMaterialImpresso form = new VisualizacaoMaterialImpresso();
                     form.Show();
                     this.Hide();
                 }

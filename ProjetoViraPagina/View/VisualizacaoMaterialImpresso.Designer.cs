@@ -53,6 +53,7 @@
             // dgvVisualizacaoMaterialImpresso
             // 
             dgvVisualizacaoMaterialImpresso.AllowUserToAddRows = false;
+            dgvVisualizacaoMaterialImpresso.AllowUserToDeleteRows = false;
             dgvVisualizacaoMaterialImpresso.AllowUserToResizeColumns = false;
             dgvVisualizacaoMaterialImpresso.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(236, 236, 236);

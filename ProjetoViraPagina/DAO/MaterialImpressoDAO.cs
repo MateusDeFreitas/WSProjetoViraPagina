@@ -158,7 +158,6 @@ namespace Projeto_ViraPagina.DAO
         public List<MaterialImpresso> BuscarMateriaisImpressos()
         {
             List<MaterialImpresso> lista = new List<MaterialImpresso>();
-            MaterialImpresso mi = new MaterialImpresso();
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {

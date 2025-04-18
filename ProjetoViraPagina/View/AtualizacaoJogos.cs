@@ -103,7 +103,7 @@ namespace Projeto_ViraPagina.View
 
                 if (jogoDAO.AtualizarJogoNoBanco(jogo))
                 {
-                    EditarJogos form = new EditarJogos();
+                    VisualizacaoJogos form = new VisualizacaoJogos();
                     form.Show();
                     this.Hide();
                 }

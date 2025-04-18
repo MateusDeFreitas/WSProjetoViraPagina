@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Projeto_ViraPagina.DAO;
+using Projeto_ViraPagina.Model;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -17,61 +19,72 @@ namespace Projeto_ViraPagina.View
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        private void VisualizacaoJogos_Load(object sender, EventArgs e)
+        private void CarregarGrid()
         {
-            // Fundo da tela
-            this.BackColor = ColorTranslator.FromHtml("#FFF4E3");
+            JogoDAO jogoDAO = new JogoDAO();
 
-            // Fundo da tabela
-            dgvVisualizacaoJogos.BackgroundColor = ColorTranslator.FromHtml("#FFF4E3");
+            List<Jogo> jogos = jogoDAO.BuscarJogos();
 
-            // Não permitir adicionar linha manual
-            dgvVisualizacaoJogos.AllowUserToAddRows = false;
+            dgvVisualizacaoJogos.Columns.Clear(); // Limpa colunas anteriores
+            dgvVisualizacaoJogos.DataSource = null;
+            dgvVisualizacaoJogos.AutoGenerateColumns = false;
 
-            // Esconder cabeçalho lateral
-            dgvVisualizacaoJogos.RowHeadersVisible = false;
-
-            // Seleção da linha inteira
-            dgvVisualizacaoJogos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-            // Borda invisível nas células
-            dgvVisualizacaoJogos.CellBorderStyle = DataGridViewCellBorderStyle.None;
-
-            // Fonte das células
-            dgvVisualizacaoJogos.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-
-            // Cor da linha selecionada
-            dgvVisualizacaoJogos.DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#5A0000");
-            dgvVisualizacaoJogos.DefaultCellStyle.SelectionForeColor = Color.White;
-
-            // Cabeçalho estilizado
-            dgvVisualizacaoJogos.EnableHeadersVisualStyles = false;
-            dgvVisualizacaoJogos.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#8B0000");
-            dgvVisualizacaoJogos.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgvVisualizacaoJogos.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            dgvVisualizacaoJogos.ColumnHeadersHeight = 35;
-
-            // Espaçamento entre as linhas (efeito card)
-            dgvVisualizacaoJogos.RowTemplate.Height = 40;
-            dgvVisualizacaoJogos.DefaultCellStyle.Padding = new Padding(0, 5, 0, 5);
-
-            // Cores das linhas
-            dgvVisualizacaoJogos.RowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#A67B5B");
-            dgvVisualizacaoJogos.AlternatingRowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#8B0000");
-            dgvVisualizacaoJogos.AlternatingRowsDefaultCellStyle.ForeColor = Color.White;
-
-            // AutoSize manual para controlar os tamanhos
-            dgvVisualizacaoJogos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-
-            // Se as colunas já existirem, define os tamanhos
-            if (dgvVisualizacaoJogos.Columns.Count >= 5)
+            dgvVisualizacaoJogos.Columns.Add(new DataGridViewTextBoxColumn()
             {
-                dgvVisualizacaoJogos.Columns[0].Width = 60;   // Código
-                dgvVisualizacaoJogos.Columns[1].Width = 200;  // Nome do jogo
-                dgvVisualizacaoJogos.Columns[2].Width = 200;  // Tema
-                dgvVisualizacaoJogos.Columns[3].Width = 140;  // Número de jogadores
-                dgvVisualizacaoJogos.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; // Idioma
-            }
+                Name = "Codigo",
+                HeaderText = "Código",
+                DataPropertyName = "IdJogo",
+                Width = 100
+            });
+
+            dgvVisualizacaoJogos.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Nome",
+                DataPropertyName = "Nome",
+                Width = 145
+            });
+
+            dgvVisualizacaoJogos.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Gênero",
+                DataPropertyName = "Genero",
+                Width = 100
+            });
+
+            dgvVisualizacaoJogos.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Marca",
+                DataPropertyName = "Marca",
+                Width = 145
+            });
+
+            dgvVisualizacaoJogos.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "N. Jogadores",
+                DataPropertyName = "NumeroJogadores",
+                Width = 140,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            DataGridViewImageColumn colunaImagemEditar = new DataGridViewImageColumn();
+            colunaImagemEditar.Name = "Editar";
+            colunaImagemEditar.HeaderText = "";
+            colunaImagemEditar.Image = Image.FromFile("Imagens/ImagemEditr.png");
+            colunaImagemEditar.Width = 45;
+            colunaImagemEditar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvVisualizacaoJogos.Columns.Add(colunaImagemEditar);
+
+            DataGridViewImageColumn colunaImagem = new DataGridViewImageColumn();
+            colunaImagem.Name = "Excluir";
+            colunaImagem.HeaderText = "";
+            colunaImagem.Image = Image.FromFile("Imagens/ImagemX.png");
+            colunaImagem.Width = 45;
+            colunaImagem.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvVisualizacaoJogos.Columns.Add(colunaImagem);
+
+            // Vincula os dados
+            dgvVisualizacaoJogos.DataSource = jogos;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -79,6 +92,58 @@ namespace Projeto_ViraPagina.View
             Principal form = new Principal();
             form.Show();
             this.Hide();
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            PrincipalJogos form = new PrincipalJogos();
+            form.Show();
+            this.Hide();
+        }
+
+        private void VisualizacaoJogos_Load(object sender, EventArgs e)
+        {
+            CarregarGrid();
+        }
+
+        private void dgvVisualizacaoJogos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvVisualizacaoJogos.Columns[e.ColumnIndex].Name == "Excluir")
+            {
+                // Pega o ID da linha selecionada
+                string idJogo = dgvVisualizacaoJogos.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
+
+                // Confirma exclusão
+                DialogResult result = MessageBox.Show("Deseja excluir este jogo?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    JogoDAO jogoDAO = new JogoDAO();
+                    jogoDAO.ExcluirJogoNoBanco(idJogo);
+
+                    CarregarGrid();
+                }
+            }
+            else if (e.RowIndex >= 0 && dgvVisualizacaoJogos.Columns[e.ColumnIndex].Name == "Editar")
+            {
+                Jogo jogo = new Jogo();
+                UtilDAO utilDAO = new UtilDAO();
+
+                jogo.IdJogo = dgvVisualizacaoJogos.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
+
+                Jogo.AdicionarJogo(jogo);
+
+                if (utilDAO.IdJogoExiste(jogo.IdJogo))
+                {
+                    AtualizacaoJogos form = new AtualizacaoJogos();
+                    form.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao buscar registro: Código identificador inexistente.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
         }
     }
 }

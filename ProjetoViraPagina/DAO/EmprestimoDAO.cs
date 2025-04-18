@@ -48,5 +48,49 @@ namespace Projeto_ViraPagina.DAO
                 return false;
             }
         }
+
+        public List<Emprestimo> BuscarEmprestimos()
+        {
+            List<Emprestimo> lista = new List<Emprestimo>();
+            Emprestimo Funcao = new Emprestimo();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    MySqlCommand cmd = new MySqlCommand("lerEmprestimos", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string idMaterialImpresso = reader["idMaterialImpresso"] == DBNull.Value ? null : reader["idMaterialImpresso"].ToString();
+                            string idJogo = reader["idJogo"] == DBNull.Value ? null : reader["idJogo"].ToString();
+                            string idMidia = reader["idMidia"] == DBNull.Value ? null : reader["idMidia"].ToString();
+                            string idInstrumento = reader["idInstrumento"] == DBNull.Value ? null : reader["idInstrumento"].ToString();
+
+                            Emprestimo emprestimo = new Emprestimo()
+                            {
+                                IdUsuario = reader["idUsuario"].ToString(),
+                                DataDevolucao = reader["categoria"].ToString(),
+                                IdAcervo = Funcao.ReceberIdAcervo(idMaterialImpresso, idJogo, idMidia, idInstrumento),
+                                Finalizado = Funcao.StringParaBool(reader["finalizado"].ToString())
+                            };
+
+                            lista.Add(emprestimo);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.Message);
+                }
+            }
+
+            return lista;
+        }
     }
 }

@@ -120,5 +120,73 @@ namespace Projeto_ViraPagina.DAO
                 return false;
             }
         }
+
+        public List<Jogo> BuscarJogos()
+        {
+            List<Jogo> lista = new List<Jogo>();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    MySqlCommand cmd = new MySqlCommand("lerJogos", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Jogo jogo = new Jogo()
+                            {
+                                IdJogo = reader["idJogo"].ToString(),
+                                Nome = reader["nome"].ToString(),
+                                Genero = reader["genero"].ToString(),
+                                NumeroJogadores = reader["numeroJogadores"].ToString(),
+                                Marca = reader["marca"].ToString()
+                            };
+
+                            lista.Add(jogo);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.Message);
+                }
+            }
+
+            return lista;
+        }
+
+        public bool ExcluirJogoNoBanco(string id)
+        {
+            UtilDAO utilDAO = new UtilDAO();
+            bool redistroExistente = utilDAO.IdJogoExiste(id);
+
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                if (redistroExistente)
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("deletarJogo", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("p_idJogo", id);
+
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show($"Jogo {id} deletado", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Jogo inesistente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            return false;
+        }
     }
 }

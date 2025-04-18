@@ -12,6 +12,7 @@ namespace Projeto_ViraPagina.DAO
     class InstrumentoDAO
     {
         private string connectionString = "Server=localhost;Database=bd_virapagina;Uid=root;Pwd=";
+
         public bool AdicionarInstrumentoNoBanco(Instrumento instrumento)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -154,6 +155,74 @@ namespace Projeto_ViraPagina.DAO
                 }
             }
             return instrumento;
+        }
+
+        public List<Instrumento> BuscarInstrumentos()
+        {
+            List<Instrumento> lista = new List<Instrumento>();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    MySqlCommand cmd = new MySqlCommand("lerInstrumentos", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Instrumento instrumento = new Instrumento()
+                            {
+                                IdInstrumento = reader["idInstrumento"].ToString(),
+                                Categoria = reader["categoria"].ToString(),
+                                Marca = reader["marca"].ToString(),
+                                Modelo = reader["modelo"].ToString(),
+                                NumeroSerie = reader["numeroSerie"].ToString()
+                            };
+
+                            lista.Add(instrumento);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.Message);
+                }
+            }
+
+            return lista;
+        }
+
+        public bool ExcluirInstrumentoNoBanco(string id)
+        {
+            UtilDAO utilDAO = new UtilDAO();
+            bool redistroExistente = utilDAO.IdInstrumentoExiste(id);
+
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                if (redistroExistente)
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("deletarInstrumento", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("p_idInstrumento", id);
+
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show($"Instrumento {id} deletado", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Instrumento inesistente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            return false;
         }
     }
 }

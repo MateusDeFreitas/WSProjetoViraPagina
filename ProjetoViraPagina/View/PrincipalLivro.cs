@@ -39,7 +39,7 @@ namespace Projeto_ViraPagina.View
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            EditarMaterialImpresso form = new EditarMaterialImpresso();
+            VisualizacaoMaterialImpresso form = new VisualizacaoMaterialImpresso();
             form.Show();
             this.Hide();
         }

@@ -122,5 +122,73 @@ namespace Projeto_ViraPagina.DAO
                 return false;
             }
         }
+
+        public List<Midia> BuscarMidia()
+        {
+            List<Midia> lista = new List<Midia>();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    MySqlCommand cmd = new MySqlCommand("lerMidias", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Midia midia = new Midia()
+                            {
+                                IdMidia = reader["midia"].ToString(),
+                                Titulo = reader["titulo"].ToString(),
+                                Diretor = reader["diretor"].ToString(),
+                                Genero = reader["genero"].ToString(),
+                                AnoLancamento = reader["anoLancamento"].ToString(),
+                            };
+
+                            lista.Add(midia);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.Message);
+                }
+            }
+
+            return lista;
+        }
+
+        public bool ExcluirMidiaNoBanco(string id)
+        {
+            UtilDAO utilDAO = new UtilDAO();
+            bool redistroExistente = utilDAO.IdMidiaExiste(id);
+
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                if (redistroExistente)
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("deletarMidia", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("p_idMidia", id);
+
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show($"Mídia {id} deletado", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Mídia inesistente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            return false;
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Projeto_ViraPagina.View
+﻿using System.Windows.Forms;
+
+namespace Projeto_ViraPagina.View
 {
     partial class VisualizacaoJogos
     {
@@ -28,13 +30,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualizacaoJogos));
             dgvVisualizacaoJogos = new DataGridView();
-            Codigo = new DataGridViewTextBoxColumn();
-            NomeJogo = new DataGridViewTextBoxColumn();
-            Tema = new DataGridViewTextBoxColumn();
-            NumeroJogadores = new DataGridViewTextBoxColumn();
-            Idioma = new DataGridViewTextBoxColumn();
             btnVoltar = new Button();
             panel5 = new Panel();
             texPesquisarVisualizacaoJogos = new TextBox();
@@ -48,43 +49,48 @@
             // 
             // dgvVisualizacaoJogos
             // 
+            dgvVisualizacaoJogos.AllowUserToAddRows = false;
+            dgvVisualizacaoJogos.AllowUserToDeleteRows = false;
+            dgvVisualizacaoJogos.AllowUserToResizeColumns = false;
+            dgvVisualizacaoJogos.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(236, 236, 236);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(68, 68, 78);
+            dgvVisualizacaoJogos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvVisualizacaoJogos.BackgroundColor = Color.FromArgb(250, 243, 224);
+            dgvVisualizacaoJogos.BorderStyle = BorderStyle.None;
+            dgvVisualizacaoJogos.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dgvVisualizacaoJogos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(222, 162, 117);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(222, 162, 117);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvVisualizacaoJogos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvVisualizacaoJogos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvVisualizacaoJogos.Columns.AddRange(new DataGridViewColumn[] { Codigo, NomeJogo, Tema, NumeroJogadores, Idioma });
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.Padding = new Padding(0, 5, 0, 5);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(211, 220, 227);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(0, 0, 0);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvVisualizacaoJogos.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvVisualizacaoJogos.EnableHeadersVisualStyles = false;
             dgvVisualizacaoJogos.Location = new Point(51, 124);
             dgvVisualizacaoJogos.Name = "dgvVisualizacaoJogos";
+            dgvVisualizacaoJogos.ReadOnly = true;
+            dgvVisualizacaoJogos.RowHeadersVisible = false;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(68, 68, 78);
+            dgvVisualizacaoJogos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dgvVisualizacaoJogos.RowTemplate.Height = 40;
+            dgvVisualizacaoJogos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvVisualizacaoJogos.Size = new Size(739, 239);
             dgvVisualizacaoJogos.TabIndex = 189;
-            // 
-            // Codigo
-            // 
-            Codigo.HeaderText = "Código";
-            Codigo.Name = "Codigo";
-            Codigo.Width = 145;
-            // 
-            // NomeJogo
-            // 
-            NomeJogo.HeaderText = "Nome do jogo";
-            NomeJogo.Name = "NomeJogo";
-            NomeJogo.Width = 145;
-            // 
-            // Tema
-            // 
-            Tema.HeaderText = "Tema";
-            Tema.Name = "Tema";
-            Tema.Width = 145;
-            // 
-            // NumeroJogadores
-            // 
-            NumeroJogadores.HeaderText = "Número de jogadores";
-            NumeroJogadores.Name = "NumeroJogadores";
-            NumeroJogadores.Width = 145;
-            // 
-            // Idioma
-            // 
-            Idioma.HeaderText = "Idioma";
-            Idioma.Name = "Idioma";
-            Idioma.Width = 145;
+            dgvVisualizacaoJogos.CellContentClick += dgvVisualizacaoJogos_CellContentClick;
             // 
             // btnVoltar
             // 
@@ -97,6 +103,7 @@
             btnVoltar.TabIndex = 188;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = false;
+            btnVoltar.Click += btnVoltar_Click;
             // 
             // panel5
             // 
@@ -178,11 +185,6 @@
         private TextBox texPesquisarVisualizacaoJogos;
         private Label labelAtualizacaoJogos;
         private Panel panelLivro;
-        private DataGridViewTextBoxColumn Codigo;
-        private DataGridViewTextBoxColumn NomeJogo;
-        private DataGridViewTextBoxColumn Tema;
-        private DataGridViewTextBoxColumn NumeroJogadores;
-        private DataGridViewTextBoxColumn Idioma;
         private PictureBox pictureBox1;
     }
 }

@@ -43,5 +43,44 @@ namespace Projeto_ViraPagina.DAO
                 return false;
             }
         }
+
+        public List<Penalidade> BuscarPenalidades()
+        {
+            List<Penalidade> lista = new List<Penalidade>();
+            Penalidade funçao = new Penalidade();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    MySqlCommand cmd = new MySqlCommand("lerPenalidades", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Penalidade penalidade = new Penalidade()
+                            {
+                                IdUsuario = reader["idTomador"].ToString(),
+                                DataPenalidade = reader["dataPenalidade"].ToString(),
+                                IdEmprestimo = reader["idEmprestimo"].ToString(),
+                                CodPenalidade = funçao.ConverterDataParaFormatoBR(reader["codPenalidade"].ToString())
+                            };
+
+                            lista.Add(penalidade);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.Message);
+                }
+            }
+
+            return lista;
+        }
     }
 }

@@ -30,12 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualizacaoLivroUnicoP2));
             panelLivro = new Panel();
+            pictureBox6 = new PictureBox();
+            pictureBox5 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            pictureBox3 = new PictureBox();
             pictureBox1 = new PictureBox();
             btnVoltar = new Button();
             btnProximo = new Button();
-            labelAcervos = new Label();
+            labelTitulo = new Label();
             panel3 = new Panel();
-            textIdioma = new TextBox();
+            textEditora = new TextBox();
             labelEditora = new Label();
             panel4 = new Panel();
             textGenero = new TextBox();
@@ -44,17 +48,13 @@
             textAutor = new TextBox();
             labelAutor = new Label();
             pictureBox2 = new PictureBox();
-            pictureBox6 = new PictureBox();
-            pictureBox5 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            pictureBox3 = new PictureBox();
             panelLivro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panelLivro
@@ -69,6 +69,49 @@
             panelLivro.Name = "panelLivro";
             panelLivro.Size = new Size(42, 472);
             panelLivro.TabIndex = 18;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
+            pictureBox6.Location = new Point(3, 282);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(36, 38);
+            pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox6.TabIndex = 128;
+            pictureBox6.TabStop = false;
+            pictureBox6.Click += pictureBox6_Click;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(3, 239);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(36, 38);
+            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox5.TabIndex = 127;
+            pictureBox5.TabStop = false;
+            pictureBox5.Click += pictureBox5_Click;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(3, 196);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(36, 38);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 126;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(3, 152);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(36, 38);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 125;
+            pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
             // 
             // pictureBox1
             // 
@@ -107,16 +150,16 @@
             btnProximo.UseVisualStyleBackColor = false;
             btnProximo.Click += btnProximo_Click;
             // 
-            // labelAcervos
+            // labelTitulo
             // 
-            labelAcervos.AutoSize = true;
-            labelAcervos.Font = new Font("Arial Narrow", 20F);
-            labelAcervos.ForeColor = Color.DarkRed;
-            labelAcervos.Location = new Point(334, 12);
-            labelAcervos.Name = "labelAcervos";
-            labelAcervos.Size = new Size(154, 31);
-            labelAcervos.TabIndex = 121;
-            labelAcervos.Text = "*Título do livro";
+            labelTitulo.AutoSize = true;
+            labelTitulo.Font = new Font("Arial Narrow", 20F);
+            labelTitulo.ForeColor = Color.DarkRed;
+            labelTitulo.Location = new Point(334, 12);
+            labelTitulo.Name = "labelTitulo";
+            labelTitulo.Size = new Size(154, 31);
+            labelTitulo.TabIndex = 121;
+            labelTitulo.Text = "*Título do livro";
             // 
             // panel3
             // 
@@ -126,16 +169,17 @@
             panel3.Size = new Size(270, 4);
             panel3.TabIndex = 120;
             // 
-            // textIdioma
+            // textEditora
             // 
-            textIdioma.BackColor = Color.FromArgb(250, 243, 224);
-            textIdioma.BorderStyle = BorderStyle.None;
-            textIdioma.Font = new Font("Arial Narrow", 12F);
-            textIdioma.ForeColor = Color.FromArgb(130, 119, 106);
-            textIdioma.Location = new Point(70, 315);
-            textIdioma.Name = "textIdioma";
-            textIdioma.Size = new Size(257, 19);
-            textIdioma.TabIndex = 119;
+            textEditora.BackColor = Color.FromArgb(250, 243, 224);
+            textEditora.BorderStyle = BorderStyle.None;
+            textEditora.Font = new Font("Arial Narrow", 12F);
+            textEditora.ForeColor = Color.FromArgb(130, 119, 106);
+            textEditora.Location = new Point(70, 315);
+            textEditora.Name = "textEditora";
+            textEditora.ReadOnly = true;
+            textEditora.Size = new Size(257, 19);
+            textEditora.TabIndex = 119;
             // 
             // labelEditora
             // 
@@ -164,6 +208,7 @@
             textGenero.ForeColor = Color.FromArgb(130, 119, 106);
             textGenero.Location = new Point(71, 231);
             textGenero.Name = "textGenero";
+            textGenero.ReadOnly = true;
             textGenero.Size = new Size(257, 19);
             textGenero.TabIndex = 116;
             // 
@@ -194,6 +239,7 @@
             textAutor.ForeColor = Color.FromArgb(130, 119, 106);
             textAutor.Location = new Point(70, 144);
             textAutor.Name = "textAutor";
+            textAutor.ReadOnly = true;
             textAutor.Size = new Size(257, 19);
             textAutor.TabIndex = 113;
             // 
@@ -218,46 +264,6 @@
             pictureBox2.TabIndex = 125;
             pictureBox2.TabStop = false;
             // 
-            // pictureBox6
-            // 
-            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(3, 282);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(36, 38);
-            pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox6.TabIndex = 128;
-            pictureBox6.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(3, 239);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(36, 38);
-            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox5.TabIndex = 127;
-            pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(3, 196);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(36, 38);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 126;
-            pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(3, 152);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(36, 38);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 125;
-            pictureBox3.TabStop = false;
-            // 
             // VisualizacaoLivroUnicoP2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -266,9 +272,9 @@
             ClientSize = new Size(800, 450);
             Controls.Add(btnVoltar);
             Controls.Add(btnProximo);
-            Controls.Add(labelAcervos);
+            Controls.Add(labelTitulo);
             Controls.Add(panel3);
-            Controls.Add(textIdioma);
+            Controls.Add(textEditora);
             Controls.Add(labelEditora);
             Controls.Add(panel4);
             Controls.Add(textGenero);
@@ -280,13 +286,14 @@
             Controls.Add(pictureBox2);
             Name = "VisualizacaoLivroUnicoP2";
             Text = "VisualizacaoLivroUnicoP2";
+            Load += VisualizacaoLivroUnicoP2_Load;
             panelLivro.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -296,9 +303,9 @@
         private Panel panelLivro;
         private Button btnVoltar;
         private Button btnProximo;
-        private Label labelAcervos;
+        private Label labelTitulo;
         private Panel panel3;
-        private TextBox textIdioma;
+        private TextBox textEditora;
         private Label labelEditora;
         private Panel panel4;
         private TextBox textGenero;

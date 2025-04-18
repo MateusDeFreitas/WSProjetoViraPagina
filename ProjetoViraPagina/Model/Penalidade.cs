@@ -21,6 +21,17 @@ namespace Projeto_ViraPagina.Model
         {
             ListaPenalidade.Add(penalidade);
         }
+        public string ConverterDataParaFormatoBR(string dataOriginal)
+        {
+            if (DateTime.TryParse(dataOriginal, out DateTime dataConvertida))
+            {
+                return dataConvertida.ToString("dd/MM/yyyy");
+            }
+            else
+            {
+                return "Data inválida";
+            }
+        }
     }
 
 }

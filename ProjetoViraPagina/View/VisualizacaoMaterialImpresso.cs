@@ -60,7 +60,7 @@ namespace Projeto_ViraPagina.View
             {
                 HeaderText = "Título",
                 DataPropertyName = "Titulo",
-                Width = 145
+                Width = 165
             });
 
             dgvVisualizacaoMaterialImpresso.Columns.Add(new DataGridViewTextBoxColumn()
@@ -74,20 +74,28 @@ namespace Projeto_ViraPagina.View
             {
                 HeaderText = "Classe",
                 DataPropertyName = "Classe",
-                Width = 145
+                Width = 110
             });
 
             dgvVisualizacaoMaterialImpresso.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 HeaderText = "Idioma",
                 DataPropertyName = "Idioma",
-                Width = 145
+                Width = 110
             });
+
+            DataGridViewImageColumn colunaImagemEditar = new DataGridViewImageColumn();
+            colunaImagemEditar.Name = "Editar";
+            colunaImagemEditar.HeaderText = "";
+            colunaImagemEditar.Image = Image.FromFile("Imagens/ImagemEditr.png");
+            colunaImagemEditar.Width = 45;
+            colunaImagemEditar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvVisualizacaoMaterialImpresso.Columns.Add(colunaImagemEditar);
 
             DataGridViewImageColumn colunaImagem = new DataGridViewImageColumn();
             colunaImagem.Name = "Excluir";
             colunaImagem.HeaderText = "";
-            colunaImagem.Image = Image.FromFile("ImagemX.png");
+            colunaImagem.Image = Image.FromFile("Imagens/ImagemX.png");
             colunaImagem.Width = 45;
             colunaImagem.ImageLayout = DataGridViewImageCellLayout.Zoom;
             dgvVisualizacaoMaterialImpresso.Columns.Add(colunaImagem);
@@ -98,9 +106,6 @@ namespace Projeto_ViraPagina.View
 
         private void VisualizacaoMaterialImpresso_Load(object sender, EventArgs e)
         {
-            MaterialImpressoDAO materialImpressoDAO = new MaterialImpressoDAO();
-
-            List<MaterialImpresso> materiais = materialImpressoDAO.BuscarMateriaisImpressos();
             CarregarGrid();
         }
 
@@ -120,6 +125,46 @@ namespace Projeto_ViraPagina.View
                     materialImpressoDAO.ExcluirMaterialImpressoNoBanco(idMaterial);
 
                     CarregarGrid();
+                }
+            }
+            else if (e.RowIndex >= 0 && dgvVisualizacaoMaterialImpresso.Columns[e.ColumnIndex].Name == "Editar")
+            {
+                MaterialImpresso mi = new MaterialImpresso();
+                UtilDAO utilDAO = new UtilDAO();
+
+                mi.Id = dgvVisualizacaoMaterialImpresso.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
+
+                MaterialImpresso.AdicionarMaterialImpresso(mi);
+
+                if (utilDAO.IdMaterialImpressoExiste(mi.Id))
+                {
+                    AtualizacaoMaterialImpresso form = new AtualizacaoMaterialImpresso();
+                    form.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao buscar registro: Código identificador inexistente.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else if (e.RowIndex >= 0 && dgvVisualizacaoMaterialImpresso.Columns[e.ColumnIndex].Name != "Excluir" && dgvVisualizacaoMaterialImpresso.Columns[e.ColumnIndex].Name != "Editar")
+            {
+                UtilDAO utilDAO = new UtilDAO();
+                MaterialImpresso mi = new MaterialImpresso();
+
+                mi.Id = dgvVisualizacaoMaterialImpresso.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
+
+                MaterialImpresso.AdicionarMaterialImpresso(mi);
+
+                if (utilDAO.IdMaterialImpressoExiste(mi.Id))
+                {
+                    VisualizacaoLivroUnico form = new VisualizacaoLivroUnico();
+                    form.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao buscar identificador.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
         }
