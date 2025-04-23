@@ -120,5 +120,34 @@ namespace Projeto_ViraPagina.DAO
                 return false;
             }
         }
+
+        public bool RenovarEmprestimo(string idEmprestimo)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("renovarEmprestimo", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_idEmprestimo", idEmprestimo);
+                        cmd.Parameters.AddWithValue("@p_dias", 15);
+
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Empréstimo renovado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                return false;
+            }
+        }
     }
 }

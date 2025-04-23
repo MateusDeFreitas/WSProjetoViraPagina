@@ -143,6 +143,15 @@ namespace Projeto_ViraPagina.View
                     CarregarGrid();
                 }
             }
+            else if (e.RowIndex >= 0 && dgvVisualizacaoEmprestimos.Columns[e.ColumnIndex].Name == "Renovar")
+            {
+                EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
+
+                if (emprestimoDAO.RenovarEmprestimo(dgvVisualizacaoEmprestimos.Rows[e.RowIndex].Cells["Codigo"].Value.ToString()))
+                {
+                    CarregarGrid();
+                }
+            }
         }
 
         private Penalidade InstanciarPenalidade(string idEmprestimo, string idTomador, string TipoPenalidade)

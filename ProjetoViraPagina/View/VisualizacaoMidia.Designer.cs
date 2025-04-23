@@ -111,6 +111,7 @@
             btnVoltar.TabIndex = 182;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = false;
+            btnVoltar.Click += btnVoltar_Click;
             // 
             // dgvVisualizacaoMidia
             // 
