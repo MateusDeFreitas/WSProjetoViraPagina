@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualizacaoEmprestimos));
             dgvVisualizacaoEmprestimos = new DataGridView();
-            Codigo = new DataGridViewTextBoxColumn();
-            DataDevolucao = new DataGridViewTextBoxColumn();
-            CodigoLivro = new DataGridViewTextBoxColumn();
-            Unidade = new DataGridViewTextBoxColumn();
             btnVoltar = new Button();
             panel5 = new Panel();
             texPesquisarVisualizacaoEmprestimos = new TextBox();
@@ -47,37 +47,48 @@
             // 
             // dgvVisualizacaoEmprestimos
             // 
+            dgvVisualizacaoEmprestimos.AllowUserToAddRows = false;
+            dgvVisualizacaoEmprestimos.AllowUserToDeleteRows = false;
+            dgvVisualizacaoEmprestimos.AllowUserToResizeColumns = false;
+            dgvVisualizacaoEmprestimos.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(236, 236, 236);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(68, 68, 78);
+            dgvVisualizacaoEmprestimos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvVisualizacaoEmprestimos.BackgroundColor = Color.FromArgb(250, 243, 224);
+            dgvVisualizacaoEmprestimos.BorderStyle = BorderStyle.None;
+            dgvVisualizacaoEmprestimos.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dgvVisualizacaoEmprestimos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(222, 162, 117);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(222, 162, 117);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvVisualizacaoEmprestimos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvVisualizacaoEmprestimos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvVisualizacaoEmprestimos.Columns.AddRange(new DataGridViewColumn[] { Codigo, DataDevolucao, CodigoLivro, Unidade });
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.Padding = new Padding(0, 5, 0, 5);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(211, 220, 227);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(0, 0, 0);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvVisualizacaoEmprestimos.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvVisualizacaoEmprestimos.EnableHeadersVisualStyles = false;
             dgvVisualizacaoEmprestimos.Location = new Point(51, 124);
             dgvVisualizacaoEmprestimos.Name = "dgvVisualizacaoEmprestimos";
+            dgvVisualizacaoEmprestimos.ReadOnly = true;
+            dgvVisualizacaoEmprestimos.RowHeadersVisible = false;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(68, 68, 78);
+            dgvVisualizacaoEmprestimos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dgvVisualizacaoEmprestimos.RowTemplate.Height = 40;
+            dgvVisualizacaoEmprestimos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvVisualizacaoEmprestimos.Size = new Size(739, 239);
             dgvVisualizacaoEmprestimos.TabIndex = 207;
-            // 
-            // Codigo
-            // 
-            Codigo.HeaderText = "Código";
-            Codigo.Name = "Codigo";
-            Codigo.Width = 175;
-            // 
-            // DataDevolucao
-            // 
-            DataDevolucao.HeaderText = "Data de devoluçao";
-            DataDevolucao.Name = "DataDevolucao";
-            DataDevolucao.Width = 175;
-            // 
-            // CodigoLivro
-            // 
-            CodigoLivro.HeaderText = "Código livro";
-            CodigoLivro.Name = "CodigoLivro";
-            CodigoLivro.Width = 175;
-            // 
-            // Unidade
-            // 
-            Unidade.HeaderText = "Unidade";
-            Unidade.Name = "Unidade";
-            Unidade.Width = 175;
+            dgvVisualizacaoEmprestimos.CellContentClick += dgvVisualizacaoEmprestimos_CellContentClick;
             // 
             // btnVoltar
             // 
@@ -90,6 +101,7 @@
             btnVoltar.TabIndex = 206;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = false;
+            btnVoltar.Click += btnVoltar_Click_1;
             // 
             // panel5
             // 
@@ -166,10 +178,6 @@
         #endregion
 
         private DataGridView dgvVisualizacaoEmprestimos;
-        private DataGridViewTextBoxColumn Codigo;
-        private DataGridViewTextBoxColumn DataDevolucao;
-        private DataGridViewTextBoxColumn CodigoLivro;
-        private DataGridViewTextBoxColumn Unidade;
         private Button btnVoltar;
         private Panel panel5;
         private TextBox texPesquisarVisualizacaoEmprestimos;

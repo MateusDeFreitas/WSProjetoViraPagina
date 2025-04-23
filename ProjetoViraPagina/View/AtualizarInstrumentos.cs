@@ -105,7 +105,7 @@ namespace Projeto_ViraPagina.View
 
                 if (instrumentoDAO.AtualizarInstrumentoNoBanco(instrumento))
                 {
-                    EditarInstrumentos form = new EditarInstrumentos();
+                    VisualizacaoInstrumentos form = new VisualizacaoInstrumentos();
                     form.Show();
                     this.Hide();
                 }

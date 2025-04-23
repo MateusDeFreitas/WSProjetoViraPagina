@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Projeto_ViraPagina.DAO;
+using Projeto_ViraPagina.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,61 +25,84 @@ namespace Projeto_ViraPagina.View
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
+        private void CarregarGrid()
+        {
+            EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
+
+            List<Emprestimo> emprestimos = emprestimoDAO.BuscarEmprestimos();
+
+            dgvVisualizacaoEmprestimos.Columns.Clear(); // Limpa colunas anteriores
+            dgvVisualizacaoEmprestimos.DataSource = null;
+            dgvVisualizacaoEmprestimos.AutoGenerateColumns = false;
+
+            dgvVisualizacaoEmprestimos.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "Codigo",
+                HeaderText = "Código",
+                DataPropertyName = "Id",
+                Width = 90
+            });
+
+            dgvVisualizacaoEmprestimos.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "CodigoTomador",
+                HeaderText = "Cód. Tomador",
+                DataPropertyName = "IdUsuario",
+                Width = 140,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            dgvVisualizacaoEmprestimos.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "CodigoAcervo",
+                HeaderText = "Cód. Acervo",
+                DataPropertyName = "IdAcervo",
+                Width = 165,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            dgvVisualizacaoEmprestimos.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Data de Devolução",
+                DataPropertyName = "DataDevolucao",
+                Width = 190,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            DataGridViewImageColumn colunaImagemPenalizar = new DataGridViewImageColumn();
+            colunaImagemPenalizar.Name = "Penalizar";
+            colunaImagemPenalizar.HeaderText = "";
+            colunaImagemPenalizar.Image = Image.FromFile("Imagens/Penalizado.png");
+            colunaImagemPenalizar.Width = 45;
+            colunaImagemPenalizar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvVisualizacaoEmprestimos.Columns.Add(colunaImagemPenalizar);
+
+            DataGridViewImageColumn colunaImagemRetornar = new DataGridViewImageColumn();
+            colunaImagemRetornar.Name = "Retornar";
+            colunaImagemRetornar.HeaderText = "";
+            colunaImagemRetornar.Image = Image.FromFile("Imagens/Retornado.png");
+            colunaImagemRetornar.Width = 45;
+            colunaImagemRetornar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvVisualizacaoEmprestimos.Columns.Add(colunaImagemRetornar);
+
+            DataGridViewImageColumn colunaImagemRenovar = new DataGridViewImageColumn();
+            colunaImagemRenovar.Name = "Renovar";
+            colunaImagemRenovar.HeaderText = "";
+            colunaImagemRenovar.Image = Image.FromFile("Imagens/Renovado.png");
+            colunaImagemRenovar.Width = 45;
+            colunaImagemRenovar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvVisualizacaoEmprestimos.Columns.Add(colunaImagemRenovar);
+
+            // Vincula os dados
+            dgvVisualizacaoEmprestimos.DataSource = emprestimos;
+        }
+
         private void VisualizacaoEmprestimos_Load(object sender, EventArgs e)
         {
-            // Fundo da tela
-            this.BackColor = ColorTranslator.FromHtml("#FFF4E3");
-
-            // Fundo da tabela
-            dgvVisualizacaoEmprestimos.BackgroundColor = ColorTranslator.FromHtml("#FFF4E3");
-
-            // Não permitir adicionar linha manual
-            dgvVisualizacaoEmprestimos.AllowUserToAddRows = false;
-
-            // Esconder cabeçalho lateral
-            dgvVisualizacaoEmprestimos.RowHeadersVisible = false;
-
-            // Seleção da linha inteira
-            dgvVisualizacaoEmprestimos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-            // Borda invisível nas células
-            dgvVisualizacaoEmprestimos.CellBorderStyle = DataGridViewCellBorderStyle.None;
-
-            // Fonte das células
-            dgvVisualizacaoEmprestimos.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-
-            // Cor da linha selecionada
-            dgvVisualizacaoEmprestimos.DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#5A0000");
-            dgvVisualizacaoEmprestimos.DefaultCellStyle.SelectionForeColor = Color.White;
-
-            // Cabeçalho estilizado
-            dgvVisualizacaoEmprestimos.EnableHeadersVisualStyles = false;
-            dgvVisualizacaoEmprestimos.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#8B0000");
-            dgvVisualizacaoEmprestimos.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgvVisualizacaoEmprestimos.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            dgvVisualizacaoEmprestimos.ColumnHeadersHeight = 35;
-
-            // Espaçamento entre as linhas (efeito card)
-            dgvVisualizacaoEmprestimos.RowTemplate.Height = 40;
-            dgvVisualizacaoEmprestimos.DefaultCellStyle.Padding = new Padding(0, 5, 0, 5);
-
-            // Cores das linhas
-            dgvVisualizacaoEmprestimos.RowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#A67B5B");
-            dgvVisualizacaoEmprestimos.AlternatingRowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#8B0000");
-            dgvVisualizacaoEmprestimos.AlternatingRowsDefaultCellStyle.ForeColor = Color.White;
-
-            // AutoSize manual para controlar os tamanhos
-            dgvVisualizacaoEmprestimos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-
-            // Se as colunas já existirem, define os tamanhos
-            if (dgvVisualizacaoEmprestimos.Columns.Count >= 5)
-            {
-                dgvVisualizacaoEmprestimos.Columns[0].Width = 60;   // Código
-                dgvVisualizacaoEmprestimos.Columns[1].Width = 200;  // Data devolução
-                dgvVisualizacaoEmprestimos.Columns[2].Width = 200;  // Código livro
-                dgvVisualizacaoEmprestimos.Columns[3].Width = 140;  // Unidade
-                dgvVisualizacaoEmprestimos.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; // Idioma
-            }
+            CarregarGrid();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -85,6 +110,49 @@ namespace Projeto_ViraPagina.View
             Principal form = new Principal();
             form.Show();
             this.Hide();
+        }
+
+        private void btnVoltar_Click_1(object sender, EventArgs e)
+        {
+            PrincipalEmprestimo form = new PrincipalEmprestimo();
+            form.Show();
+            this.Hide();
+        }
+
+        private void dgvVisualizacaoEmprestimos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvVisualizacaoEmprestimos.Columns[e.ColumnIndex].Name == "Penalizar")
+            {
+                PenalidadeDAO penalidadeDAO = new PenalidadeDAO();
+
+                string idEmprestimo = dgvVisualizacaoEmprestimos.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
+                string idTomador = dgvVisualizacaoEmprestimos.Rows[e.RowIndex].Cells["CodigoTomador"].Value.ToString();
+                string TipoPenalidade = Microsoft.VisualBasic.Interaction.InputBox("Digite o tipo da penalidade:", "Tipo de penalidade", "AT");
+
+                if(TipoPenalidade != "")
+                {
+                    penalidadeDAO.AdicionarPenalidadeNoBanco(InstanciarPenalidade(idEmprestimo, idTomador, TipoPenalidade));
+                }
+            }
+            else if (e.RowIndex >= 0 && dgvVisualizacaoEmprestimos.Columns[e.ColumnIndex].Name == "Retornar")
+            {
+                EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
+
+               if (emprestimoDAO.FinalizarEmprestimo(dgvVisualizacaoEmprestimos.Rows[e.RowIndex].Cells["Codigo"].Value.ToString()))
+                {
+                    CarregarGrid();
+                }
+            }
+        }
+
+        private Penalidade InstanciarPenalidade(string idEmprestimo, string idTomador, string TipoPenalidade)
+        {
+            Penalidade penalidade = new Penalidade();
+            penalidade.IdEmprestimo = idEmprestimo;
+            penalidade.IdUsuario = idTomador;
+            penalidade.CodPenalidade = TipoPenalidade;
+
+            return penalidade;
         }
     }
 }

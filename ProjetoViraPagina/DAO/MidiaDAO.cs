@@ -123,7 +123,7 @@ namespace Projeto_ViraPagina.DAO
             }
         }
 
-        public List<Midia> BuscarMidia()
+        public List<Midia> BuscarMidias()
         {
             List<Midia> lista = new List<Midia>();
 
@@ -142,13 +142,13 @@ namespace Projeto_ViraPagina.DAO
                         {
                             Midia midia = new Midia()
                             {
-                                IdMidia = reader["midia"].ToString(),
+                                IdMidia = reader["idMidia"].ToString(),
                                 Titulo = reader["titulo"].ToString(),
                                 Diretor = reader["diretor"].ToString(),
                                 Genero = reader["genero"].ToString(),
                                 AnoLancamento = reader["anoLancamento"].ToString(),
                             };
-
+                            
                             lista.Add(midia);
                         }
                     }

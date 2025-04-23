@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualizacaoInstrumentos));
             dgvVisualizacaoInstrumentos = new DataGridView();
             Codigo = new DataGridViewTextBoxColumn();
@@ -48,37 +52,63 @@
             // 
             // dgvVisualizacaoInstrumentos
             // 
-            dgvVisualizacaoInstrumentos.BackgroundColor = Color.FromArgb(250, 243, 224);
+            dgvVisualizacaoInstrumentos.AllowUserToAddRows = false;
+            dgvVisualizacaoInstrumentos.AllowUserToResizeColumns = false;
+            dgvVisualizacaoInstrumentos.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(236, 236, 236);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(68, 68, 78);
+            dgvVisualizacaoInstrumentos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvVisualizacaoInstrumentos.BackgroundColor = Color.FromArgb(255, 244, 227);
+            dgvVisualizacaoInstrumentos.BorderStyle = BorderStyle.None;
+            dgvVisualizacaoInstrumentos.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dgvVisualizacaoInstrumentos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(222, 162, 117);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(222, 162, 117);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvVisualizacaoInstrumentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvVisualizacaoInstrumentos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvVisualizacaoInstrumentos.Columns.AddRange(new DataGridViewColumn[] { Codigo, Categoria, Marca, Modelo, NumeroSerie });
-            dgvVisualizacaoInstrumentos.Location = new Point(51, 124);
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.Padding = new Padding(0, 5, 0, 5);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(211, 220, 227);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(0, 0, 0);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvVisualizacaoInstrumentos.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvVisualizacaoInstrumentos.EnableHeadersVisualStyles = false;
+            dgvVisualizacaoInstrumentos.Location = new Point(51, 126);
             dgvVisualizacaoInstrumentos.Name = "dgvVisualizacaoInstrumentos";
+            dgvVisualizacaoInstrumentos.ReadOnly = true;
+            dgvVisualizacaoInstrumentos.RowHeadersVisible = false;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(68, 68, 78);
+            dgvVisualizacaoInstrumentos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dgvVisualizacaoInstrumentos.RowTemplate.Height = 40;
+            dgvVisualizacaoInstrumentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvVisualizacaoInstrumentos.Size = new Size(739, 239);
-            dgvVisualizacaoInstrumentos.TabIndex = 195;
+            dgvVisualizacaoInstrumentos.TabIndex = 189;
+            dgvVisualizacaoInstrumentos.CellContentClick += dgvVisualizacaoInstrumentos_CellContentClick;
             // 
             // Codigo
             // 
-            Codigo.HeaderText = "Código";
             Codigo.Name = "Codigo";
-            Codigo.Width = 145;
             // 
             // Categoria
             // 
-            Categoria.HeaderText = "Categoria";
             Categoria.Name = "Categoria";
-            Categoria.Width = 145;
             // 
             // Marca
             // 
-            Marca.HeaderText = "Marca";
             Marca.Name = "Marca";
-            Marca.Width = 145;
             // 
             // Modelo
             // 
-            Modelo.HeaderText = "Modelo";
             Modelo.Name = "Modelo";
-            Modelo.Width = 145;
             // 
             // NumeroSerie
             // 
@@ -97,6 +127,7 @@
             btnVoltar.TabIndex = 194;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = false;
+            btnVoltar.Click += btnVoltar_Click;
             // 
             // panel5
             // 

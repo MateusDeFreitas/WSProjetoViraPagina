@@ -49,7 +49,7 @@ namespace Projeto_ViraPagina.Model
             return false;
         }
 
-        public static void AdicionarInstrumento(Emprestimo emprestimo)
+        public static void AdicionarEmprestimo(Emprestimo emprestimo)
         {
             ListaEmprestimo.Add(emprestimo);
         }
@@ -73,6 +73,18 @@ namespace Projeto_ViraPagina.Model
                 return idInstrumento;
             }
             return "ERRO";
+        }
+
+        public string ConverterDataParaFormatoBR(string dataOriginal)
+        {
+            if (DateTime.TryParse(dataOriginal, out DateTime dataConvertida))
+            {
+                return dataConvertida.ToString("dd/MM/yyyy");
+            }
+            else
+            {
+                return "Data inválida";
+            }
         }
     }
 }

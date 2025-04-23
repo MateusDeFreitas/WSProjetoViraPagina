@@ -64,10 +64,11 @@ namespace Projeto_ViraPagina.DAO
                         {
                             Penalidade penalidade = new Penalidade()
                             {
+                                Id = reader["id"].ToString(),
                                 IdUsuario = reader["idTomador"].ToString(),
-                                DataPenalidade = reader["dataPenalidade"].ToString(),
+                                DataPenalidade = funçao.ConverterDataParaFormatoBR(reader["dataPenalidade"].ToString()),
                                 IdEmprestimo = reader["idEmprestimo"].ToString(),
-                                CodPenalidade = funçao.ConverterDataParaFormatoBR(reader["codPenalidade"].ToString())
+                                CodPenalidade = reader["codPenalidade"].ToString()
                             };
 
                             lista.Add(penalidade);
@@ -81,6 +82,34 @@ namespace Projeto_ViraPagina.DAO
             }
 
             return lista;
+        }
+
+        public bool RegularizarPenalidade(string id)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("desativarPenalidade", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_idPenalidade", id);
+
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Penalidade regularizada", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                return false;
+            }
         }
     }
 }

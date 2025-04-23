@@ -74,10 +74,10 @@ namespace Projeto_ViraPagina.DAO
 
                             Emprestimo emprestimo = new Emprestimo()
                             {
+                                Id = reader["id"].ToString(),
                                 IdUsuario = reader["idUsuario"].ToString(),
-                                DataDevolucao = reader["categoria"].ToString(),
-                                IdAcervo = Funcao.ReceberIdAcervo(idMaterialImpresso, idJogo, idMidia, idInstrumento),
-                                Finalizado = Funcao.StringParaBool(reader["finalizado"].ToString())
+                                DataDevolucao = Funcao.ConverterDataParaFormatoBR(reader["dataDevolucao"].ToString()),
+                                IdAcervo = Funcao.ReceberIdAcervo(idMaterialImpresso, idJogo, idMidia, idInstrumento)
                             };
 
                             lista.Add(emprestimo);
@@ -91,6 +91,34 @@ namespace Projeto_ViraPagina.DAO
             }
 
             return lista;
+        }
+
+        public bool FinalizarEmprestimo(string idEmprestimo)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("finalizarEmprestimo", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_idEmprestimo", idEmprestimo);
+
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Empréstimo finalizado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                return false;
+            }
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Projeto_ViraPagina.DAO;
+using Projeto_ViraPagina.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,61 +25,75 @@ namespace Projeto_ViraPagina.View
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
+        private void CarregarGrid()
+        {
+            PenalidadeDAO penalidadeDAO = new PenalidadeDAO();
+
+            List<Penalidade> penalidades = penalidadeDAO.BuscarPenalidades();
+
+            dgvPenalidades.Columns.Clear(); // Limpa colunas anteriores
+            dgvPenalidades.DataSource = null;
+            dgvPenalidades.AutoGenerateColumns = false;
+
+            dgvPenalidades.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "Codigo",
+                HeaderText = "Código",
+                DataPropertyName = "Id",
+                Width = 90
+            });
+
+            dgvPenalidades.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Cód. Tomador",
+                DataPropertyName = "IdUsuario",
+                Width = 130,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            dgvPenalidades.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Cód. Empréstimo",
+                DataPropertyName = "IdEmprestimo",
+                Width = 155,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            dgvPenalidades.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Data de Ocorrência",
+                DataPropertyName = "DataPenalidade",
+                Width = 180,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            dgvPenalidades.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Categoria",
+                DataPropertyName = "CodPenalidade",
+                Width = 120,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            DataGridViewImageColumn colunaImagemRegularizar = new DataGridViewImageColumn();
+            colunaImagemRegularizar.Name = "Regularizar";
+            colunaImagemRegularizar.HeaderText = "";
+            colunaImagemRegularizar.Image = Image.FromFile("Imagens/Check.png");
+            colunaImagemRegularizar.Width = 45;
+            colunaImagemRegularizar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvPenalidades.Columns.Add(colunaImagemRegularizar);
+
+            // Vincula os dados
+            dgvPenalidades.DataSource = penalidades;
+        }
+
         private void Penalidades_Load(object sender, EventArgs e)
         {
-            // Fundo da tela
-            this.BackColor = ColorTranslator.FromHtml("#FFF4E3");
-
-            // Fundo da tabela
-            dgvPenalidades.BackgroundColor = ColorTranslator.FromHtml("#FFF4E3");
-
-            // Não permitir adicionar linha manual
-            dgvPenalidades.AllowUserToAddRows = false;
-
-            // Esconder cabeçalho lateral
-            dgvPenalidades.RowHeadersVisible = false;
-
-            // Seleção da linha inteira
-            dgvPenalidades.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-            // Borda invisível nas células
-            dgvPenalidades.CellBorderStyle = DataGridViewCellBorderStyle.None;
-
-            // Fonte das células
-            dgvPenalidades.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-
-            // Cor da linha selecionada
-            dgvPenalidades.DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#5A0000");
-            dgvPenalidades.DefaultCellStyle.SelectionForeColor = Color.White;
-
-            // Cabeçalho estilizado
-            dgvPenalidades.EnableHeadersVisualStyles = false;
-            dgvPenalidades.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#8B0000");
-            dgvPenalidades.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgvPenalidades.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            dgvPenalidades.ColumnHeadersHeight = 35;
-
-            // Espaçamento entre as linhas (efeito card)
-            dgvPenalidades.RowTemplate.Height = 40;
-            dgvPenalidades.DefaultCellStyle.Padding = new Padding(0, 5, 0, 5);
-
-            // Cores das linhas
-            dgvPenalidades.RowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#A67B5B");
-            dgvPenalidades.AlternatingRowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#8B0000");
-            dgvPenalidades.AlternatingRowsDefaultCellStyle.ForeColor = Color.White;
-
-            // AutoSize manual para controlar os tamanhos
-            dgvPenalidades.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-
-            // Se as colunas já existirem, define os tamanhos
-            if (dgvPenalidades.Columns.Count >= 5)
-            {
-                dgvPenalidades.Columns[0].Width = 60;   // Código
-                dgvPenalidades.Columns[1].Width = 200;  // Nome do jogo
-                dgvPenalidades.Columns[2].Width = 200;  // Tema
-                dgvPenalidades.Columns[3].Width = 140;  // Número de jogadores
-                dgvPenalidades.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; // Idioma
-            }
+            CarregarGrid();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -85,6 +101,33 @@ namespace Projeto_ViraPagina.View
             Principal form = new Principal();
             form.Show();
             this.Hide();
+        }
+
+        private void btnVoltar_Click_1(object sender, EventArgs e)
+        {
+            PrincipalPenalidade form = new PrincipalPenalidade();
+            form.Show();
+            this.Hide();
+        }
+
+        private void dgvPenalidades_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvPenalidades.Columns[e.ColumnIndex].Name == "Regularizar")
+            {
+                // Pega o ID da linha selecionada
+                string idPenalidade = dgvPenalidades.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
+
+                // Confirma exclusão
+                DialogResult result = MessageBox.Show("Deseja regularizar esta penalidade?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    PenalidadeDAO penalidadeDAO = new PenalidadeDAO();
+                    penalidadeDAO.RegularizarPenalidade(idPenalidade);
+
+                    CarregarGrid();
+                }
+            }
         }
     }
 }

@@ -29,7 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualizacaoMidia));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panelLivro = new Panel();
+            pictureBox1 = new PictureBox();
             labelVisualizacaoMidia = new Label();
             panel5 = new Panel();
             texPesquisarVisualizacaoMidia = new TextBox();
@@ -40,10 +45,9 @@
             Diretor = new DataGridViewTextBoxColumn();
             Genero = new DataGridViewTextBoxColumn();
             AnoLancamento = new DataGridViewTextBoxColumn();
-            pictureBox1 = new PictureBox();
             panelLivro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvVisualizacaoMidia).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvVisualizacaoMidia).BeginInit();
             SuspendLayout();
             // 
             // panelLivro
@@ -54,6 +58,17 @@
             panelLivro.Name = "panelLivro";
             panelLivro.Size = new Size(42, 472);
             panelLivro.TabIndex = 158;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(2, 20);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(39, 39);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // labelVisualizacaoMidia
             // 
@@ -99,54 +114,67 @@
             // 
             // dgvVisualizacaoMidia
             // 
-            dgvVisualizacaoMidia.BackgroundColor = Color.FromArgb(250, 243, 224);
+            dgvVisualizacaoMidia.AllowUserToAddRows = false;
+            dgvVisualizacaoMidia.AllowUserToResizeColumns = false;
+            dgvVisualizacaoMidia.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(236, 236, 236);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(68, 68, 78);
+            dgvVisualizacaoMidia.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvVisualizacaoMidia.BackgroundColor = Color.FromArgb(255, 244, 227);
+            dgvVisualizacaoMidia.BorderStyle = BorderStyle.None;
+            dgvVisualizacaoMidia.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dgvVisualizacaoMidia.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(222, 162, 117);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(222, 162, 117);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvVisualizacaoMidia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvVisualizacaoMidia.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvVisualizacaoMidia.Columns.AddRange(new DataGridViewColumn[] { Codigo, Título, Diretor, Genero, AnoLancamento });
-            dgvVisualizacaoMidia.Location = new Point(51, 125);
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.Padding = new Padding(0, 5, 0, 5);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(211, 220, 227);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(0, 0, 0);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvVisualizacaoMidia.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvVisualizacaoMidia.EnableHeadersVisualStyles = false;
+            dgvVisualizacaoMidia.Location = new Point(51, 126);
             dgvVisualizacaoMidia.Name = "dgvVisualizacaoMidia";
+            dgvVisualizacaoMidia.ReadOnly = true;
+            dgvVisualizacaoMidia.RowHeadersVisible = false;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(68, 68, 78);
+            dgvVisualizacaoMidia.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dgvVisualizacaoMidia.RowTemplate.Height = 40;
+            dgvVisualizacaoMidia.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvVisualizacaoMidia.Size = new Size(739, 239);
-            dgvVisualizacaoMidia.TabIndex = 183;
+            dgvVisualizacaoMidia.TabIndex = 189;
+            dgvVisualizacaoMidia.CellContentClick += dgvVisualizacaoMidia_CellContentClick;
             // 
             // Codigo
             // 
-            Codigo.HeaderText = "Código";
             Codigo.Name = "Codigo";
-            Codigo.Width = 145;
             // 
             // Título
             // 
-            Título.HeaderText = "Título";
             Título.Name = "Título";
-            Título.Width = 145;
             // 
             // Diretor
             // 
-            Diretor.HeaderText = "Diretor";
             Diretor.Name = "Diretor";
-            Diretor.Width = 145;
             // 
             // Genero
             // 
-            Genero.HeaderText = "Gênero";
             Genero.Name = "Genero";
-            Genero.Width = 145;
             // 
             // AnoLancamento
             // 
-            AnoLancamento.HeaderText = "Ano de lançamento";
             AnoLancamento.Name = "AnoLancamento";
-            AnoLancamento.Width = 145;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(2, 20);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(39, 39);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 5;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // VisualizacaoMidia
             // 
@@ -164,8 +192,8 @@
             Text = "VisualizacaoMidia";
             Load += VisualizacaoMidia_Load;
             panelLivro.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvVisualizacaoMidia).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvVisualizacaoMidia).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

@@ -108,7 +108,7 @@ namespace Projeto_ViraPagina.View
 
                 if (midiaDAO.AtualizarMidiaNoBanco(midia))
                 {
-                    EditarMidia form = new EditarMidia();
+                    VisualizacaoMidia form = new VisualizacaoMidia();
                     form.Show();
                     this.Hide();
                 }

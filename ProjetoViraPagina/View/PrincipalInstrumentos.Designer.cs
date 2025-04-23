@@ -117,6 +117,7 @@
             btnDeletar.TabIndex = 20;
             btnDeletar.Text = "Deletar um instrumento";
             btnDeletar.UseVisualStyleBackColor = false;
+            btnDeletar.Click += btnDeletar_Click;
             // 
             // btnAtualizar
             // 

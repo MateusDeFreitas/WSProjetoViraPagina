@@ -39,7 +39,7 @@ namespace Projeto_ViraPagina.View
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            EditarInstrumentos form = new EditarInstrumentos();
+            VisualizacaoInstrumentos form = new VisualizacaoInstrumentos();
             form.Show();
             this.Hide();
         }
@@ -52,6 +52,13 @@ namespace Projeto_ViraPagina.View
         }
 
         private void btnVerificar_Click(object sender, EventArgs e)
+        {
+            VisualizacaoInstrumentos form = new VisualizacaoInstrumentos();
+            form.Show();
+            this.Hide();
+        }
+
+        private void btnDeletar_Click(object sender, EventArgs e)
         {
             VisualizacaoInstrumentos form = new VisualizacaoInstrumentos();
             form.Show();

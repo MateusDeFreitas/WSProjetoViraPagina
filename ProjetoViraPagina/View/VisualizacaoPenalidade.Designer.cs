@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualizacaoPenalidade));
             dgvPenalidades = new DataGridView();
-            CodigoAluno = new DataGridViewTextBoxColumn();
-            DataOcorrencia = new DataGridViewTextBoxColumn();
-            CodigoLivro = new DataGridViewTextBoxColumn();
-            CodigoPenalidade = new DataGridViewTextBoxColumn();
             btnVoltar = new Button();
             panel5 = new Panel();
             texPesquisarPenalidades = new TextBox();
@@ -47,37 +47,48 @@
             // 
             // dgvPenalidades
             // 
+            dgvPenalidades.AllowUserToAddRows = false;
+            dgvPenalidades.AllowUserToDeleteRows = false;
+            dgvPenalidades.AllowUserToResizeColumns = false;
+            dgvPenalidades.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(236, 236, 236);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(68, 68, 78);
+            dgvPenalidades.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvPenalidades.BackgroundColor = Color.FromArgb(250, 243, 224);
+            dgvPenalidades.BorderStyle = BorderStyle.None;
+            dgvPenalidades.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dgvPenalidades.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(222, 162, 117);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(222, 162, 117);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvPenalidades.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvPenalidades.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPenalidades.Columns.AddRange(new DataGridViewColumn[] { CodigoAluno, DataOcorrencia, CodigoLivro, CodigoPenalidade });
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.Padding = new Padding(0, 5, 0, 5);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(211, 220, 227);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(0, 0, 0);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvPenalidades.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvPenalidades.EnableHeadersVisualStyles = false;
             dgvPenalidades.Location = new Point(51, 125);
             dgvPenalidades.Name = "dgvPenalidades";
+            dgvPenalidades.ReadOnly = true;
+            dgvPenalidades.RowHeadersVisible = false;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(68, 68, 78);
+            dgvPenalidades.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dgvPenalidades.RowTemplate.Height = 40;
+            dgvPenalidades.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPenalidades.Size = new Size(739, 239);
             dgvPenalidades.TabIndex = 213;
-            // 
-            // CodigoAluno
-            // 
-            CodigoAluno.HeaderText = "Código aluno";
-            CodigoAluno.Name = "CodigoAluno";
-            CodigoAluno.Width = 175;
-            // 
-            // DataOcorrencia
-            // 
-            DataOcorrencia.HeaderText = "Data de ocorrência";
-            DataOcorrencia.Name = "DataOcorrencia";
-            DataOcorrencia.Width = 175;
-            // 
-            // CodigoLivro
-            // 
-            CodigoLivro.HeaderText = "Código livro";
-            CodigoLivro.Name = "CodigoLivro";
-            CodigoLivro.Width = 175;
-            // 
-            // CodigoPenalidade
-            // 
-            CodigoPenalidade.HeaderText = "Código penalidade";
-            CodigoPenalidade.Name = "CodigoPenalidade";
-            CodigoPenalidade.Width = 175;
+            dgvPenalidades.CellContentClick += dgvPenalidades_CellContentClick;
             // 
             // btnVoltar
             // 
@@ -90,6 +101,7 @@
             btnVoltar.TabIndex = 212;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = false;
+            btnVoltar.Click += btnVoltar_Click_1;
             // 
             // panel5
             // 
@@ -171,10 +183,6 @@
         private TextBox texPesquisarPenalidades;
         private Label labelPenalidades;
         private Panel panelLivro;
-        private DataGridViewTextBoxColumn CodigoAluno;
-        private DataGridViewTextBoxColumn DataOcorrencia;
-        private DataGridViewTextBoxColumn CodigoLivro;
-        private DataGridViewTextBoxColumn CodigoPenalidade;
         private PictureBox pictureBox1;
     }
 }
