@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,10 +19,11 @@ namespace Projeto_ViraPagina.DAO
                 try
                 {
                     con.Open();
-                    string query1 = "SELECT COUNT(1) FROM materialimpresso WHERE id = @id";
-                    using (MySqlCommand cmd = new MySqlCommand(query1, con))
+                    using (MySqlCommand cmd = new MySqlCommand("contarMaterialImpressoPorId", con))
                     {
-                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("p_idMaterialImpresso", id);
+
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
                         return (count > 0); 
                     }
@@ -41,10 +43,10 @@ namespace Projeto_ViraPagina.DAO
                 try
                 {
                     con.Open();
-                    string query1 = "SELECT COUNT(1) FROM instrumento WHERE idInstrumento = @id";
-                    using (MySqlCommand cmd = new MySqlCommand(query1, con))
+                    using (MySqlCommand cmd = new MySqlCommand("contarInstrumentoPorId", con))
                     {
-                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("p_idInstrumento", id);
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
                         return (count > 0); 
                     }
@@ -64,10 +66,11 @@ namespace Projeto_ViraPagina.DAO
                 try
                 {
                     con.Open();
-                    string query1 = "SELECT COUNT(1) FROM jogo WHERE idJogo = @id";
-                    using (MySqlCommand cmd = new MySqlCommand(query1, con))
+                    using (MySqlCommand cmd = new MySqlCommand("contarJogoPorId", con))
                     {
-                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("p_idJogo", id);
+
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
                         return (count > 0); 
                     }
@@ -87,10 +90,11 @@ namespace Projeto_ViraPagina.DAO
                 try
                 {
                     con.Open();
-                    string query1 = "SELECT COUNT(1) FROM midia WHERE idMidia = @id";
-                    using (MySqlCommand cmd = new MySqlCommand(query1, con))
+                    using (MySqlCommand cmd = new MySqlCommand("contarMidiaPorId", con))
                     {
-                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("p_idMidia", id);
+
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
                         return (count > 0); 
                     }
@@ -110,10 +114,10 @@ namespace Projeto_ViraPagina.DAO
                 try
                 {
                     con.Open();
-                    string query1 = "SELECT COUNT(1) FROM emprestimo WHERE id = @id";
-                    using (MySqlCommand cmd = new MySqlCommand(query1, con))
+                    using (MySqlCommand cmd = new MySqlCommand("contarEmprestimoPorId", con))
                     {
-                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("p_id", id);
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
                         return (count > 0); 
                     }
@@ -133,10 +137,11 @@ namespace Projeto_ViraPagina.DAO
                 try
                 {
                     con.Open();
-                    string query1 = "SELECT COUNT(1) FROM tomadores WHERE id = @id";
-                    using (MySqlCommand cmd = new MySqlCommand(query1, con))
+                    using (MySqlCommand cmd = new MySqlCommand("contarTomadorPorId", con))
                     {
-                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("p_id", id);
+
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
                         return (count > 0); 
                     }
@@ -158,10 +163,11 @@ namespace Projeto_ViraPagina.DAO
                 try
                 {
                     con.Open();
-                    string query1 = "SELECT COUNT(*) FROM penalidade WHERE id = @id";
-                    using (MySqlCommand cmd = new MySqlCommand(query1, con))
+                    using (MySqlCommand cmd = new MySqlCommand("contarPenalidadePorId", con))
                     {
-                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("p_id", id);
+
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
                         redistroExistente = (count > 0); 
                     }
@@ -182,10 +188,11 @@ namespace Projeto_ViraPagina.DAO
                 try
                 {
                     con.Open();
-                    string query1 = "SELECT COUNT(1) FROM instrumento WHERE numeroSerie = @numeroSerie";
-                    using (MySqlCommand cmd = new MySqlCommand(query1, con))
+                    using (MySqlCommand cmd = new MySqlCommand("contarInstrumentoPorNumeroSerie", con))
                     {
-                        cmd.Parameters.AddWithValue("@numeroSerie", numeroSerie);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("p_numeroSerie", numeroSerie);
+
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
                         return (count > 0); 
                     }
@@ -205,10 +212,11 @@ namespace Projeto_ViraPagina.DAO
                 try
                 {
                     con.Open();
-                    string query1 = "SELECT COUNT(1) FROM reserva WHERE id = @id";
-                    using (MySqlCommand cmd = new MySqlCommand(query1, con))
+                    using (MySqlCommand cmd = new MySqlCommand("contarReservaPorId", con))
                     {
-                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("p_id", id);
+
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
                         return (count > 0);
                     }

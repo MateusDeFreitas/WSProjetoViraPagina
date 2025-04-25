@@ -88,6 +88,7 @@
             dgvVisualizacaoReservas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvVisualizacaoReservas.Size = new Size(739, 239);
             dgvVisualizacaoReservas.TabIndex = 213;
+            dgvVisualizacaoReservas.CellContentClick += dgvVisualizacaoReservas_CellContentClick;
             // 
             // btnVoltar
             // 
@@ -166,6 +167,7 @@
             Controls.Add(panelLivro);
             Name = "VisualizacaoReservas";
             Text = "VisualizacaoReservas";
+            Load += VisualizacaoReservas_Load;
             ((System.ComponentModel.ISupportInitialize)dgvVisualizacaoReservas).EndInit();
             panelLivro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

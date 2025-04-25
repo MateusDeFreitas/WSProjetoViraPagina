@@ -31,7 +31,7 @@ namespace Projeto_ViraPagina.DAO
 
                         cmd.ExecuteNonQuery();
 
-                        MessageBox.Show("Registro inserido com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"Registro {instrumento.NumeroSerie} inserido com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         return true;
                     }
@@ -55,12 +55,12 @@ namespace Projeto_ViraPagina.DAO
             {
                 if (redistroExistente)
                 {
-                    string query = "SELECT * FROM instrumento WHERE idInstrumento = @id";
 
                     con.Open();
-                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    using (MySqlCommand cmd = new MySqlCommand("lerInstrumento", con))
                     {
-                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("p_idInstrumento", id);
 
                         // Obtém a senha armazenada no banco
                         using (MySqlDataReader resultado = cmd.ExecuteReader())
@@ -78,7 +78,7 @@ namespace Projeto_ViraPagina.DAO
                 }
                 else
                 {
-                    MessageBox.Show("Instrumento inexistente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show($"Instrumento {id} inexistente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             return instrumento;
@@ -103,7 +103,7 @@ namespace Projeto_ViraPagina.DAO
 
                         cmd.ExecuteNonQuery();
 
-                        MessageBox.Show("Registro atualizado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"Registro {instrumento.IdInstrumento} atualizado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         return true;
                     }
@@ -128,12 +128,11 @@ namespace Projeto_ViraPagina.DAO
             {
                 if (redistroExistente)
                 {
-                    string query = "SELECT * FROM instrumento WHERE numeroSerie = @numeroSerie";
-
                     con.Open();
-                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    using (MySqlCommand cmd = new MySqlCommand("buscarInstrumentoPorNumeroSerie", con))
                     {
-                        cmd.Parameters.AddWithValue("@numeroSerie", numeroSerie);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("p_numeroSerie", numeroSerie);
 
                         // Obtém a senha armazenada no banco
                         using (MySqlDataReader resultado = cmd.ExecuteReader())
@@ -151,7 +150,7 @@ namespace Projeto_ViraPagina.DAO
                 }
                 else
                 {
-                    MessageBox.Show("Instrumento inexistente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show($"Instrumento {numeroSerie} inexistente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             return instrumento;
@@ -219,7 +218,7 @@ namespace Projeto_ViraPagina.DAO
                 }
                 else
                 {
-                    MessageBox.Show("Instrumento inesistente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show($"Instrumento {id} inesistente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             return false;

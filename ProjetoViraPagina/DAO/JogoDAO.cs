@@ -33,7 +33,7 @@ namespace Projeto_ViraPagina.DAO
 
                         cmd.ExecuteNonQuery();
 
-                        MessageBox.Show("Registro inserido com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"{jogo.Nome} inserido com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         return true;
                     }
@@ -57,12 +57,11 @@ namespace Projeto_ViraPagina.DAO
             {
                 if (redistroExistente)
                 {
-                    string query = "SELECT * FROM jogo WHERE idJogo = @id";
-
                     con.Open();
-                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    using (MySqlCommand cmd = new MySqlCommand("lerJogo", con))
                     {
-                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("p_idJogo", id);
 
                         // Obtém a senha armazenada no banco
                         using (MySqlDataReader resultado = cmd.ExecuteReader())
@@ -81,7 +80,7 @@ namespace Projeto_ViraPagina.DAO
                 }
                 else
                 {
-                    MessageBox.Show("Jogo inesistente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show($"Jogo {id} inesistente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             return jogo;
@@ -107,7 +106,7 @@ namespace Projeto_ViraPagina.DAO
 
                         cmd.ExecuteNonQuery();
 
-                        MessageBox.Show("Registro atualizado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("$Registro {jogo.IdJogo} atualizado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         return true;
                     }
@@ -183,7 +182,7 @@ namespace Projeto_ViraPagina.DAO
                 }
                 else
                 {
-                    MessageBox.Show("Jogo inesistente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show($"Jogo {id} inesistente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             return false;

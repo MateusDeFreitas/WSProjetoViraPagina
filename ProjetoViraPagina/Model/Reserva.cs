@@ -18,7 +18,7 @@ namespace Projeto_ViraPagina.Model
 
         public static List<Reserva> ListaReserva = new List<Reserva>();
 
-        public static void AdicionarPenalidade(Reserva reserva)
+        public static void AdicionarReserva(Reserva reserva)
         {
             ListaReserva.Add(reserva);
         }

@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Projeto_ViraPagina.DAO;
 using Projeto_ViraPagina.Model;
 using System;
 using System.Collections.Generic;
@@ -57,72 +58,45 @@ namespace Projeto_ViraPagina.View
 
         private void pictureBoxLupa_Click(object sender, EventArgs e)
         {
-            string connectionString = "Server=localhost;Database=bd_virapagina;Uid=root;Pwd=";
-
             string id = textPesquisa.Text;
 
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            TomadorDAO tomadorDAO = new TomadorDAO();
+            UtilDAO utilDAO = new UtilDAO();
+
+            if (utilDAO.IdTomadorExiste(id))
             {
-                try
-                {
-                    connection.Open();
-                    string query = "SELECT * FROM Tomadores WHERE id = @id";
-                    Tomador tomador = new Tomador();
-
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@id", id);
-
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                            if (reader.Read()) // Se encontrou o registro
-                            {
-                                textNomeTomador.Text = "";
-                                textEmail.Text = "";
-                                textPenalidades.Text = "";
-                                textPenalidades.Text = "";
-                                textMatricula.Text = "";
-                                textTelefone.Text = "";
-                                textVinculo.Text = "";
-                                textCodigo.Text = "";
-
-                                tomador.Id = reader["id"].ToString();
-                                tomador.Nome = reader["nome"].ToString();
-                                tomador.Email = reader["id"].ToString();
-                                tomador.NumeroDeLivrosEmprestados = Convert.ToInt32(reader["numeroDeLivrosEmprestados"].ToString());
-                                tomador.NumeroDePenalidade = Convert.ToInt32(reader["numeroDePenalidade"].ToString());
-                                tomador.ValidadeMatricula = reader["validadeMatricula"].ToString();
-                                tomador.NumeroTelefone = reader["numeroTelefone"].ToString();
-                                tomador.Vinculo = reader["vinculo"].ToString();
-
-                                textNomeTomador.Text = tomador.Nome;
-                                textEmail.Text = tomador.Email;
-                                textLivrosEmprestados.Text = tomador.NumeroDeLivrosEmprestados.ToString();
-                                textPenalidades.Text = tomador.NumeroDePenalidade.ToString();
-                                textMatricula.Text = tomador.exibirValidadeMatricula(tomador.ValidadeMatricula);
-                                textTelefone.Text = tomador.NumeroTelefone;
-                                textVinculo.Text = tomador.Vinculo;
-                                textCodigo.Text = tomador.Id;
-                            }
-                            else
-                            {
-                                MessageBox.Show("Tomador inexixtente.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                textPesquisa.Text = "";
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Erro: " + ex.Message);
-                }
+                Tomador tomador = tomadorDAO.LerTomador(id);
+                ApagarCampos();
+                CarregarCampos(tomador);
             }
-
+            else
+            {
+                MessageBox.Show("Tomador não encontrado", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
-        private void pictureBoxMenu_Click(object sender, EventArgs e)
+        private void ApagarCampos()
         {
+            textNomeTomador.Text = "";
+            textEmail.Text = "";
+            textPenalidades.Text = "";
+            textPenalidades.Text = "";
+            textMatricula.Text = "";
+            textTelefone.Text = "";
+            textVinculo.Text = "";
+            textCodigo.Text = "";
+        }
 
+        private void CarregarCampos(Tomador tomador)
+        {
+            textNomeTomador.Text = tomador.Nome;
+            textEmail.Text = tomador.Email;
+            textLivrosEmprestados.Text = tomador.NumeroDeLivrosEmprestados.ToString();
+            textPenalidades.Text = tomador.NumeroDePenalidade.ToString();
+            textMatricula.Text = tomador.exibirValidadeMatricula(tomador.ValidadeMatricula);
+            textTelefone.Text = tomador.NumeroTelefone;
+            textVinculo.Text = tomador.Vinculo;
+            textCodigo.Text = tomador.Id;
         }
     }
 }

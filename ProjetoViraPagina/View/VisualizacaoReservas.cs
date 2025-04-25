@@ -39,50 +39,56 @@ namespace Projeto_ViraPagina.View
             {
                 Name = "Codigo",
                 HeaderText = "Código",
-                DataPropertyName = "IdJogo",
-                Width = 100
+                DataPropertyName = "Id",
+                Width = 90
             });
 
             dgvVisualizacaoReservas.Columns.Add(new DataGridViewTextBoxColumn()
             {
-                HeaderText = "Nome",
-                DataPropertyName = "Nome",
-                Width = 145
+                HeaderText = "Cód. Tomador",
+                DataPropertyName = "IdUsuario",
+                Width = 135,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
             });
 
             dgvVisualizacaoReservas.Columns.Add(new DataGridViewTextBoxColumn()
             {
-                HeaderText = "Gênero",
-                DataPropertyName = "Genero",
-                Width = 100
-            });
-
-            dgvVisualizacaoReservas.Columns.Add(new DataGridViewTextBoxColumn()
-            {
-                HeaderText = "Marca",
-                DataPropertyName = "Marca",
-                Width = 145
-            });
-
-            dgvVisualizacaoReservas.Columns.Add(new DataGridViewTextBoxColumn()
-            {
-                HeaderText = "N. Jogadores",
-                DataPropertyName = "NumeroJogadores",
+                HeaderText = "Data Solicitação",
+                DataPropertyName = "DataReserva",
                 Width = 140,
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
                 HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
             });
 
-            DataGridViewImageColumn colunaImagemEditar = new DataGridViewImageColumn();
-            colunaImagemEditar.Name = "Editar";
-            colunaImagemEditar.HeaderText = "";
-            colunaImagemEditar.Image = Image.FromFile("Imagens/ImagemEditr.png");
-            colunaImagemEditar.Width = 45;
-            colunaImagemEditar.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dgvVisualizacaoReservas.Columns.Add(colunaImagemEditar);
+            dgvVisualizacaoReservas.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Cód. Livro",
+                DataPropertyName = "IdMaterialImpresso",
+                Width = 135,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            dgvVisualizacaoReservas.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Período",
+                DataPropertyName = "TempoReserva",
+                Width = 130,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            DataGridViewImageColumn colunaImagemResgatar = new DataGridViewImageColumn();
+            colunaImagemResgatar.Name = "Resgatar";
+            colunaImagemResgatar.HeaderText = "";
+            colunaImagemResgatar.Image = Image.FromFile("Imagens/Resgatar.png");
+            colunaImagemResgatar.Width = 45;
+            colunaImagemResgatar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvVisualizacaoReservas.Columns.Add(colunaImagemResgatar);
 
             DataGridViewImageColumn colunaImagem = new DataGridViewImageColumn();
-            colunaImagem.Name = "Excluir";
+            colunaImagem.Name = "Cancelar";
             colunaImagem.HeaderText = "";
             colunaImagem.Image = Image.FromFile("Imagens/ImagemX.png");
             colunaImagem.Width = 45;
@@ -105,6 +111,47 @@ namespace Projeto_ViraPagina.View
             Principal form = new Principal();
             form.Show();
             this.Hide();
+        }
+
+        private void VisualizacaoReservas_Load(object sender, EventArgs e)
+        {
+            CarregarGrid();
+        }
+
+        private void dgvVisualizacaoReservas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvVisualizacaoReservas.Columns[e.ColumnIndex].Name == "Resgatar")
+            {
+                // Pega o ID da linha selecionada
+                string idReserva = dgvVisualizacaoReservas.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
+
+                // Confirma exclusão
+                DialogResult result = MessageBox.Show($"Deseja resgatar a reserva {idReserva}?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    ReservaDAO reservaDAO = new ReservaDAO();
+                    reservaDAO.ResgatarReserva(idReserva);
+
+                    CarregarGrid();
+                }
+            }
+            else if (e.RowIndex >= 0 && dgvVisualizacaoReservas.Columns[e.ColumnIndex].Name == "Cancelar")
+            {
+                // Pega o ID da linha selecionada
+                string idReserva = dgvVisualizacaoReservas.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
+
+                // Confirma exclusão
+                DialogResult result = MessageBox.Show($"Deseja excluir a reserva {idReserva}?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    ReservaDAO reservaDAO = new ReservaDAO();
+                    reservaDAO.ExcluirReservaNoBanco(idReserva);
+
+                    CarregarGrid();
+                }
+            }
         }
     }
 }

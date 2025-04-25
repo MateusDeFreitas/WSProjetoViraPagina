@@ -73,12 +73,11 @@ namespace Projeto_ViraPagina.DAO
             {
                 if (redistroExistente)
                 {
-                    string query = "SELECT * FROM materialimpresso WHERE id = @id";
-
                     con.Open();
-                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    using (MySqlCommand cmd = new MySqlCommand("lerMaterialImpresso", con))
                     {
-                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("p_idMaterialImpresso", id);
 
                         // Obtém a senha armazenada no banco
                         using (MySqlDataReader resultado = cmd.ExecuteReader())

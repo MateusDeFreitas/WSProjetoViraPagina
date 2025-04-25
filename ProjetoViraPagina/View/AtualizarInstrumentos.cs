@@ -59,9 +59,9 @@ namespace Projeto_ViraPagina.View
             this.Hide();
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click_1(object sender, EventArgs e)
         {
-            PrincipalInstrumentos form = new PrincipalInstrumentos();
+            VisualizacaoInstrumentos form = new VisualizacaoInstrumentos();
             form.Show();
             this.Hide();
         }
@@ -73,7 +73,7 @@ namespace Projeto_ViraPagina.View
             Instrumento instrumento = new Instrumento();
             InstrumentoDAO instrumentoDAO = new InstrumentoDAO();
 
-            
+
 
             if (textIdInstrumento.Text == "")
             {

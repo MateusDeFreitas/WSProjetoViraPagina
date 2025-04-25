@@ -79,6 +79,7 @@
             btnVerificar.TabIndex = 29;
             btnVerificar.Text = "Verificar reservas";
             btnVerificar.UseVisualStyleBackColor = false;
+            btnVerificar.Click += btnVerificar_Click;
             // 
             // btnCriar
             // 

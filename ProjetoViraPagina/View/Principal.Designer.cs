@@ -416,7 +416,6 @@
             pictureBoxMenu.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxMenu.TabIndex = 33;
             pictureBoxMenu.TabStop = false;
-            pictureBoxMenu.Click += pictureBoxMenu_Click;
             // 
             // Principal
             // 

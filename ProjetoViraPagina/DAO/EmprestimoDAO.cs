@@ -36,7 +36,7 @@ namespace Projeto_ViraPagina.DAO
 
                         cmd.ExecuteNonQuery();
 
-                        MessageBox.Show("Registro inserido com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"Registro {emprestimo.IdUsuario} inserido com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         return true;
                     }
@@ -108,7 +108,7 @@ namespace Projeto_ViraPagina.DAO
 
                         cmd.ExecuteNonQuery();
 
-                        MessageBox.Show("Empréstimo finalizado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"Empréstimo {idEmprestimo} finalizado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         return true;
                     }
@@ -137,7 +137,7 @@ namespace Projeto_ViraPagina.DAO
 
                         cmd.ExecuteNonQuery();
 
-                        MessageBox.Show("Empréstimo renovado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"Empréstimo {idEmprestimo} renovado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         return true;
                     }

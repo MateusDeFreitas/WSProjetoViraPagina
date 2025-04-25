@@ -42,6 +42,7 @@ namespace Projeto_ViraPagina.View
         {
             Emprestimo emprestimo = new Emprestimo();
             EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
+            ReservaDAO reservaDAO = new ReservaDAO();
             UtilDAO utilDAO = new UtilDAO();
 
             if (textUsuario.Text == "" )
@@ -59,12 +60,32 @@ namespace Projeto_ViraPagina.View
                      utilDAO.IdTomadorExiste(textUsuario.Text)
                      )
             {
-                InstanciarEmprestimo(emprestimo, utilDAO);
-
-                if (emprestimoDAO.AdicionarEmprestimoNoBanco(emprestimo))
+                if (utilDAO.IdMaterialImpressoExiste(textAcervo.Text))
                 {
-                    textUsuario.Text = "";
-                    textAcervo.Text = "";
+                    if (!reservaDAO.EstaReservado(textAcervo.Text))
+                    {
+                        InstanciarEmprestimo(emprestimo, utilDAO);
+
+                        if (emprestimoDAO.AdicionarEmprestimoNoBanco(emprestimo))
+                        {
+                            textUsuario.Text = "";
+                            textAcervo.Text = "";
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Este acervo está reservado.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    InstanciarEmprestimo(emprestimo, utilDAO);
+
+                    if (emprestimoDAO.AdicionarEmprestimoNoBanco(emprestimo))
+                    {
+                        textUsuario.Text = "";
+                        textAcervo.Text = "";
+                    }
                 }
             }
             else if (!utilDAO.IdTomadorExiste(textUsuario.Text))

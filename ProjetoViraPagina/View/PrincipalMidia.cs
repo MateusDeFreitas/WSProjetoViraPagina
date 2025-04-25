@@ -46,7 +46,7 @@ namespace Projeto_ViraPagina.View
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            EditarMidia form = new EditarMidia();
+            VisualizacaoMidia form = new VisualizacaoMidia();
             form.Show();
             this.Hide();
         }

@@ -56,12 +56,12 @@ namespace Projeto_ViraPagina.DAO
             {
                 if (redistroExistente)
                 {
-                    string query = "SELECT * FROM midia WHERE idMidia = @id";
 
                     con.Open();
-                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    using (MySqlCommand cmd = new MySqlCommand("lerMidia", con))
                     {
-                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("p_idMidia", id);
 
                         // Obtém a senha armazenada no banco
                         using (MySqlDataReader resultado = cmd.ExecuteReader())

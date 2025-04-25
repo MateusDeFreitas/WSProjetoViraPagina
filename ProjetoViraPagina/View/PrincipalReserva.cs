@@ -43,5 +43,12 @@ namespace Projeto_ViraPagina.View
             form.Show();
             this.Hide();
         }
+
+        private void btnVerificar_Click(object sender, EventArgs e)
+        {
+            VisualizacaoReservas form = new VisualizacaoReservas();
+            form.Show();
+            this.Hide();
+        }
     }
 }

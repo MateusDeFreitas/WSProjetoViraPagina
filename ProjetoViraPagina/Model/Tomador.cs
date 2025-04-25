@@ -17,6 +17,13 @@ namespace Projeto_ViraPagina.Model
         public string? NumeroTelefone { get; set; }
         public string? Vinculo { get; set; }
 
+        public static List<Tomador> ListaTomador = new List<Tomador>();
+
+        public static void AdicionarTomador(Tomador tomador)
+        {
+            ListaTomador.Add(tomador);
+        }
+
         public string exibirValidadeMatricula(string? data)
         {
             string dataStr = "";
