@@ -25,15 +25,6 @@ namespace Projeto_ViraPagina.View
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        private void LoadImputs(MaterialImpresso mi)
-        {
-            labelTitulo.Text = mi.Titulo;
-            labelTitulo.Location = new Point((816 - labelTitulo.Width) / 2, labelTitulo.Location.Y);
-            textId.Text = mi.Id;
-            textExemplar.Text = mi.Exemplar;
-            textISBN.Text = mi.ISBN;
-        }
-
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             VisualizacaoMaterialImpresso form = new VisualizacaoMaterialImpresso();
@@ -74,6 +65,15 @@ namespace Projeto_ViraPagina.View
             VisualizacaoLivroUnicoP4 form = new VisualizacaoLivroUnicoP4();
             form.Show();
             this.Hide();
+        }
+
+        private void LoadImputs(MaterialImpresso mi)
+        {
+            labelTitulo.Text = mi.Titulo;
+            labelTitulo.Location = new Point((816 - labelTitulo.Width) / 2, labelTitulo.Location.Y);
+            textId.Text = mi.Id;
+            textExemplar.Text = mi.Exemplar;
+            textISBN.Text = mi.ISBN;
         }
 
         private void VisualizacaoLivroUnico_Load(object sender, EventArgs e)

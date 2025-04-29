@@ -14,6 +14,7 @@ namespace Projeto_ViraPagina.Model
         public string? DataPenalidade { get; set; }
         public string? CodPenalidade { get; set; } 
         public bool PenalidadeAtiva { get; set; }
+        public string PenalidadeAtivaStr { get; set; }
 
         public static List<Penalidade> ListaPenalidade = new List<Penalidade>();
 
@@ -32,6 +33,14 @@ namespace Projeto_ViraPagina.Model
                 return "Data inválida";
             }
         }
-    }
 
+        public string ConverterPenalidadeBoolParaString(string input)
+        {
+            if (input == "False") 
+            {
+                return "regularizada";
+            }
+            return "Pendente";
+        }
+    }
 }

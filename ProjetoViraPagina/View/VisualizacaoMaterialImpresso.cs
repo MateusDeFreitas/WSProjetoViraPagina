@@ -104,6 +104,72 @@ namespace Projeto_ViraPagina.View
             dgvVisualizacaoMaterialImpresso.DataSource = materiais;
         }
 
+        private void CarregarGridPorBusca(string id)
+        {
+            MaterialImpressoDAO materialImpressoDAO = new MaterialImpressoDAO();
+            MaterialImpresso materialImpresso = materialImpressoDAO.lerMaterialImpresso(id);
+
+
+            dgvVisualizacaoMaterialImpresso.Columns.Clear(); // Limpa colunas anteriores
+            dgvVisualizacaoMaterialImpresso.DataSource = null;
+            dgvVisualizacaoMaterialImpresso.AutoGenerateColumns = false;
+
+            dgvVisualizacaoMaterialImpresso.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "Codigo",
+                HeaderText = "Código",
+                DataPropertyName = "Id",
+                Width = 100
+            });
+
+            dgvVisualizacaoMaterialImpresso.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Título",
+                DataPropertyName = "Titulo",
+                Width = 165
+            });
+
+            dgvVisualizacaoMaterialImpresso.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Autor",
+                DataPropertyName = "Autor",
+                Width = 145
+            });
+
+            dgvVisualizacaoMaterialImpresso.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Classe",
+                DataPropertyName = "Classe",
+                Width = 110
+            });
+
+            dgvVisualizacaoMaterialImpresso.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Idioma",
+                DataPropertyName = "Idioma",
+                Width = 110
+            });
+
+            DataGridViewImageColumn colunaImagemEditar = new DataGridViewImageColumn();
+            colunaImagemEditar.Name = "Editar";
+            colunaImagemEditar.HeaderText = "";
+            colunaImagemEditar.Image = Image.FromFile("Imagens/ImagemEditr.png");
+            colunaImagemEditar.Width = 45;
+            colunaImagemEditar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvVisualizacaoMaterialImpresso.Columns.Add(colunaImagemEditar);
+
+            DataGridViewImageColumn colunaImagem = new DataGridViewImageColumn();
+            colunaImagem.Name = "Excluir";
+            colunaImagem.HeaderText = "";
+            colunaImagem.Image = Image.FromFile("Imagens/ImagemX.png");
+            colunaImagem.Width = 45;
+            colunaImagem.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvVisualizacaoMaterialImpresso.Columns.Add(colunaImagem);
+
+            // Vincula os dados
+            dgvVisualizacaoMaterialImpresso.DataSource = new List<MaterialImpresso> { materialImpresso };
+        }
+
         private void VisualizacaoMaterialImpresso_Load(object sender, EventArgs e)
         {
             CarregarGrid();
@@ -166,6 +232,26 @@ namespace Projeto_ViraPagina.View
                 {
                     MessageBox.Show("Erro ao buscar identificador.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+            }
+        }
+
+        private void pictureBoxLupa_Click(object sender, EventArgs e)
+        {
+            UtilDAO utilDAO = new UtilDAO();
+            string idMaterialImpresso = texPesquisarVisualizacaoMaterialImpresso.Text;
+
+
+            if (utilDAO.IdMaterialImpressoExiste(idMaterialImpresso))
+            {
+                CarregarGridPorBusca(idMaterialImpresso);
+            }
+            else if (idMaterialImpresso == "")
+            {
+                CarregarGrid();
+            }
+            else
+            {
+                MessageBox.Show($"O material impresso {idMaterialImpresso} não existe.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

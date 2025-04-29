@@ -91,6 +91,72 @@ namespace Projeto_ViraPagina.View
             dgvVisualizacaoInstrumentos.DataSource = instrumentos;
         }
 
+        private void CarregarGridPorBusca(string id)
+        {
+            InstrumentoDAO instrumentoDAO = new InstrumentoDAO();
+            Instrumento instrumento = instrumentoDAO.LerInstrumento(id);
+
+
+            dgvVisualizacaoInstrumentos.Columns.Clear(); // Limpa colunas anteriores
+            dgvVisualizacaoInstrumentos.DataSource = null;
+            dgvVisualizacaoInstrumentos.AutoGenerateColumns = false;
+
+            dgvVisualizacaoInstrumentos.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "Codigo",
+                HeaderText = "Código",
+                DataPropertyName = "IdInstrumento",
+                Width = 100
+            });
+
+            dgvVisualizacaoInstrumentos.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Categoria",
+                DataPropertyName = "Categoria",
+                Width = 120
+            });
+
+            dgvVisualizacaoInstrumentos.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Marca",
+                DataPropertyName = "Marca",
+                Width = 125
+            });
+
+            dgvVisualizacaoInstrumentos.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Modelo",
+                DataPropertyName = "Modelo",
+                Width = 145
+            });
+
+            dgvVisualizacaoInstrumentos.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "NumeroSerie",
+                DataPropertyName = "NumeroSerie",
+                Width = 140
+            });
+
+            DataGridViewImageColumn colunaImagemEditar = new DataGridViewImageColumn();
+            colunaImagemEditar.Name = "Editar";
+            colunaImagemEditar.HeaderText = "";
+            colunaImagemEditar.Image = Image.FromFile("Imagens/ImagemEditr.png");
+            colunaImagemEditar.Width = 45;
+            colunaImagemEditar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvVisualizacaoInstrumentos.Columns.Add(colunaImagemEditar);
+
+            DataGridViewImageColumn colunaImagem = new DataGridViewImageColumn();
+            colunaImagem.Name = "Excluir";
+            colunaImagem.HeaderText = "";
+            colunaImagem.Image = Image.FromFile("Imagens/ImagemX.png");
+            colunaImagem.Width = 45;
+            colunaImagem.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvVisualizacaoInstrumentos.Columns.Add(colunaImagem);
+
+            // Vincula os dados
+            dgvVisualizacaoInstrumentos.DataSource = new List<Instrumento> { instrumento };
+        }
+
         private void VisualizacaoInstrumentos_Load(object sender, EventArgs e)
         {
             CarregarGrid();
@@ -147,6 +213,26 @@ namespace Projeto_ViraPagina.View
                 {
                     MessageBox.Show("Erro ao buscar registro: Código identificador inexistente.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+            }
+        }
+
+        private void pictureBoxLupa_Click(object sender, EventArgs e)
+        {
+            UtilDAO utilDAO = new UtilDAO();
+            string idInstrumento = texPesquisarVisualizacaoInstrumentos.Text;
+
+
+            if (utilDAO.IdInstrumentoExiste(idInstrumento))
+            {
+                CarregarGridPorBusca(idInstrumento);
+            }
+            else if (idInstrumento == "")
+            {
+                CarregarGrid();
+            }
+            else
+            {
+                MessageBox.Show($"O instrumento {idInstrumento} não existe.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

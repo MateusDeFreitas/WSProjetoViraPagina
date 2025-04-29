@@ -45,9 +45,13 @@
             labelAtualizacaoInstrumentos = new Label();
             panelLivro = new Panel();
             pictureBox1 = new PictureBox();
+            pictureBoxLupa = new PictureBox();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvVisualizacaoMaterialImpresso).BeginInit();
             panelLivro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLupa).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // dgvVisualizacaoMaterialImpresso
@@ -157,9 +161,9 @@
             texPesquisarVisualizacaoMaterialImpresso.BorderStyle = BorderStyle.None;
             texPesquisarVisualizacaoMaterialImpresso.Font = new Font("Arial Narrow", 12F);
             texPesquisarVisualizacaoMaterialImpresso.ForeColor = Color.FromArgb(130, 119, 106);
-            texPesquisarVisualizacaoMaterialImpresso.Location = new Point(214, 78);
+            texPesquisarVisualizacaoMaterialImpresso.Location = new Point(219, 78);
             texPesquisarVisualizacaoMaterialImpresso.Name = "texPesquisarVisualizacaoMaterialImpresso";
-            texPesquisarVisualizacaoMaterialImpresso.Size = new Size(386, 19);
+            texPesquisarVisualizacaoMaterialImpresso.Size = new Size(331, 19);
             texPesquisarVisualizacaoMaterialImpresso.TabIndex = 186;
             // 
             // labelAtualizacaoInstrumentos
@@ -193,12 +197,35 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
+            // pictureBoxLupa
+            // 
+            pictureBoxLupa.Image = (Image)resources.GetObject("pictureBoxLupa.Image");
+            pictureBoxLupa.Location = new Point(579, 78);
+            pictureBoxLupa.Name = "pictureBoxLupa";
+            pictureBoxLupa.Size = new Size(22, 19);
+            pictureBoxLupa.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxLupa.TabIndex = 190;
+            pictureBoxLupa.TabStop = false;
+            pictureBoxLupa.Click += pictureBoxLupa_Click;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(556, 78);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(22, 19);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 191;
+            pictureBox2.TabStop = false;
+            // 
             // VisualizacaoMaterialImpresso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(250, 243, 224);
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBoxLupa);
             Controls.Add(dgvVisualizacaoMaterialImpresso);
             Controls.Add(btnVoltar);
             Controls.Add(panel5);
@@ -211,6 +238,8 @@
             ((System.ComponentModel.ISupportInitialize)dgvVisualizacaoMaterialImpresso).EndInit();
             panelLivro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLupa).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -229,5 +258,7 @@
         private DataGridViewTextBoxColumn Classe;
         private DataGridViewTextBoxColumn Idioma;
         private PictureBox pictureBox1;
+        private PictureBox pictureBoxLupa;
+        private PictureBox pictureBox2;
     }
 }

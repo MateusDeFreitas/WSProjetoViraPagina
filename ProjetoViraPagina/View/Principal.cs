@@ -25,7 +25,7 @@ namespace Projeto_ViraPagina.View
 
             this.StartPosition = FormStartPosition.CenterScreen;
 
-            textPesquisa.PlaceholderText = "Pesquisar";
+            textPesquisa.PlaceholderText = "Pesquisar tomador";
         }
 
         private void labelEmprestimo_Click(object sender, EventArgs e)
@@ -56,6 +56,32 @@ namespace Projeto_ViraPagina.View
             this.Hide();
         }
 
+        private void pictureBoxMenu_Click(object sender, EventArgs e)
+        {
+            UtilDAO utilDAO = new UtilDAO();
+            string id = textPesquisa.Text;
+
+            if (id == "")
+            {
+                MessageBox.Show("Preencha a barra de pesquisa com o código do tomdor", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (utilDAO.IdTomadorExiste(id))
+            {
+                Tomador tomador = new Tomador();
+                tomador.Id = id;
+                Tomador.AdicionarTomador(tomador);
+
+                VisualizacaoHistoricoTomador form = new VisualizacaoHistoricoTomador();
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Tomador não encontrado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+        }
+
         private void pictureBoxLupa_Click(object sender, EventArgs e)
         {
             string id = textPesquisa.Text;
@@ -71,7 +97,7 @@ namespace Projeto_ViraPagina.View
             }
             else
             {
-                MessageBox.Show("Tomador não encontrado", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Tomador não encontrado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

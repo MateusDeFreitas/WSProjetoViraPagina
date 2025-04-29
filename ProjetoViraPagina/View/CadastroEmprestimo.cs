@@ -53,12 +53,13 @@ namespace Projeto_ViraPagina.View
             {
                 MessageBox.Show("Insirá um valor válido no campo código do acervo", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else if ((utilDAO.IdMidiaExiste(textAcervo.Text)           ||
+            else if (
+                     (utilDAO.IdMidiaExiste(textAcervo.Text)           ||
                      utilDAO.IdJogoExiste(textAcervo.Text)             ||
                      utilDAO.IdMaterialImpressoExiste(textAcervo.Text) ||
                      utilDAO.IdInstrumentoExiste(textAcervo.Text))     &&
                      utilDAO.IdTomadorExiste(textUsuario.Text)
-                     )
+            )
             {
                 if (utilDAO.IdMaterialImpressoExiste(textAcervo.Text))
                 {

@@ -40,9 +40,13 @@
             labelAtualizacaoEmprestimos = new Label();
             panelLivro = new Panel();
             pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBoxLupa = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvVisualizacaoEmprestimos).BeginInit();
             panelLivro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLupa).BeginInit();
             SuspendLayout();
             // 
             // dgvVisualizacaoEmprestimos
@@ -117,9 +121,9 @@
             texPesquisarVisualizacaoEmprestimos.BorderStyle = BorderStyle.None;
             texPesquisarVisualizacaoEmprestimos.Font = new Font("Arial Narrow", 12F);
             texPesquisarVisualizacaoEmprestimos.ForeColor = Color.FromArgb(130, 119, 106);
-            texPesquisarVisualizacaoEmprestimos.Location = new Point(214, 76);
+            texPesquisarVisualizacaoEmprestimos.Location = new Point(219, 76);
             texPesquisarVisualizacaoEmprestimos.Name = "texPesquisarVisualizacaoEmprestimos";
-            texPesquisarVisualizacaoEmprestimos.Size = new Size(386, 19);
+            texPesquisarVisualizacaoEmprestimos.Size = new Size(331, 19);
             texPesquisarVisualizacaoEmprestimos.TabIndex = 204;
             // 
             // labelAtualizacaoEmprestimos
@@ -153,12 +157,35 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(556, 76);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(22, 19);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 209;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBoxLupa
+            // 
+            pictureBoxLupa.Image = (Image)resources.GetObject("pictureBoxLupa.Image");
+            pictureBoxLupa.Location = new Point(579, 76);
+            pictureBoxLupa.Name = "pictureBoxLupa";
+            pictureBoxLupa.Size = new Size(22, 19);
+            pictureBoxLupa.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxLupa.TabIndex = 208;
+            pictureBoxLupa.TabStop = false;
+            pictureBoxLupa.Click += pictureBoxLupa_Click;
+            // 
             // VisualizacaoEmprestimos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(250, 243, 224);
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBoxLupa);
             Controls.Add(dgvVisualizacaoEmprestimos);
             Controls.Add(btnVoltar);
             Controls.Add(panel5);
@@ -171,6 +198,8 @@
             ((System.ComponentModel.ISupportInitialize)dgvVisualizacaoEmprestimos).EndInit();
             panelLivro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLupa).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -184,5 +213,7 @@
         private Label labelAtualizacaoEmprestimos;
         private Panel panelLivro;
         private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBoxLupa;
     }
 }

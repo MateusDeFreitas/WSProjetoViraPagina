@@ -105,7 +105,7 @@
             labelAcervos.Location = new Point(473, 9);
             labelAcervos.Name = "labelAcervos";
             labelAcervos.Size = new Size(59, 20);
-            labelAcervos.TabIndex = 3;
+            labelAcervos.TabIndex = 8;
             labelAcervos.Text = "Acervos";
             labelAcervos.Click += labelAcervos_Click;
             // 
@@ -154,7 +154,7 @@
             textPesquisa.Location = new Point(369, 79);
             textPesquisa.Name = "textPesquisa";
             textPesquisa.Size = new Size(275, 19);
-            textPesquisa.TabIndex = 7;
+            textPesquisa.TabIndex = 1000;
             // 
             // labelNomeTomador
             // 
@@ -175,6 +175,7 @@
             textNomeTomador.ForeColor = Color.FromArgb(130, 119, 106);
             textNomeTomador.Location = new Point(289, 172);
             textNomeTomador.Name = "textNomeTomador";
+            textNomeTomador.ReadOnly = true;
             textNomeTomador.Size = new Size(202, 19);
             textNomeTomador.TabIndex = 9;
             // 
@@ -205,6 +206,7 @@
             textLivrosEmprestados.ForeColor = Color.FromArgb(130, 119, 106);
             textLivrosEmprestados.Location = new Point(290, 240);
             textLivrosEmprestados.Name = "textLivrosEmprestados";
+            textLivrosEmprestados.ReadOnly = true;
             textLivrosEmprestados.Size = new Size(202, 19);
             textLivrosEmprestados.TabIndex = 12;
             // 
@@ -246,6 +248,7 @@
             textMatricula.ForeColor = Color.FromArgb(130, 119, 106);
             textMatricula.Location = new Point(290, 312);
             textMatricula.Name = "textMatricula";
+            textMatricula.ReadOnly = true;
             textMatricula.Size = new Size(202, 19);
             textMatricula.TabIndex = 16;
             // 
@@ -265,6 +268,7 @@
             textVinculo.ForeColor = Color.FromArgb(130, 119, 106);
             textVinculo.Location = new Point(289, 382);
             textVinculo.Name = "textVinculo";
+            textVinculo.ReadOnly = true;
             textVinculo.Size = new Size(202, 19);
             textVinculo.TabIndex = 18;
             // 
@@ -295,6 +299,7 @@
             textEmail.ForeColor = Color.FromArgb(130, 119, 106);
             textEmail.Location = new Point(563, 172);
             textEmail.Name = "textEmail";
+            textEmail.ReadOnly = true;
             textEmail.Size = new Size(202, 19);
             textEmail.TabIndex = 21;
             // 
@@ -325,6 +330,7 @@
             textPenalidades.ForeColor = Color.FromArgb(130, 119, 106);
             textPenalidades.Location = new Point(564, 240);
             textPenalidades.Name = "textPenalidades";
+            textPenalidades.ReadOnly = true;
             textPenalidades.Size = new Size(153, 19);
             textPenalidades.TabIndex = 24;
             // 
@@ -355,6 +361,7 @@
             textTelefone.ForeColor = Color.FromArgb(130, 119, 106);
             textTelefone.Location = new Point(563, 312);
             textTelefone.Name = "textTelefone";
+            textTelefone.ReadOnly = true;
             textTelefone.Size = new Size(202, 19);
             textTelefone.TabIndex = 27;
             // 
@@ -385,6 +392,7 @@
             textCodigo.ForeColor = Color.FromArgb(130, 119, 106);
             textCodigo.Location = new Point(563, 382);
             textCodigo.Name = "textCodigo";
+            textCodigo.ReadOnly = true;
             textCodigo.Size = new Size(202, 19);
             textCodigo.TabIndex = 30;
             // 
@@ -416,6 +424,7 @@
             pictureBoxMenu.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxMenu.TabIndex = 33;
             pictureBoxMenu.TabStop = false;
+            pictureBoxMenu.Click += pictureBoxMenu_Click;
             // 
             // Principal
             // 

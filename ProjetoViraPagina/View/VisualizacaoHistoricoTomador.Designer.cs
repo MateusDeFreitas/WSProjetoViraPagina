@@ -35,7 +35,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualizacaoHistoricoTomador));
             dgvVisualizacaoHistoricoTomador = new DataGridView();
             btnVoltar = new Button();
-            labelHistoricoTomador = new Label();
+            labelNomeTomador = new Label();
             panelLivro = new Panel();
             pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvVisualizacaoHistoricoTomador).BeginInit();
@@ -100,16 +100,16 @@
             btnVoltar.UseVisualStyleBackColor = false;
             btnVoltar.Click += btnVoltar_Click;
             // 
-            // labelHistoricoTomador
+            // labelNomeTomador
             // 
-            labelHistoricoTomador.AutoSize = true;
-            labelHistoricoTomador.Font = new Font("Arial Narrow", 20F);
-            labelHistoricoTomador.ForeColor = Color.DarkRed;
-            labelHistoricoTomador.Location = new Point(326, 13);
-            labelHistoricoTomador.Name = "labelHistoricoTomador";
-            labelHistoricoTomador.Size = new Size(166, 31);
-            labelHistoricoTomador.TabIndex = 209;
-            labelHistoricoTomador.Text = "*Nome tomador";
+            labelNomeTomador.AutoSize = true;
+            labelNomeTomador.Font = new Font("Arial Narrow", 20F);
+            labelNomeTomador.ForeColor = Color.DarkRed;
+            labelNomeTomador.Location = new Point(326, 13);
+            labelNomeTomador.Name = "labelNomeTomador";
+            labelNomeTomador.Size = new Size(166, 31);
+            labelNomeTomador.TabIndex = 209;
+            labelNomeTomador.Text = "*Nome tomador";
             // 
             // panelLivro
             // 
@@ -139,10 +139,11 @@
             ClientSize = new Size(800, 450);
             Controls.Add(dgvVisualizacaoHistoricoTomador);
             Controls.Add(btnVoltar);
-            Controls.Add(labelHistoricoTomador);
+            Controls.Add(labelNomeTomador);
             Controls.Add(panelLivro);
             Name = "VisualizacaoHistoricoTomador";
             Text = "VisualizacaoHistoricoTomador";
+            Load += VisualizacaoHistoricoTomador_Load;
             ((System.ComponentModel.ISupportInitialize)dgvVisualizacaoHistoricoTomador).EndInit();
             panelLivro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -154,7 +155,7 @@
 
         private DataGridView dgvVisualizacaoHistoricoTomador;
         private Button btnVoltar;
-        private Label labelHistoricoTomador;
+        private Label labelNomeTomador;
         private Panel panelLivro;
         private PictureBox pictureBox1;
     }

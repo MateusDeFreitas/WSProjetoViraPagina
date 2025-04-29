@@ -13,7 +13,6 @@ namespace Projeto_ViraPagina.DAO
     {
         private string connectionString = "Server=localhost;Database=bd_virapagina;Uid=root;Pwd=";
 
-
         public bool AdicionarPenalidadeNoBanco(Penalidade penalidade)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -69,6 +68,48 @@ namespace Projeto_ViraPagina.DAO
                                 DataPenalidade = funçao.ConverterDataParaFormatoBR(reader["dataPenalidade"].ToString()),
                                 IdEmprestimo = reader["idEmprestimo"].ToString(),
                                 CodPenalidade = reader["codPenalidade"].ToString()
+                            };
+
+                            lista.Add(penalidade);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.Message);
+                }
+            }
+
+            return lista;
+        }
+
+        public List<Penalidade> BuscarPenalidadesDeTomador(string idTomador)
+        {
+            List<Penalidade> lista = new List<Penalidade>();
+            Penalidade funçao = new Penalidade();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    MySqlCommand cmd = new MySqlCommand("lerPenalidadesDeTomador", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@p_idTomador", idTomador);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Penalidade penalidade = new Penalidade()
+                            {
+                                Id = reader["id"].ToString(),
+                                PenalidadeAtivaStr = funçao.ConverterPenalidadeBoolParaString(reader["penalidadeAtiva"].ToString()),
+                                DataPenalidade = funçao.ConverterDataParaFormatoBR(reader["dataPenalidade"].ToString()),
+                                IdEmprestimo = reader["idEmprestimo"].ToString(),
+                                CodPenalidade = reader["codPenalidade"].ToString(),
                             };
 
                             lista.Add(penalidade);

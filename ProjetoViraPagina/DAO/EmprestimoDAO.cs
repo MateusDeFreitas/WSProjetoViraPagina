@@ -52,7 +52,7 @@ namespace Projeto_ViraPagina.DAO
         public List<Emprestimo> BuscarEmprestimos()
         {
             List<Emprestimo> lista = new List<Emprestimo>();
-            Emprestimo Funcao = new Emprestimo();
+            Emprestimo funcao = new Emprestimo();
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -76,8 +76,8 @@ namespace Projeto_ViraPagina.DAO
                             {
                                 Id = reader["id"].ToString(),
                                 IdUsuario = reader["idUsuario"].ToString(),
-                                DataDevolucao = Funcao.ConverterDataParaFormatoBR(reader["dataDevolucao"].ToString()),
-                                IdAcervo = Funcao.ReceberIdAcervo(idMaterialImpresso, idJogo, idMidia, idInstrumento)
+                                DataDevolucao = funcao.ConverterDataParaFormatoBR(reader["dataDevolucao"].ToString()),
+                                IdAcervo = funcao.ReceberIdAcervo(idMaterialImpresso, idJogo, idMidia, idInstrumento)
                             };
 
                             lista.Add(emprestimo);
@@ -148,6 +148,52 @@ namespace Projeto_ViraPagina.DAO
                 }
                 return false;
             }
+        }
+
+        public Emprestimo LerEmprestimo(string id)
+        {
+            Emprestimo emprestimo = new Emprestimo();
+            Emprestimo funcao = new Emprestimo();
+            UtilDAO utilDAO = new UtilDAO();
+
+            bool redistroExistente = utilDAO.IdEmprestimoExiste(id);
+
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                if (redistroExistente)
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("lerEmprestimo", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("p_idEmprestimo", id);
+
+                        // Obtém a senha armazenada no banco
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string idMaterialImpresso = reader["idMaterialImpresso"] == DBNull.Value ? null : reader["idMaterialImpresso"].ToString();
+                                string idJogo = reader["idJogo"] == DBNull.Value ? null : reader["idJogo"].ToString();
+                                string idMidia = reader["idMidia"] == DBNull.Value ? null : reader["idMidia"].ToString();
+                                string idInstrumento = reader["idInstrumento"] == DBNull.Value ? null : reader["idInstrumento"].ToString();
+
+                                emprestimo.Id = reader["id"].ToString();
+                                emprestimo.IdUsuario = reader["idUsuario"].ToString();
+                                emprestimo.DataDevolucao = funcao.ConverterDataParaFormatoBR(reader["dataDevolucao"].ToString());
+                                emprestimo.DataEmprestimo = funcao.ConverterDataParaFormatoBR(reader["dataEmprestimo"].ToString());
+                                emprestimo.IdAcervo = funcao.ReceberIdAcervo(idMaterialImpresso, idJogo, idMidia, idInstrumento);
+                                emprestimo.Finalizado = funcao.StringParaBool(reader["finalizado"].ToString());
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"Empréstimo {id} inesistente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            return emprestimo;
         }
     }
 }

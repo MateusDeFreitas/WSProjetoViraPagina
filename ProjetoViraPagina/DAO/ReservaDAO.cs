@@ -166,7 +166,6 @@ namespace Projeto_ViraPagina.DAO
 
                         // Recupera o valor de saída
                         int count = Convert.ToInt32(outputParam.Value);
-                        MessageBox.Show("" + count);
                         return count > 0;
                     }
                 }
@@ -177,6 +176,5 @@ namespace Projeto_ViraPagina.DAO
                 }
             }
         }
-
     }
 }

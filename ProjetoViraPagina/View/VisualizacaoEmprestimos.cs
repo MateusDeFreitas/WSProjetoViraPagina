@@ -100,6 +100,80 @@ namespace Projeto_ViraPagina.View
             dgvVisualizacaoEmprestimos.DataSource = emprestimos;
         }
 
+        private void CarregarGridPorBusca(string id)
+        {
+            EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
+            Emprestimo emprestimo = emprestimoDAO.LerEmprestimo(id);
+
+            dgvVisualizacaoEmprestimos.Columns.Clear(); // Limpa colunas anteriores
+            dgvVisualizacaoEmprestimos.DataSource = null;
+            dgvVisualizacaoEmprestimos.AutoGenerateColumns = false;
+
+            dgvVisualizacaoEmprestimos.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "Codigo",
+                HeaderText = "Código",
+                DataPropertyName = "Id",
+                Width = 90
+            });
+
+            dgvVisualizacaoEmprestimos.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "CodigoTomador",
+                HeaderText = "Cód. Tomador",
+                DataPropertyName = "IdUsuario",
+                Width = 140,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            dgvVisualizacaoEmprestimos.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "CodigoAcervo",
+                HeaderText = "Cód. Acervo",
+                DataPropertyName = "IdAcervo",
+                Width = 165,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            dgvVisualizacaoEmprestimos.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Data de Devolução",
+                DataPropertyName = "DataDevolucao",
+                Width = 190,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            DataGridViewImageColumn colunaImagemPenalizar = new DataGridViewImageColumn();
+            colunaImagemPenalizar.Name = "Penalizar";
+            colunaImagemPenalizar.HeaderText = "";
+            colunaImagemPenalizar.Image = Image.FromFile("Imagens/Penalizado.png");
+            colunaImagemPenalizar.Width = 45;
+            colunaImagemPenalizar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvVisualizacaoEmprestimos.Columns.Add(colunaImagemPenalizar);
+
+            DataGridViewImageColumn colunaImagemRetornar = new DataGridViewImageColumn();
+            colunaImagemRetornar.Name = "Retornar";
+            colunaImagemRetornar.HeaderText = "";
+            colunaImagemRetornar.Image = Image.FromFile("Imagens/Retornado.png");
+            colunaImagemRetornar.Width = 45;
+            colunaImagemRetornar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvVisualizacaoEmprestimos.Columns.Add(colunaImagemRetornar);
+
+            DataGridViewImageColumn colunaImagemRenovar = new DataGridViewImageColumn();
+            colunaImagemRenovar.Name = "Renovar";
+            colunaImagemRenovar.HeaderText = "";
+            colunaImagemRenovar.Image = Image.FromFile("Imagens/Renovado.png");
+            colunaImagemRenovar.Width = 45;
+            colunaImagemRenovar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvVisualizacaoEmprestimos.Columns.Add(colunaImagemRenovar);
+
+            // Vincula os dados
+            dgvVisualizacaoEmprestimos.DataSource = new List<Emprestimo> { emprestimo };
+        }
+
         private void VisualizacaoEmprestimos_Load(object sender, EventArgs e)
         {
             CarregarGrid();
@@ -129,7 +203,7 @@ namespace Projeto_ViraPagina.View
                 string idTomador = dgvVisualizacaoEmprestimos.Rows[e.RowIndex].Cells["CodigoTomador"].Value.ToString();
                 string TipoPenalidade = Microsoft.VisualBasic.Interaction.InputBox("Digite o tipo da penalidade:", "Tipo de penalidade", "AT");
 
-                if(TipoPenalidade != "")
+                if (TipoPenalidade != "")
                 {
                     penalidadeDAO.AdicionarPenalidadeNoBanco(InstanciarPenalidade(idEmprestimo, idTomador, TipoPenalidade));
                 }
@@ -138,7 +212,7 @@ namespace Projeto_ViraPagina.View
             {
                 EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
 
-               if (emprestimoDAO.FinalizarEmprestimo(dgvVisualizacaoEmprestimos.Rows[e.RowIndex].Cells["Codigo"].Value.ToString()))
+                if (emprestimoDAO.FinalizarEmprestimo(dgvVisualizacaoEmprestimos.Rows[e.RowIndex].Cells["Codigo"].Value.ToString()))
                 {
                     CarregarGrid();
                 }
@@ -162,6 +236,25 @@ namespace Projeto_ViraPagina.View
             penalidade.CodPenalidade = TipoPenalidade;
 
             return penalidade;
+        }
+
+        private void pictureBoxLupa_Click(object sender, EventArgs e)
+        {
+            string idEmprestimo = texPesquisarVisualizacaoEmprestimos.Text;
+            UtilDAO utilDAO = new UtilDAO();
+
+            if (utilDAO.IdEmprestimoExiste(idEmprestimo))
+            {
+                CarregarGridPorBusca(idEmprestimo);
+            }
+            else if (idEmprestimo == "")
+            {
+                CarregarGrid();
+            }
+            else
+            {
+                MessageBox.Show($"Emprestimo {idEmprestimo} não existe.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

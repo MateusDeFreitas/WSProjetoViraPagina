@@ -15,6 +15,12 @@ namespace Projeto_ViraPagina.View
         public VisualizacaoTipoPenalidade()
         {
             InitializeComponent();
+
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
     }
 }
