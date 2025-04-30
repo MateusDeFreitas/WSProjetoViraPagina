@@ -107,7 +107,7 @@ namespace Projeto_ViraPagina.View
         private void CarregarGridPorBusca(string id)
         {
             MaterialImpressoDAO materialImpressoDAO = new MaterialImpressoDAO();
-            MaterialImpresso materialImpresso = materialImpressoDAO.lerMaterialImpresso(id);
+            MaterialImpresso materialImpresso = materialImpressoDAO.LerMaterialImpresso(id);
 
 
             dgvVisualizacaoMaterialImpresso.Columns.Clear(); // Limpa colunas anteriores

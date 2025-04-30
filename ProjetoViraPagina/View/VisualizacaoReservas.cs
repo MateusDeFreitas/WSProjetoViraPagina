@@ -99,6 +99,80 @@ namespace Projeto_ViraPagina.View
             dgvVisualizacaoReservas.DataSource = reservas;
         }
 
+        private void CarregarGridPorBusca(string id)
+        {
+            ReservaDAO reservaDAO = new ReservaDAO();
+            Reserva reserva = reservaDAO.LerReserva(id);
+
+
+            dgvVisualizacaoReservas.Columns.Clear(); // Limpa colunas anteriores
+            dgvVisualizacaoReservas.DataSource = null;
+            dgvVisualizacaoReservas.AutoGenerateColumns = false;
+
+            dgvVisualizacaoReservas.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "Codigo",
+                HeaderText = "Código",
+                DataPropertyName = "Id",
+                Width = 90
+            });
+
+            dgvVisualizacaoReservas.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Cód. Tomador",
+                DataPropertyName = "IdUsuario",
+                Width = 135,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            dgvVisualizacaoReservas.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Data Solicitação",
+                DataPropertyName = "DataReserva",
+                Width = 140,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            dgvVisualizacaoReservas.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Cód. Livro",
+                DataPropertyName = "IdMaterialImpresso",
+                Width = 135,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            dgvVisualizacaoReservas.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Período",
+                DataPropertyName = "TempoReserva",
+                Width = 130,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            DataGridViewImageColumn colunaImagemResgatar = new DataGridViewImageColumn();
+            colunaImagemResgatar.Name = "Resgatar";
+            colunaImagemResgatar.HeaderText = "";
+            colunaImagemResgatar.Image = Image.FromFile("Imagens/Resgatar.png");
+            colunaImagemResgatar.Width = 45;
+            colunaImagemResgatar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvVisualizacaoReservas.Columns.Add(colunaImagemResgatar);
+
+            DataGridViewImageColumn colunaImagem = new DataGridViewImageColumn();
+            colunaImagem.Name = "Cancelar";
+            colunaImagem.HeaderText = "";
+            colunaImagem.Image = Image.FromFile("Imagens/ImagemX.png");
+            colunaImagem.Width = 45;
+            colunaImagem.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvVisualizacaoReservas.Columns.Add(colunaImagem);
+
+            // Vincula os dados
+            dgvVisualizacaoReservas.DataSource = new List<Reserva> { reserva };
+        }
+
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             PrincipalReserva form = new PrincipalReserva();
@@ -151,6 +225,26 @@ namespace Projeto_ViraPagina.View
 
                     CarregarGrid();
                 }
+            }
+        }
+
+        private void pictureBoxLupa_Click(object sender, EventArgs e)
+        {
+            UtilDAO utilDAO = new UtilDAO();
+            string idReserva = texPesquisarCancelamentoReservas.Text;
+
+
+            if (utilDAO.IdReservaExiste(idReserva))
+            {
+                CarregarGridPorBusca(idReserva);
+            }
+            else if (idReserva == "")
+            {
+                CarregarGrid();
+            }
+            else
+            {
+                MessageBox.Show($"A reserva {idReserva} não existe.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

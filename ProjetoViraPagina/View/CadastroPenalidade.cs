@@ -21,8 +21,23 @@ namespace Projeto_ViraPagina.View
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
-
             this.StartPosition = FormStartPosition.CenterScreen;
+
+            ConfigurarComboTipoPenalidade(); // Preenche o ComboBox Tipo de Penalidade
+        }
+
+        private void ConfigurarComboTipoPenalidade()
+        {
+            textTipo.Items.AddRange(new string[]
+            {
+                "LD",
+                "ATS",
+                "LP",
+                "LTD",
+            });
+
+            textTipo.DropDownStyle = ComboBoxStyle.DropDown;
+            textTipo.FlatStyle = FlatStyle.Flat;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -47,39 +62,38 @@ namespace Projeto_ViraPagina.View
 
             if (textIdUsuario.Text == "")
             {
-                MessageBox.Show("Insirá um valor válido no campo código tomador", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Insira um valor válido no campo código tomador.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else if (textIdEmprestimo.Text == "")
             {
-                MessageBox.Show("Insirá um valor válido no campo código empréstimo", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Insira um valor válido no campo código empréstimo.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else if (textTipo.Text == "")
             {
-                MessageBox.Show("Insirá um valor válido no campo tipo de penalidade", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Insira um valor válido no campo tipo de penalidade.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else if (!utilDAO.IdTomadorExiste(textIdUsuario.Text))
             {
-                MessageBox.Show("Código de tomador não encontrado", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Código de tomador não encontrado.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else if (!utilDAO.IdEmprestimoExiste(textIdEmprestimo.Text))
             {
-                MessageBox.Show("Código de empréstimo não encontrado", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Código de empréstimo não encontrado.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
-                InstanciarPenaidade(penalidade);
-                
+                InstanciarPenalidade(penalidade);
+
                 if (penalidadeDAO.AdicionarPenalidadeNoBanco(penalidade))
                 {
                     textIdUsuario.Text = "";
                     textIdEmprestimo.Text = "";
-                    textTipo.Text = "";
+                    textTipo.SelectedIndex = -1; // Limpa a seleção do ComboBox
                 }
-
             }
         }
 
-        private void InstanciarPenaidade(Penalidade penalidade)
+        private void InstanciarPenalidade(Penalidade penalidade)
         {
             penalidade.IdUsuario = textIdUsuario.Text;
             penalidade.IdEmprestimo = textIdEmprestimo.Text;

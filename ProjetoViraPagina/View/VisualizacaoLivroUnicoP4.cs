@@ -79,7 +79,7 @@ namespace Projeto_ViraPagina.View
             MaterialImpressoDAO materialImpressoDAO = new MaterialImpressoDAO();
             MaterialImpresso ultimoItem = MaterialImpresso.ListaMateriaisImpressos.Last();
 
-            ultimoItem = materialImpressoDAO.lerMaterialImpresso(ultimoItem.Id);
+            ultimoItem = materialImpressoDAO.LerMaterialImpresso(ultimoItem.Id);
 
             LoadImputs(ultimoItem);
         }

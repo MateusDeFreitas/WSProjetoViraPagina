@@ -52,7 +52,7 @@ namespace Projeto_ViraPagina.View
             Midia ultimoItem = Midia.ListaMidia.Last();
             MidiaDAO midiaDAO = new MidiaDAO();
 
-            CarregarInputs(midiaDAO.lerMidia(ultimoItem.IdMidia));
+            CarregarInputs(midiaDAO.LerMidia(ultimoItem.IdMidia));
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

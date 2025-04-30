@@ -157,7 +157,7 @@
             // 
             panelLivro.BackColor = Color.DarkRed;
             panelLivro.Controls.Add(pictureBox1);
-            panelLivro.Location = new Point(1, -9);
+            panelLivro.Location = new Point(0, -9);
             panelLivro.Name = "panelLivro";
             panelLivro.Size = new Size(42, 468);
             panelLivro.TabIndex = 14;

@@ -34,6 +34,15 @@ namespace Projeto_ViraPagina.Model
                 return "Data inválida";
             }
         }
+
+        public bool ConverterStringParaBool(string input)
+        {
+            if (input == "False")
+            {
+                return false;
+            }
+            return true;
+        }
     }
 
 }

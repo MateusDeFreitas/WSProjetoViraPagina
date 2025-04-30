@@ -228,5 +228,10 @@ namespace Projeto_ViraPagina.DAO
                 return false;
             }
         }
+
+        public bool ComecaComMI(string texto)
+        {
+            return texto.StartsWith("MI");
+        }
     }
 }

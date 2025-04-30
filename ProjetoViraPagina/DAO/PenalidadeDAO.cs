@@ -152,5 +152,47 @@ namespace Projeto_ViraPagina.DAO
                 return false;
             }
         }
+
+        public Penalidade LerPenalidade(string id)
+        {
+            Penalidade penalidade = new Penalidade();
+            UtilDAO utilDAO = new UtilDAO();
+            Penalidade funcao = new Penalidade();
+
+
+            bool redistroExistente = utilDAO.IdPenalidadeExiste(id);
+
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                if (redistroExistente)
+                {
+
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("lerPenalidade", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("p_idPenalidade", id);
+
+                        // Obtém a senha armazenada no banco
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                penalidade.Id = reader["id"].ToString();
+                                penalidade.IdUsuario = reader["idTomador"].ToString();
+                                penalidade.DataPenalidade = funcao.ConverterDataParaFormatoBR(reader["dataPenalidade"].ToString());
+                                penalidade.IdEmprestimo = reader["idEmprestimo"].ToString();
+                                penalidade.CodPenalidade = reader["codPenalidade"].ToString();
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Penalidade inesistente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            return penalidade;
+        }
     }
 }

@@ -176,5 +176,49 @@ namespace Projeto_ViraPagina.DAO
                 }
             }
         }
+
+        public Reserva LerReserva(string id)
+        {
+            Reserva reserva = new Reserva();
+            UtilDAO utilDAO = new UtilDAO();
+            Reserva funcao = new Reserva();
+
+
+            bool redistroExistente = utilDAO.IdReservaExiste(id);
+
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                if (redistroExistente)
+                {
+
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("lerReserva", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("p_idReserva", id);
+
+                        // Obtém a senha armazenada no banco
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                reserva.Id = reader["id"].ToString();
+                                reserva.IdUsuario = reader["idUsuario"].ToString();
+                                reserva.IdMaterialImpresso = reader["idMaterialImpresso"].ToString();
+                                reserva.DataReserva = funcao.ConverterDataParaFormatoBR(reader["dataReserva"].ToString());
+                                reserva.DataDisponibilidade = funcao.ConverterDataParaFormatoBR(reader["dataDisponibilidade"].ToString());
+                                reserva.TempoReserva = reader["tempoReserva"].ToString();
+                                reserva.Resgatado = funcao.ConverterStringParaBool(reader["resgatado"].ToString());
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Reserva inesistente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            return reserva;
+        }
     }
 }

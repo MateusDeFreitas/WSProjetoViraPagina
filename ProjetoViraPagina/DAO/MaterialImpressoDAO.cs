@@ -63,7 +63,7 @@ namespace Projeto_ViraPagina.DAO
             }
         }
 
-        public MaterialImpresso lerMaterialImpresso(string id)
+        public MaterialImpresso LerMaterialImpresso(string id)
         {
             MaterialImpresso mi = new MaterialImpresso();
             UtilDAO utilDAO = new UtilDAO();

@@ -30,7 +30,7 @@ namespace Projeto_ViraPagina.View
             MaterialImpresso ultimoItem = MaterialImpresso.ListaMateriaisImpressos.Last();
             MaterialImpressoDAO DAO = new MaterialImpressoDAO();
 
-            CarregarInputs(DAO.lerMaterialImpresso(ultimoItem.Id));
+            CarregarInputs(DAO.LerMaterialImpresso(ultimoItem.Id));
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

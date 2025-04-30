@@ -40,9 +40,13 @@
             labelPenalidades = new Label();
             panelLivro = new Panel();
             pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBoxLupa = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvPenalidades).BeginInit();
             panelLivro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLupa).BeginInit();
             SuspendLayout();
             // 
             // dgvPenalidades
@@ -119,7 +123,7 @@
             texPesquisarPenalidades.ForeColor = Color.FromArgb(130, 119, 106);
             texPesquisarPenalidades.Location = new Point(227, 77);
             texPesquisarPenalidades.Name = "texPesquisarPenalidades";
-            texPesquisarPenalidades.Size = new Size(386, 19);
+            texPesquisarPenalidades.Size = new Size(336, 19);
             texPesquisarPenalidades.TabIndex = 210;
             // 
             // labelPenalidades
@@ -153,12 +157,35 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(569, 77);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(22, 19);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 215;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBoxLupa
+            // 
+            pictureBoxLupa.Image = (Image)resources.GetObject("pictureBoxLupa.Image");
+            pictureBoxLupa.Location = new Point(592, 77);
+            pictureBoxLupa.Name = "pictureBoxLupa";
+            pictureBoxLupa.Size = new Size(22, 19);
+            pictureBoxLupa.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxLupa.TabIndex = 214;
+            pictureBoxLupa.TabStop = false;
+            pictureBoxLupa.Click += pictureBoxLupa_Click;
+            // 
             // VisualizacaoPenalidade
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(250, 243, 224);
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBoxLupa);
             Controls.Add(dgvPenalidades);
             Controls.Add(btnVoltar);
             Controls.Add(panel5);
@@ -171,6 +198,8 @@
             ((System.ComponentModel.ISupportInitialize)dgvPenalidades).EndInit();
             panelLivro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLupa).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -184,5 +213,7 @@
         private Label labelPenalidades;
         private Panel panelLivro;
         private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBoxLupa;
     }
 }

@@ -45,32 +45,39 @@ namespace Projeto_ViraPagina.View
             ReservaDAO reservaDAO = new ReservaDAO();
             UtilDAO utilDAO = new UtilDAO();
 
-            if (textUsuario.Text == "" )
+            if (textUsuario.Text == "")
             {
-                MessageBox.Show("Insirá um valor válido no campo código do usuário", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Insira um valor válido no campo código do usuário", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else if (textAcervo.Text == "")
             {
-                MessageBox.Show("Insirá um valor válido no campo código do acervo", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Insira um valor válido no campo código do acervo", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else if (
-                     (utilDAO.IdMidiaExiste(textAcervo.Text)           ||
-                     utilDAO.IdJogoExiste(textAcervo.Text)             ||
-                     utilDAO.IdMaterialImpressoExiste(textAcervo.Text) ||
-                     utilDAO.IdInstrumentoExiste(textAcervo.Text))     &&
-                     utilDAO.IdTomadorExiste(textUsuario.Text)
-            )
+            else if ((utilDAO.IdMidiaExiste(textAcervo.Text) ||
+                      utilDAO.IdJogoExiste(textAcervo.Text) ||
+                      utilDAO.IdMaterialImpressoExiste(textAcervo.Text) ||
+                      utilDAO.IdInstrumentoExiste(textAcervo.Text)) &&
+                      utilDAO.IdTomadorExiste(textUsuario.Text)
+                    )
             {
                 if (utilDAO.IdMaterialImpressoExiste(textAcervo.Text))
                 {
                     if (!reservaDAO.EstaReservado(textAcervo.Text))
                     {
-                        InstanciarEmprestimo(emprestimo, utilDAO);
-
-                        if (emprestimoDAO.AdicionarEmprestimoNoBanco(emprestimo))
+                        if (!emprestimoDAO.EstaEmprestado(textAcervo.Text))
                         {
-                            textUsuario.Text = "";
-                            textAcervo.Text = "";
+                            InstanciarEmprestimo(emprestimo, utilDAO);
+
+                            if (emprestimoDAO.AdicionarEmprestimoNoBanco(emprestimo))
+                            {
+                                textUsuario.Text = "";
+                                textAcervo.Text = "";
+                                MessageBox.Show("Empréstimo cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Este acervo já está emprestado.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
                     }
                     else
@@ -80,24 +87,33 @@ namespace Projeto_ViraPagina.View
                 }
                 else
                 {
-                    InstanciarEmprestimo(emprestimo, utilDAO);
-
-                    if (emprestimoDAO.AdicionarEmprestimoNoBanco(emprestimo))
+                    if (!emprestimoDAO.EstaEmprestado(textAcervo.Text))
                     {
-                        textUsuario.Text = "";
-                        textAcervo.Text = "";
+                        InstanciarEmprestimo(emprestimo, utilDAO);
+
+                        if (emprestimoDAO.AdicionarEmprestimoNoBanco(emprestimo))
+                        {
+                            textUsuario.Text = "";
+                            textAcervo.Text = "";
+                            MessageBox.Show("Empréstimo cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Este acervo já está emprestado.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
             }
             else if (!utilDAO.IdTomadorExiste(textUsuario.Text))
             {
-                MessageBox.Show("Código de tomdor não encontrado.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Código de tomador não encontrado.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
                 MessageBox.Show("Código de acervo não encontrado.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
         private void InstanciarEmprestimo(Emprestimo emprestimo, UtilDAO utilDAO)
         {
             emprestimo.IdUsuario = textUsuario.Text;

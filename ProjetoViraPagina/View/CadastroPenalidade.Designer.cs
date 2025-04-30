@@ -35,7 +35,6 @@
             panelLivro = new Panel();
             pictureBox1 = new PictureBox();
             panel3 = new Panel();
-            textTipo = new TextBox();
             labelPenalidade = new Label();
             panel4 = new Panel();
             textIdEmprestimo = new TextBox();
@@ -44,13 +43,14 @@
             textIdUsuario = new TextBox();
             labelIdUsuario = new Label();
             pictureBox2 = new PictureBox();
+            textTipo = new ComboBox();
             panelLivro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
-            // 
+            //
             // btnCadastrar
-            // 
+            //
             btnCadastrar.BackColor = Color.DarkRed;
             btnCadastrar.Font = new Font("Segoe UI", 12F);
             btnCadastrar.ForeColor = Color.FromArgb(250, 243, 224);
@@ -61,9 +61,9 @@
             btnCadastrar.Text = "Cadastrar";
             btnCadastrar.UseVisualStyleBackColor = false;
             btnCadastrar.Click += btnCadastrar_Click;
-            // 
+            //
             // btnCancelar
-            // 
+            //
             btnCancelar.BackColor = Color.DarkRed;
             btnCancelar.Font = new Font("Segoe UI", 12F);
             btnCancelar.ForeColor = Color.FromArgb(250, 243, 224);
@@ -74,9 +74,9 @@
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
-            // 
+            //
             // labelTituloPrincipal
-            // 
+            //
             labelTituloPrincipal.AutoSize = true;
             labelTituloPrincipal.Font = new Font("Arial Narrow", 20F);
             labelTituloPrincipal.ForeColor = Color.DarkRed;
@@ -85,18 +85,18 @@
             labelTituloPrincipal.Size = new Size(221, 31);
             labelTituloPrincipal.TabIndex = 155;
             labelTituloPrincipal.Text = "Cadastrar penalidade";
-            // 
+            //
             // panelLivro
-            // 
+            //
             panelLivro.BackColor = Color.DarkRed;
             panelLivro.Controls.Add(pictureBox1);
             panelLivro.Location = new Point(0, -9);
             panelLivro.Name = "panelLivro";
             panelLivro.Size = new Size(42, 468);
             panelLivro.TabIndex = 154;
-            // 
+            //
             // pictureBox1
-            // 
+            //
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(2, 19);
             pictureBox1.Name = "pictureBox1";
@@ -105,28 +105,17 @@
             pictureBox1.TabIndex = 171;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
-            // 
+            //
             // panel3
-            // 
+            //
             panel3.BackColor = Color.DarkRed;
             panel3.Location = new Point(76, 323);
             panel3.Name = "panel3";
             panel3.Size = new Size(270, 4);
             panel3.TabIndex = 170;
-            // 
-            // textTipo
-            // 
-            textTipo.BackColor = Color.FromArgb(250, 243, 224);
-            textTipo.BorderStyle = BorderStyle.None;
-            textTipo.Font = new Font("Arial Narrow", 12F);
-            textTipo.ForeColor = Color.FromArgb(130, 119, 106);
-            textTipo.Location = new Point(80, 298);
-            textTipo.Name = "textTipo";
-            textTipo.Size = new Size(257, 19);
-            textTipo.TabIndex = 169;
-            // 
+            //
             // labelPenalidade
-            // 
+            //
             labelPenalidade.AutoSize = true;
             labelPenalidade.Font = new Font("Arial Narrow", 14F);
             labelPenalidade.ForeColor = Color.DarkRed;
@@ -135,17 +124,17 @@
             labelPenalidade.Size = new Size(144, 23);
             labelPenalidade.TabIndex = 168;
             labelPenalidade.Text = "Tipo de penalidade";
-            // 
+            //
             // panel4
-            // 
+            //
             panel4.BackColor = Color.DarkRed;
             panel4.Location = new Point(77, 239);
             panel4.Name = "panel4";
             panel4.Size = new Size(270, 4);
             panel4.TabIndex = 167;
-            // 
+            //
             // textIdEmprestimo
-            // 
+            //
             textIdEmprestimo.BackColor = Color.FromArgb(250, 243, 224);
             textIdEmprestimo.BorderStyle = BorderStyle.None;
             textIdEmprestimo.Font = new Font("Arial Narrow", 12F);
@@ -154,9 +143,9 @@
             textIdEmprestimo.Name = "textIdEmprestimo";
             textIdEmprestimo.Size = new Size(257, 19);
             textIdEmprestimo.TabIndex = 166;
-            // 
+            //
             // labelIdEmprestimo
-            // 
+            //
             labelIdEmprestimo.AutoSize = true;
             labelIdEmprestimo.Font = new Font("Arial Narrow", 14F);
             labelIdEmprestimo.ForeColor = Color.DarkRed;
@@ -165,17 +154,17 @@
             labelIdEmprestimo.Size = new Size(145, 23);
             labelIdEmprestimo.TabIndex = 165;
             labelIdEmprestimo.Text = "Código empréstimo";
-            // 
+            //
             // panel5
-            // 
+            //
             panel5.BackColor = Color.DarkRed;
             panel5.Location = new Point(76, 152);
             panel5.Name = "panel5";
             panel5.Size = new Size(270, 4);
             panel5.TabIndex = 164;
-            // 
+            //
             // textIdUsuario
-            // 
+            //
             textIdUsuario.BackColor = Color.FromArgb(250, 243, 224);
             textIdUsuario.BorderStyle = BorderStyle.None;
             textIdUsuario.Font = new Font("Arial Narrow", 12F);
@@ -184,9 +173,9 @@
             textIdUsuario.Name = "textIdUsuario";
             textIdUsuario.Size = new Size(257, 19);
             textIdUsuario.TabIndex = 163;
-            // 
+            //
             // labelIdUsuario
-            // 
+            //
             labelIdUsuario.AutoSize = true;
             labelIdUsuario.Font = new Font("Arial Narrow", 14F);
             labelIdUsuario.ForeColor = Color.DarkRed;
@@ -195,9 +184,9 @@
             labelIdUsuario.Size = new Size(121, 23);
             labelIdUsuario.TabIndex = 162;
             labelIdUsuario.Text = "Código tomador";
-            // 
+            //
             // pictureBox2
-            // 
+            //
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(444, 23);
             pictureBox2.Name = "pictureBox2";
@@ -205,15 +194,27 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 172;
             pictureBox2.TabStop = false;
-            // 
+            //
+            // textTipo
+            //
+            textTipo.BackColor = Color.FromArgb(250, 243, 224);
+            textTipo.FlatStyle = FlatStyle.Flat;
+            textTipo.Font = new Font("Arial Narrow", 12F);
+            textTipo.ForeColor = Color.FromArgb(130, 119, 106);
+            textTipo.FormattingEnabled = true;
+            textTipo.Location = new Point(77, 292);
+            textTipo.Name = "textTipo";
+            textTipo.Size = new Size(269, 28);
+            textTipo.TabIndex = 173;
+            //
             // CadastroPenalidade
-            // 
+            //
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(250, 243, 224);
             ClientSize = new Size(800, 450);
-            Controls.Add(panel3);
             Controls.Add(textTipo);
+            Controls.Add(panel3);
             Controls.Add(labelPenalidade);
             Controls.Add(panel4);
             Controls.Add(textIdEmprestimo);
@@ -242,7 +243,6 @@
         private Label labelTituloPrincipal;
         private Panel panelLivro;
         private Panel panel3;
-        private TextBox textTipo;
         private Label labelPenalidade;
         private Panel panel4;
         private TextBox textIdEmprestimo;
@@ -252,5 +252,6 @@
         private Label labelIdUsuario;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private ComboBox textTipo;
     }
 }

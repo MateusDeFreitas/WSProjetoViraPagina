@@ -45,7 +45,7 @@ namespace Projeto_ViraPagina.DAO
             }
         }
 
-        public Midia lerMidia(string id)
+        public Midia LerMidia(string id)
         {
             Midia midia = new Midia();
             UtilDAO utilDAO = new UtilDAO();

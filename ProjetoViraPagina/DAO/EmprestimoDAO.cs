@@ -15,14 +15,26 @@ namespace Projeto_ViraPagina.DAO
     {
         private string connectionString = "Server=localhost;Database=bd_virapagina;Uid=root;Pwd=";
 
-        
+
         public bool AdicionarEmprestimoNoBanco(Emprestimo emprestimo)
         {
+            UtilDAO utilDAO = new UtilDAO();
+
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 try
                 {
                     conn.Open();
+
+                    // Buscar dias de empréstimo conforme o vínculo
+                    int diasEmprestimo = ObterDiasEmprestimoPorVinculo(emprestimo.IdUsuario);
+
+                    if (diasEmprestimo <= 0)
+                    {
+                        MessageBox.Show("Não foi possível determinar o tempo de empréstimo para este usuário.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return false;
+                    }
+
                     using (MySqlCommand cmd = new MySqlCommand("inserirEmprestimo", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
@@ -32,11 +44,19 @@ namespace Projeto_ViraPagina.DAO
                         cmd.Parameters.AddWithValue("@p_idInstrumento", emprestimo.IdInstrumento);
                         cmd.Parameters.AddWithValue("@p_idMidia", emprestimo.IdMidia);
                         cmd.Parameters.AddWithValue("@p_idJogo", emprestimo.IdJogo);
-                        cmd.Parameters.AddWithValue("@p_diasEmprestimo", 15);
+                        
+                        if (emprestimo.IdMaterialImpresso != "")
+                        {
+                            cmd.Parameters.AddWithValue("@p_diasEmprestimo", diasEmprestimo);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@p_diasEmprestimo", 1);
+                        }
 
-                        cmd.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
 
-                        MessageBox.Show($"Registro {emprestimo.IdUsuario} inserido com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Registro inserido com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         return true;
                     }
@@ -194,6 +214,91 @@ namespace Projeto_ViraPagina.DAO
                 }
             }
             return emprestimo;
+        }
+
+        public bool EstaEmprestado(string idAcervo)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("estaEmprestado", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("id_acervo", idAcervo);
+
+                        var outputParam = new MySqlParameter("total_emprestimos", MySqlDbType.Int32);
+                        outputParam.Direction = ParameterDirection.Output;
+
+                        cmd.Parameters.Add(outputParam);
+
+                        cmd.ExecuteNonQuery();
+
+                        int count = Convert.ToInt32(outputParam.Value);
+
+                        return count > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao verificar empréstimo: " + ex.Message);
+                    return false;
+                }
+            }
+        }
+
+        public int ObterDiasEmprestimoPorVinculo(string idUsuario)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("obterVinculoUsuario", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("p_idUsuario", idUsuario);
+
+                        var outputParam = new MySqlParameter("p_vinculo", MySqlDbType.VarChar, 50)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        cmd.Parameters.Add(outputParam);
+
+                        cmd.ExecuteNonQuery();
+
+                        string tipoVinculo = outputParam.Value?.ToString();
+
+                        if (!string.IsNullOrEmpty(tipoVinculo))
+                        {
+                            switch (tipoVinculo.ToLower())
+                            {
+                                case "aluno":
+                                    return 7;
+                                case "professor":
+                                    return 15;
+                                case "funcionario":
+                                    return 10;
+                                default:
+                                    return 5;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Usuário não encontrado!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return -1;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao buscar tipo de vínculo: " + ex.Message);
+                    return -1;
+                }
+            }
         }
     }
 }

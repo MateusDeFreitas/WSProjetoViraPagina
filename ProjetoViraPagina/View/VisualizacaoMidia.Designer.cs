@@ -45,9 +45,13 @@
             Diretor = new DataGridViewTextBoxColumn();
             Genero = new DataGridViewTextBoxColumn();
             AnoLancamento = new DataGridViewTextBoxColumn();
+            pictureBox2 = new PictureBox();
+            pictureBoxLupa = new PictureBox();
             panelLivro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvVisualizacaoMidia).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLupa).BeginInit();
             SuspendLayout();
             // 
             // panelLivro
@@ -95,9 +99,9 @@
             texPesquisarVisualizacaoMidia.BorderStyle = BorderStyle.None;
             texPesquisarVisualizacaoMidia.Font = new Font("Arial Narrow", 12F);
             texPesquisarVisualizacaoMidia.ForeColor = Color.FromArgb(130, 119, 106);
-            texPesquisarVisualizacaoMidia.Location = new Point(206, 77);
+            texPesquisarVisualizacaoMidia.Location = new Point(211, 77);
             texPesquisarVisualizacaoMidia.Name = "texPesquisarVisualizacaoMidia";
-            texPesquisarVisualizacaoMidia.Size = new Size(386, 19);
+            texPesquisarVisualizacaoMidia.Size = new Size(331, 19);
             texPesquisarVisualizacaoMidia.TabIndex = 163;
             // 
             // btnVoltar
@@ -177,12 +181,35 @@
             // 
             AnoLancamento.Name = "AnoLancamento";
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(548, 77);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(22, 19);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 193;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBoxLupa
+            // 
+            pictureBoxLupa.Image = (Image)resources.GetObject("pictureBoxLupa.Image");
+            pictureBoxLupa.Location = new Point(571, 77);
+            pictureBoxLupa.Name = "pictureBoxLupa";
+            pictureBoxLupa.Size = new Size(22, 19);
+            pictureBoxLupa.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxLupa.TabIndex = 192;
+            pictureBoxLupa.TabStop = false;
+            pictureBoxLupa.Click += pictureBoxLupa_Click;
+            // 
             // VisualizacaoMidia
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(250, 243, 224);
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBoxLupa);
             Controls.Add(dgvVisualizacaoMidia);
             Controls.Add(btnVoltar);
             Controls.Add(panel5);
@@ -195,6 +222,8 @@
             panelLivro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvVisualizacaoMidia).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLupa).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -213,5 +242,7 @@
         private DataGridViewTextBoxColumn Genero;
         private DataGridViewTextBoxColumn AnoLancamento;
         private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBoxLupa;
     }
 }

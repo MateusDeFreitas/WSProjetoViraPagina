@@ -93,6 +93,74 @@ namespace Projeto_ViraPagina.View
             dgvVisualizacaoMidia.DataSource = midias;
         }
 
+        private void CarregarGridPorBusca(string id)
+        {
+            MidiaDAO midiaDAO = new MidiaDAO();
+            Midia midia = midiaDAO.LerMidia(id);
+
+
+            dgvVisualizacaoMidia.Columns.Clear(); // Limpa colunas anteriores
+            dgvVisualizacaoMidia.DataSource = null;
+            dgvVisualizacaoMidia.AutoGenerateColumns = false;
+
+            dgvVisualizacaoMidia.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "Codigo",
+                HeaderText = "Código",
+                DataPropertyName = "IdMidia",
+                Width = 100
+            });
+
+            dgvVisualizacaoMidia.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Lancamento",
+                DataPropertyName = "AnoLancamento",
+                Width = 140,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            dgvVisualizacaoMidia.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Título",
+                DataPropertyName = "Titulo",
+                Width = 130
+            });
+
+            dgvVisualizacaoMidia.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Diretor",
+                DataPropertyName = "Diretor",
+                Width = 140
+            });
+
+            dgvVisualizacaoMidia.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Genero",
+                DataPropertyName = "Genero",
+                Width = 120
+            });
+
+            DataGridViewImageColumn colunaImagemEditar = new DataGridViewImageColumn();
+            colunaImagemEditar.Name = "Editar";
+            colunaImagemEditar.HeaderText = "";
+            colunaImagemEditar.Image = Image.FromFile("Imagens/ImagemEditr.png");
+            colunaImagemEditar.Width = 45;
+            colunaImagemEditar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvVisualizacaoMidia.Columns.Add(colunaImagemEditar);
+
+            DataGridViewImageColumn colunaImagem = new DataGridViewImageColumn();
+            colunaImagem.Name = "Excluir";
+            colunaImagem.HeaderText = "";
+            colunaImagem.Image = Image.FromFile("Imagens/ImagemX.png");
+            colunaImagem.Width = 45;
+            colunaImagem.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvVisualizacaoMidia.Columns.Add(colunaImagem);
+
+            // Vincula os dados
+            dgvVisualizacaoMidia.DataSource = new List<Midia> { midia };
+        }
+
         private void VisualizacaoMidia_Load(object sender, EventArgs e)
         {
             CarregarGrid();
@@ -151,6 +219,25 @@ namespace Projeto_ViraPagina.View
             form.Show();
             this.Hide();
         }
-    }
 
+        private void pictureBoxLupa_Click(object sender, EventArgs e)
+        {
+            UtilDAO utilDAO = new UtilDAO();
+            string idMidia = texPesquisarVisualizacaoMidia.Text;
+
+
+            if (utilDAO.IdMidiaExiste(idMidia))
+            {
+                CarregarGridPorBusca(idMidia);
+            }
+            else if (idMidia == "")
+            {
+                CarregarGrid();
+            }
+            else
+            {
+                MessageBox.Show($"O mídia {idMidia} não existe.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+    }
 }
