@@ -53,7 +53,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrincipalInstrumentos));
             btnVoltar = new Button();
-            btnRelatorios = new Button();
             btnVerificar = new Button();
             btnDeletar = new Button();
             btnAtualizar = new Button();
@@ -81,24 +80,12 @@
             btnVoltar.UseVisualStyleBackColor = false;
             btnVoltar.Click += btnVoltar_Click;
             // 
-            // btnRelatorios
-            // 
-            btnRelatorios.BackColor = Color.DarkRed;
-            btnRelatorios.Font = new Font("Segoe UI", 12F);
-            btnRelatorios.ForeColor = Color.FromArgb(250, 243, 224);
-            btnRelatorios.Location = new Point(173, 293);
-            btnRelatorios.Name = "btnRelatorios";
-            btnRelatorios.Size = new Size(217, 41);
-            btnRelatorios.TabIndex = 22;
-            btnRelatorios.Text = "Relatório dos instrumentos";
-            btnRelatorios.UseVisualStyleBackColor = false;
-            // 
             // btnVerificar
             // 
             btnVerificar.BackColor = Color.DarkRed;
             btnVerificar.Font = new Font("Segoe UI", 12F);
             btnVerificar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnVerificar.Location = new Point(434, 236);
+            btnVerificar.Location = new Point(434, 248);
             btnVerificar.Name = "btnVerificar";
             btnVerificar.Size = new Size(217, 41);
             btnVerificar.TabIndex = 21;
@@ -111,7 +98,7 @@
             btnDeletar.BackColor = Color.DarkRed;
             btnDeletar.Font = new Font("Segoe UI", 12F);
             btnDeletar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnDeletar.Location = new Point(173, 236);
+            btnDeletar.Location = new Point(173, 248);
             btnDeletar.Name = "btnDeletar";
             btnDeletar.Size = new Size(217, 41);
             btnDeletar.TabIndex = 20;
@@ -124,7 +111,7 @@
             btnAtualizar.BackColor = Color.DarkRed;
             btnAtualizar.Font = new Font("Segoe UI", 12F);
             btnAtualizar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnAtualizar.Location = new Point(434, 180);
+            btnAtualizar.Location = new Point(434, 192);
             btnAtualizar.Name = "btnAtualizar";
             btnAtualizar.Size = new Size(217, 41);
             btnAtualizar.TabIndex = 19;
@@ -137,7 +124,7 @@
             btnCriar.BackColor = Color.DarkRed;
             btnCriar.Font = new Font("Segoe UI", 12F);
             btnCriar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnCriar.Location = new Point(173, 180);
+            btnCriar.Location = new Point(173, 192);
             btnCriar.Name = "btnCriar";
             btnCriar.Size = new Size(217, 41);
             btnCriar.TabIndex = 18;
@@ -189,13 +176,13 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(2, 21);
+            pictureBox1.Location = new Point(0, 23);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(39, 39);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 4;
+            pictureBox1.TabIndex = 184;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            pictureBox1.Click += pictureBox1_Click_1;
             // 
             // PrincipalInstrumentos
             // 
@@ -204,7 +191,6 @@
             BackColor = Color.FromArgb(250, 243, 224);
             ClientSize = new Size(800, 450);
             Controls.Add(btnVoltar);
-            Controls.Add(btnRelatorios);
             Controls.Add(btnVerificar);
             Controls.Add(btnDeletar);
             Controls.Add(btnAtualizar);
@@ -226,8 +212,6 @@
         #endregion
 
         private Button btnVoltar;
-
-        private Button btnRelatorios;
 
         private Button btnVerificar;
 

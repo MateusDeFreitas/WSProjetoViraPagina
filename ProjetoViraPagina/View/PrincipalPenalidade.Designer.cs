@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrincipalPenalidade));
             btnVoltar = new Button();
-            btnRelatorios = new Button();
             btnVerificar = new Button();
             btnCriar = new Button();
             labelIntro = new Label();
@@ -56,24 +55,12 @@
             btnVoltar.UseVisualStyleBackColor = false;
             btnVoltar.Click += btnVoltar_Click;
             // 
-            // btnRelatorios
-            // 
-            btnRelatorios.BackColor = Color.DarkRed;
-            btnRelatorios.Font = new Font("Segoe UI", 12F);
-            btnRelatorios.ForeColor = Color.FromArgb(250, 243, 224);
-            btnRelatorios.Location = new Point(303, 292);
-            btnRelatorios.Name = "btnRelatorios";
-            btnRelatorios.Size = new Size(217, 41);
-            btnRelatorios.TabIndex = 38;
-            btnRelatorios.Text = "Visualizar relatórios";
-            btnRelatorios.UseVisualStyleBackColor = false;
-            // 
             // btnVerificar
             // 
             btnVerificar.BackColor = Color.DarkRed;
             btnVerificar.Font = new Font("Segoe UI", 12F);
             btnVerificar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnVerificar.Location = new Point(303, 235);
+            btnVerificar.Location = new Point(302, 249);
             btnVerificar.Name = "btnVerificar";
             btnVerificar.Size = new Size(217, 41);
             btnVerificar.TabIndex = 37;
@@ -86,7 +73,7 @@
             btnCriar.BackColor = Color.DarkRed;
             btnCriar.Font = new Font("Segoe UI", 12F);
             btnCriar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnCriar.Location = new Point(303, 179);
+            btnCriar.Location = new Point(302, 193);
             btnCriar.Name = "btnCriar";
             btnCriar.Size = new Size(217, 41);
             btnCriar.TabIndex = 36;
@@ -154,7 +141,6 @@
             BackColor = Color.FromArgb(250, 243, 224);
             ClientSize = new Size(800, 450);
             Controls.Add(btnVoltar);
-            Controls.Add(btnRelatorios);
             Controls.Add(btnVerificar);
             Controls.Add(btnCriar);
             Controls.Add(labelIntro);
@@ -173,7 +159,6 @@
         #endregion
 
         private Button btnVoltar;
-        private Button btnRelatorios;
         private Button btnVerificar;
         private Button btnCriar;
         private Label labelIntro;

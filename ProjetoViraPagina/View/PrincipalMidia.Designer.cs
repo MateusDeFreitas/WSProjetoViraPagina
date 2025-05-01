@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrincipalMidia));
             btnVoltar = new Button();
-            btnRelatorios = new Button();
             btnVerificar = new Button();
             btnDeletar = new Button();
             btnAtualizar = new Button();
@@ -58,18 +57,6 @@
             btnVoltar.UseVisualStyleBackColor = false;
             btnVoltar.Click += btnVoltar_Click;
             // 
-            // btnRelatorios
-            // 
-            btnRelatorios.BackColor = Color.DarkRed;
-            btnRelatorios.Font = new Font("Segoe UI", 12F);
-            btnRelatorios.ForeColor = Color.FromArgb(250, 243, 224);
-            btnRelatorios.Location = new Point(173, 293);
-            btnRelatorios.Name = "btnRelatorios";
-            btnRelatorios.Size = new Size(217, 41);
-            btnRelatorios.TabIndex = 22;
-            btnRelatorios.Text = "Relatório das mídias";
-            btnRelatorios.UseVisualStyleBackColor = false;
-            // 
             // btnVerificar
             // 
             btnVerificar.BackColor = Color.DarkRed;
@@ -94,6 +81,7 @@
             btnDeletar.TabIndex = 20;
             btnDeletar.Text = "Deletar mídia";
             btnDeletar.UseVisualStyleBackColor = false;
+            btnDeletar.Click += btnDeletar_Click;
             // 
             // btnAtualizar
             // 
@@ -180,7 +168,6 @@
             BackColor = Color.FromArgb(250, 243, 224);
             ClientSize = new Size(800, 450);
             Controls.Add(btnVoltar);
-            Controls.Add(btnRelatorios);
             Controls.Add(btnVerificar);
             Controls.Add(btnDeletar);
             Controls.Add(btnAtualizar);
@@ -201,7 +188,6 @@
         #endregion
 
         private Button btnVoltar;
-        private Button btnRelatorios;
         private Button btnVerificar;
         private Button btnDeletar;
         private Button btnAtualizar;

@@ -106,6 +106,7 @@ namespace Projeto_ViraPagina.DAO
                             Penalidade penalidade = new Penalidade()
                             {
                                 Id = reader["id"].ToString(),
+                                IdUsuario = reader["idTomador"].ToString(),
                                 PenalidadeAtivaStr = funçao.ConverterPenalidadeBoolParaString(reader["penalidadeAtiva"].ToString()),
                                 DataPenalidade = funçao.ConverterDataParaFormatoBR(reader["dataPenalidade"].ToString()),
                                 IdEmprestimo = reader["idEmprestimo"].ToString(),

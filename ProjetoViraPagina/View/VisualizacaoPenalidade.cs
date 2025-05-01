@@ -157,6 +157,72 @@ namespace Projeto_ViraPagina.View
             dgvPenalidades.DataSource = new List<Penalidade> { penalidade };
         }
 
+        private void CarregarGridPorTomador(string idTomador)
+        {
+            PenalidadeDAO penalidadeDAO = new PenalidadeDAO();
+
+            List<Penalidade> penalidades = penalidadeDAO.BuscarPenalidadesDeTomador(idTomador);
+
+            dgvPenalidades.Columns.Clear(); // Limpa colunas anteriores
+            dgvPenalidades.DataSource = null;
+            dgvPenalidades.AutoGenerateColumns = false;
+
+            dgvPenalidades.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "Codigo",
+                HeaderText = "Código",
+                DataPropertyName = "Id",
+                Width = 90
+            });
+
+            dgvPenalidades.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Cód. Tomador",
+                DataPropertyName = "IdUsuario",
+                Width = 130,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            dgvPenalidades.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Cód. Empréstimo",
+                DataPropertyName = "IdEmprestimo",
+                Width = 155,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            dgvPenalidades.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Data de Ocorrência",
+                DataPropertyName = "DataPenalidade",
+                Width = 180,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            dgvPenalidades.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Categoria",
+                DataPropertyName = "CodPenalidade",
+                Width = 120,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            DataGridViewImageColumn colunaImagemRegularizar = new DataGridViewImageColumn();
+            colunaImagemRegularizar.Name = "Regularizar";
+            colunaImagemRegularizar.HeaderText = "";
+            colunaImagemRegularizar.Image = Image.FromFile("Imagens/Check.png");
+            colunaImagemRegularizar.Width = 45;
+            colunaImagemRegularizar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvPenalidades.Columns.Add(colunaImagemRegularizar);
+
+            // Vincula os dados
+            dgvPenalidades.DataSource = penalidades;
+        }
+
         private void Penalidades_Load(object sender, EventArgs e)
         {
             CarregarGrid();
@@ -199,21 +265,33 @@ namespace Projeto_ViraPagina.View
         private void pictureBoxLupa_Click(object sender, EventArgs e)
         {
             UtilDAO utilDAO = new UtilDAO();
-            string idPenalidade = texPesquisarPenalidades.Text;
+            string idTomador = texPesquisarPenalidades.Text;
 
-
-            if (utilDAO.IdPenalidadeExiste(idPenalidade))
+            if (utilDAO.IdTomadorExiste(idTomador))
             {
-                CarregarGridPorBusca(idPenalidade);
+                CarregarGridPorTomador(idTomador);
             }
-            else if (idPenalidade == "")
+            else if (idTomador == "")
             {
                 CarregarGrid();
             }
             else
             {
-                MessageBox.Show($"O penalidade {idPenalidade} não existe.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show($"O Tomador {idTomador} não existe.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+
+            //if (utilDAO.IdPenalidadeExiste(idPenalidade))
+            //{
+            //    CarregarGridPorBusca(idPenalidade);
+            //}
+            //else if (idPenalidade == "")
+            //{
+            //    CarregarGrid();
+            //}
+            //else
+            //{
+            //    MessageBox.Show($"O penalidade {idPenalidade} não existe.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //}
         }
     }
 }

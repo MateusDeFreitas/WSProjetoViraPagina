@@ -49,9 +49,9 @@
             panelLivro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            //
+            // 
             // btnCadastrar
-            //
+            // 
             btnCadastrar.BackColor = Color.DarkRed;
             btnCadastrar.Font = new Font("Segoe UI", 12F);
             btnCadastrar.ForeColor = Color.FromArgb(250, 243, 224);
@@ -62,9 +62,9 @@
             btnCadastrar.Text = "Cadastrar";
             btnCadastrar.UseVisualStyleBackColor = false;
             btnCadastrar.Click += btnCadastrar_Click;
-            //
+            // 
             // btnCancelar
-            //
+            // 
             btnCancelar.BackColor = Color.DarkRed;
             btnCancelar.Font = new Font("Segoe UI", 12F);
             btnCancelar.ForeColor = Color.FromArgb(250, 243, 224);
@@ -74,17 +74,18 @@
             btnCancelar.TabIndex = 200;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
-            //
+            btnCancelar.Click += btnCancelar_Click;
+            // 
             // panel7
-            //
+            // 
             panel7.BackColor = Color.DarkRed;
             panel7.Location = new Point(91, 276);
             panel7.Name = "panel7";
             panel7.Size = new Size(270, 4);
             panel7.TabIndex = 199;
-            //
+            // 
             // textMarca
-            //
+            // 
             textMarca.BackColor = Color.FromArgb(250, 243, 224);
             textMarca.BorderStyle = BorderStyle.None;
             textMarca.Font = new Font("Arial Narrow", 12F);
@@ -93,9 +94,9 @@
             textMarca.Name = "textMarca";
             textMarca.Size = new Size(257, 19);
             textMarca.TabIndex = 198;
-            //
+            // 
             // labelMarca
-            //
+            // 
             labelMarca.AutoSize = true;
             labelMarca.Font = new Font("Arial Narrow", 14F);
             labelMarca.ForeColor = Color.DarkRed;
@@ -104,17 +105,17 @@
             labelMarca.Size = new Size(54, 23);
             labelMarca.TabIndex = 197;
             labelMarca.Text = "Marca";
-            //
+            // 
             // panel2
-            //
+            // 
             panel2.BackColor = Color.DarkRed;
             panel2.Location = new Point(476, 276);
             panel2.Name = "panel2";
             panel2.Size = new Size(270, 4);
             panel2.TabIndex = 193;
-            //
+            // 
             // textNumeroSerie
-            //
+            // 
             textNumeroSerie.BackColor = Color.FromArgb(250, 243, 224);
             textNumeroSerie.BorderStyle = BorderStyle.None;
             textNumeroSerie.Font = new Font("Arial Narrow", 12F);
@@ -123,9 +124,9 @@
             textNumeroSerie.Name = "textNumeroSerie";
             textNumeroSerie.Size = new Size(257, 19);
             textNumeroSerie.TabIndex = 192;
-            //
+            // 
             // labelNumeroSerie
-            //
+            // 
             labelNumeroSerie.AutoSize = true;
             labelNumeroSerie.Font = new Font("Arial Narrow", 14F);
             labelNumeroSerie.ForeColor = Color.DarkRed;
@@ -134,17 +135,17 @@
             labelNumeroSerie.Size = new Size(126, 23);
             labelNumeroSerie.TabIndex = 191;
             labelNumeroSerie.Text = "Número de série";
-            //
+            // 
             // panel6
-            //
+            // 
             panel6.BackColor = Color.DarkRed;
             panel6.Location = new Point(476, 192);
             panel6.Name = "panel6";
             panel6.Size = new Size(270, 4);
             panel6.TabIndex = 190;
-            //
+            // 
             // textModelo
-            //
+            // 
             textModelo.BackColor = Color.FromArgb(250, 243, 224);
             textModelo.BorderStyle = BorderStyle.None;
             textModelo.Font = new Font("Arial Narrow", 12F);
@@ -153,9 +154,9 @@
             textModelo.Name = "textModelo";
             textModelo.Size = new Size(257, 19);
             textModelo.TabIndex = 189;
-            //
+            // 
             // labelModelo
-            //
+            // 
             labelModelo.AutoSize = true;
             labelModelo.Font = new Font("Arial Narrow", 14F);
             labelModelo.ForeColor = Color.DarkRed;
@@ -164,17 +165,17 @@
             labelModelo.Size = new Size(62, 23);
             labelModelo.TabIndex = 188;
             labelModelo.Text = "Modelo";
-            //
+            // 
             // panel3
-            //
+            // 
             panel3.BackColor = Color.DarkRed;
             panel3.Location = new Point(91, 192);
             panel3.Name = "panel3";
             panel3.Size = new Size(270, 4);
             panel3.TabIndex = 187;
-            //
+            // 
             // labelCategoria
-            //
+            // 
             labelCategoria.AutoSize = true;
             labelCategoria.Font = new Font("Arial Narrow", 14F);
             labelCategoria.ForeColor = Color.DarkRed;
@@ -183,9 +184,9 @@
             labelCategoria.Size = new Size(77, 23);
             labelCategoria.TabIndex = 185;
             labelCategoria.Text = "Categoria";
-            //
+            // 
             // labelCadastroInstrumentos
-            //
+            // 
             labelCadastroInstrumentos.AutoSize = true;
             labelCadastroInstrumentos.Font = new Font("Arial Narrow", 20F);
             labelCadastroInstrumentos.ForeColor = Color.DarkRed;
@@ -194,18 +195,18 @@
             labelCadastroInstrumentos.Size = new Size(262, 31);
             labelCadastroInstrumentos.TabIndex = 181;
             labelCadastroInstrumentos.Text = "Cadastro de instrumentos";
-            //
+            // 
             // panelLivro
-            //
+            // 
             panelLivro.BackColor = Color.DarkRed;
             panelLivro.Controls.Add(pictureBox1);
             panelLivro.Location = new Point(0, -11);
             panelLivro.Name = "panelLivro";
             panelLivro.Size = new Size(42, 472);
             panelLivro.TabIndex = 180;
-            //
+            // 
             // pictureBox1
-            //
+            // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(2, 23);
             pictureBox1.Name = "pictureBox1";
@@ -214,9 +215,9 @@
             pictureBox1.TabIndex = 77;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
-            //
+            // 
             // textCategoria
-            //
+            // 
             textCategoria.BackColor = Color.FromArgb(250, 243, 224);
             textCategoria.FlatStyle = FlatStyle.Flat;
             textCategoria.Font = new Font("Arial Narrow", 12F);
@@ -226,9 +227,9 @@
             textCategoria.Name = "textCategoria";
             textCategoria.Size = new Size(269, 28);
             textCategoria.TabIndex = 202;
-            //
+            // 
             // CadastroInstrumentos
-            //
+            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(250, 243, 224);

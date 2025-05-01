@@ -104,5 +104,12 @@ namespace Projeto_ViraPagina.View
             instrumento.Marca = textMarca.Text;
             instrumento.NumeroSerie = textNumeroSerie.Text;
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            PrincipalInstrumentos form = new PrincipalInstrumentos();
+            form.Show();
+            this.Hide();
+        }
     }
 }

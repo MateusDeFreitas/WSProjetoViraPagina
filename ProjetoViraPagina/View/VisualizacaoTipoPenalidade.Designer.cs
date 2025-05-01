@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualizacaoTipoPenalidade));
             panelLivro = new Panel();
+            pictureBox1 = new PictureBox();
             panel5 = new Panel();
             textTipoPenalidade = new TextBox();
             labelTipoPenalidade = new Label();
-            btnOk = new Button();
+            btnConfirmar = new Button();
             btnCancelar = new Button();
-            pictureBox1 = new PictureBox();
             panelLivro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -49,10 +49,20 @@
             panelLivro.Size = new Size(42, 262);
             panelLivro.TabIndex = 209;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(2, 20);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(39, 39);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
+            // 
             // panel5
             // 
             panel5.BackColor = Color.DarkRed;
-            panel5.Location = new Point(100, 105);
+            panel5.Location = new Point(102, 136);
             panel5.Name = "panel5";
             panel5.Size = new Size(382, 4);
             panel5.TabIndex = 213;
@@ -63,9 +73,9 @@
             textTipoPenalidade.BorderStyle = BorderStyle.None;
             textTipoPenalidade.Font = new Font("Arial Narrow", 12F);
             textTipoPenalidade.ForeColor = Color.FromArgb(130, 119, 106);
-            textTipoPenalidade.Location = new Point(95, 80);
+            textTipoPenalidade.Location = new Point(102, 111);
             textTipoPenalidade.Name = "textTipoPenalidade";
-            textTipoPenalidade.Size = new Size(386, 19);
+            textTipoPenalidade.Size = new Size(381, 19);
             textTipoPenalidade.TabIndex = 212;
             // 
             // labelTipoPenalidade
@@ -73,45 +83,37 @@
             labelTipoPenalidade.AutoSize = true;
             labelTipoPenalidade.Font = new Font("Arial Narrow", 20F);
             labelTipoPenalidade.ForeColor = Color.DarkRed;
-            labelTipoPenalidade.Location = new Point(177, 20);
+            labelTipoPenalidade.Location = new Point(192, 20);
             labelTipoPenalidade.Name = "labelTipoPenalidade";
             labelTipoPenalidade.Size = new Size(199, 31);
             labelTipoPenalidade.TabIndex = 214;
             labelTipoPenalidade.Text = "Tipo de penalidade";
             // 
-            // btnOk
+            // btnConfirmar
             // 
-            btnOk.BackColor = Color.DarkRed;
-            btnOk.Font = new Font("Segoe UI", 12F);
-            btnOk.ForeColor = Color.FromArgb(250, 243, 224);
-            btnOk.Location = new Point(143, 200);
-            btnOk.Name = "btnOk";
-            btnOk.Size = new Size(128, 35);
-            btnOk.TabIndex = 215;
-            btnOk.Text = "Ok";
-            btnOk.UseVisualStyleBackColor = false;
+            btnConfirmar.BackColor = Color.DarkRed;
+            btnConfirmar.Font = new Font("Segoe UI", 12F);
+            btnConfirmar.ForeColor = Color.FromArgb(250, 243, 224);
+            btnConfirmar.Location = new Point(287, 203);
+            btnConfirmar.Name = "btnConfirmar";
+            btnConfirmar.Size = new Size(128, 35);
+            btnConfirmar.TabIndex = 215;
+            btnConfirmar.Text = "Confirmar";
+            btnConfirmar.UseVisualStyleBackColor = false;
+            btnConfirmar.Click += btnConfirmar_Click;
             // 
             // btnCancelar
             // 
             btnCancelar.BackColor = Color.DarkRed;
             btnCancelar.Font = new Font("Segoe UI", 12F);
             btnCancelar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnCancelar.Location = new Point(283, 200);
+            btnCancelar.Location = new Point(153, 203);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(128, 35);
             btnCancelar.TabIndex = 216;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, 20);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(39, 39);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 8;
-            pictureBox1.TabStop = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // VisualizacaoTipoPenalidade
             // 
@@ -120,7 +122,7 @@
             BackColor = Color.FromArgb(250, 243, 224);
             ClientSize = new Size(546, 250);
             Controls.Add(btnCancelar);
-            Controls.Add(btnOk);
+            Controls.Add(btnConfirmar);
             Controls.Add(labelTipoPenalidade);
             Controls.Add(panel5);
             Controls.Add(textTipoPenalidade);
@@ -139,7 +141,7 @@
         private Panel panel5;
         private TextBox textTipoPenalidade;
         private Label labelTipoPenalidade;
-        private Button btnOk;
+        private Button btnConfirmar;
         private Button btnCancelar;
         private PictureBox pictureBox1;
     }

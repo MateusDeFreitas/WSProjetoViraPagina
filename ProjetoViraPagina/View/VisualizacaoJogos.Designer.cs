@@ -42,12 +42,10 @@ namespace Projeto_ViraPagina.View
             labelAtualizacaoJogos = new Label();
             panelLivro = new Panel();
             pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
             pictureBoxLupa = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvVisualizacaoJogos).BeginInit();
             panelLivro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLupa).BeginInit();
             SuspendLayout();
             // 
@@ -159,16 +157,6 @@ namespace Projeto_ViraPagina.View
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(554, 76);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(22, 19);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 193;
-            pictureBox2.TabStop = false;
-            // 
             // pictureBoxLupa
             // 
             pictureBoxLupa.Image = (Image)resources.GetObject("pictureBoxLupa.Image");
@@ -186,7 +174,6 @@ namespace Projeto_ViraPagina.View
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(250, 243, 224);
             ClientSize = new Size(800, 450);
-            Controls.Add(pictureBox2);
             Controls.Add(pictureBoxLupa);
             Controls.Add(dgvVisualizacaoJogos);
             Controls.Add(btnVoltar);
@@ -200,7 +187,6 @@ namespace Projeto_ViraPagina.View
             ((System.ComponentModel.ISupportInitialize)dgvVisualizacaoJogos).EndInit();
             panelLivro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLupa).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -215,7 +201,6 @@ namespace Projeto_ViraPagina.View
         private Label labelAtualizacaoJogos;
         private Panel panelLivro;
         private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
         private PictureBox pictureBoxLupa;
     }
 }

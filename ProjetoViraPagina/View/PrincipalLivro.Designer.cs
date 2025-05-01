@@ -38,7 +38,6 @@
             btnAtualizar = new Button();
             btnVerificar = new Button();
             btnDeletar = new Button();
-            btnRelatorios = new Button();
             btnVoltar = new Button();
             panelLivro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -102,7 +101,7 @@
             btnCriar.BackColor = Color.DarkRed;
             btnCriar.Font = new Font("Segoe UI", 12F);
             btnCriar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnCriar.Location = new Point(180, 181);
+            btnCriar.Location = new Point(186, 177);
             btnCriar.Name = "btnCriar";
             btnCriar.Size = new Size(217, 41);
             btnCriar.TabIndex = 8;
@@ -115,7 +114,7 @@
             btnAtualizar.BackColor = Color.DarkRed;
             btnAtualizar.Font = new Font("Segoe UI", 12F);
             btnAtualizar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnAtualizar.Location = new Point(441, 181);
+            btnAtualizar.Location = new Point(447, 177);
             btnAtualizar.Name = "btnAtualizar";
             btnAtualizar.Size = new Size(217, 41);
             btnAtualizar.TabIndex = 9;
@@ -128,7 +127,7 @@
             btnVerificar.BackColor = Color.DarkRed;
             btnVerificar.Font = new Font("Segoe UI", 12F);
             btnVerificar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnVerificar.Location = new Point(441, 237);
+            btnVerificar.Location = new Point(447, 233);
             btnVerificar.Name = "btnVerificar";
             btnVerificar.Size = new Size(217, 41);
             btnVerificar.TabIndex = 11;
@@ -141,25 +140,13 @@
             btnDeletar.BackColor = Color.DarkRed;
             btnDeletar.Font = new Font("Segoe UI", 12F);
             btnDeletar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnDeletar.Location = new Point(180, 237);
+            btnDeletar.Location = new Point(186, 233);
             btnDeletar.Name = "btnDeletar";
             btnDeletar.Size = new Size(217, 41);
             btnDeletar.TabIndex = 10;
             btnDeletar.Text = "Deletar um MI";
             btnDeletar.UseVisualStyleBackColor = false;
             btnDeletar.Click += btnDeletar_Click;
-            // 
-            // btnRelatorios
-            // 
-            btnRelatorios.BackColor = Color.DarkRed;
-            btnRelatorios.Font = new Font("Segoe UI", 12F);
-            btnRelatorios.ForeColor = Color.FromArgb(250, 243, 224);
-            btnRelatorios.Location = new Point(180, 294);
-            btnRelatorios.Name = "btnRelatorios";
-            btnRelatorios.Size = new Size(217, 41);
-            btnRelatorios.TabIndex = 12;
-            btnRelatorios.Text = "Relatórios dos MI";
-            btnRelatorios.UseVisualStyleBackColor = false;
             // 
             // btnVoltar
             // 
@@ -181,7 +168,6 @@
             BackColor = Color.FromArgb(250, 243, 224);
             ClientSize = new Size(800, 450);
             Controls.Add(btnVoltar);
-            Controls.Add(btnRelatorios);
             Controls.Add(btnVerificar);
             Controls.Add(btnDeletar);
             Controls.Add(btnAtualizar);
@@ -210,7 +196,6 @@
         private Button btnAtualizar;
         private Button btnVerificar;
         private Button btnDeletar;
-        private Button btnRelatorios;
         private Button btnVoltar;
     }
 }

@@ -58,7 +58,6 @@
             pictureBox2 = new PictureBox();
             panelLivro = new Panel();
             pictureBox1 = new PictureBox();
-            btnRelatorios = new Button();
             btnVerificar = new Button();
             btnDeletar = new Button();
             btnAtualizar = new Button();
@@ -133,24 +132,12 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
-            // btnRelatorios
-            // 
-            btnRelatorios.BackColor = Color.DarkRed;
-            btnRelatorios.Font = new Font("Segoe UI", 12F);
-            btnRelatorios.ForeColor = Color.FromArgb(250, 243, 224);
-            btnRelatorios.Location = new Point(173, 292);
-            btnRelatorios.Name = "btnRelatorios";
-            btnRelatorios.Size = new Size(217, 41);
-            btnRelatorios.TabIndex = 28;
-            btnRelatorios.Text = "Relatório dos jogos";
-            btnRelatorios.UseVisualStyleBackColor = false;
-            // 
             // btnVerificar
             // 
             btnVerificar.BackColor = Color.DarkRed;
             btnVerificar.Font = new Font("Segoe UI", 12F);
             btnVerificar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnVerificar.Location = new Point(434, 235);
+            btnVerificar.Location = new Point(436, 248);
             btnVerificar.Name = "btnVerificar";
             btnVerificar.Size = new Size(217, 41);
             btnVerificar.TabIndex = 27;
@@ -163,7 +150,7 @@
             btnDeletar.BackColor = Color.DarkRed;
             btnDeletar.Font = new Font("Segoe UI", 12F);
             btnDeletar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnDeletar.Location = new Point(173, 235);
+            btnDeletar.Location = new Point(175, 248);
             btnDeletar.Name = "btnDeletar";
             btnDeletar.Size = new Size(217, 41);
             btnDeletar.TabIndex = 26;
@@ -176,7 +163,7 @@
             btnAtualizar.BackColor = Color.DarkRed;
             btnAtualizar.Font = new Font("Segoe UI", 12F);
             btnAtualizar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnAtualizar.Location = new Point(434, 179);
+            btnAtualizar.Location = new Point(436, 192);
             btnAtualizar.Name = "btnAtualizar";
             btnAtualizar.Size = new Size(217, 41);
             btnAtualizar.TabIndex = 25;
@@ -189,7 +176,7 @@
             btnCriar.BackColor = Color.DarkRed;
             btnCriar.Font = new Font("Segoe UI", 12F);
             btnCriar.ForeColor = Color.FromArgb(250, 243, 224);
-            btnCriar.Location = new Point(173, 179);
+            btnCriar.Location = new Point(175, 192);
             btnCriar.Name = "btnCriar";
             btnCriar.Size = new Size(217, 41);
             btnCriar.TabIndex = 24;
@@ -203,7 +190,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(250, 243, 224);
             ClientSize = new Size(800, 450);
-            Controls.Add(btnRelatorios);
             Controls.Add(btnVerificar);
             Controls.Add(btnDeletar);
             Controls.Add(btnAtualizar);
@@ -234,8 +220,6 @@
         private PictureBox pictureBox2;
 
         private Panel panelLivro;
-
-        private Button btnRelatorios;
 
         private Button btnVerificar;
 

@@ -30,13 +30,6 @@ namespace Projeto_ViraPagina.View
             this.Hide();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            Principal form = new Principal();
-            form.Show();
-            this.Hide();
-        }
-
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
             VisualizacaoInstrumentos form = new VisualizacaoInstrumentos();
@@ -61,6 +54,13 @@ namespace Projeto_ViraPagina.View
         private void btnDeletar_Click(object sender, EventArgs e)
         {
             VisualizacaoInstrumentos form = new VisualizacaoInstrumentos();
+            form.Show();
+            this.Hide();
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            Principal form = new Principal();
             form.Show();
             this.Hide();
         }

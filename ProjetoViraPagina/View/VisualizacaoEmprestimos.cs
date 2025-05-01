@@ -197,16 +197,15 @@ namespace Projeto_ViraPagina.View
         {
             if (e.RowIndex >= 0 && dgvVisualizacaoEmprestimos.Columns[e.ColumnIndex].Name == "Penalizar")
             {
-                PenalidadeDAO penalidadeDAO = new PenalidadeDAO();
+                Penalidade penalidade = new Penalidade();    
 
-                string idEmprestimo = dgvVisualizacaoEmprestimos.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
-                string idTomador = dgvVisualizacaoEmprestimos.Rows[e.RowIndex].Cells["CodigoTomador"].Value.ToString();
-                string TipoPenalidade = Microsoft.VisualBasic.Interaction.InputBox("Digite o tipo da penalidade:", "Tipo de penalidade", "AT");
+                penalidade.IdEmprestimo = dgvVisualizacaoEmprestimos.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
+                penalidade.IdUsuario = dgvVisualizacaoEmprestimos.Rows[e.RowIndex].Cells["CodigoTomador"].Value.ToString();
 
-                if (TipoPenalidade != "")
-                {
-                    penalidadeDAO.AdicionarPenalidadeNoBanco(InstanciarPenalidade(idEmprestimo, idTomador, TipoPenalidade));
-                }
+                Penalidade.AdicionarPenalidade(penalidade);
+
+                VisualizacaoTipoPenalidade form = new VisualizacaoTipoPenalidade();
+                form.Show();
             }
             else if (e.RowIndex >= 0 && dgvVisualizacaoEmprestimos.Columns[e.ColumnIndex].Name == "Retornar")
             {
@@ -226,16 +225,6 @@ namespace Projeto_ViraPagina.View
                     CarregarGrid();
                 }
             }
-        }
-
-        private Penalidade InstanciarPenalidade(string idEmprestimo, string idTomador, string TipoPenalidade)
-        {
-            Penalidade penalidade = new Penalidade();
-            penalidade.IdEmprestimo = idEmprestimo;
-            penalidade.IdUsuario = idTomador;
-            penalidade.CodPenalidade = TipoPenalidade;
-
-            return penalidade;
         }
 
         private void pictureBoxLupa_Click(object sender, EventArgs e)

@@ -44,8 +44,8 @@ namespace Projeto_ViraPagina.DAO
                         cmd.Parameters.AddWithValue("@p_idInstrumento", emprestimo.IdInstrumento);
                         cmd.Parameters.AddWithValue("@p_idMidia", emprestimo.IdMidia);
                         cmd.Parameters.AddWithValue("@p_idJogo", emprestimo.IdJogo);
-                        
-                        if (emprestimo.IdMaterialImpresso != "")
+
+                        if (!string.IsNullOrEmpty(emprestimo.IdMaterialImpresso))
                         {
                             cmd.Parameters.AddWithValue("@p_diasEmprestimo", diasEmprestimo);
                         }
@@ -53,10 +53,7 @@ namespace Projeto_ViraPagina.DAO
                         {
                             cmd.Parameters.AddWithValue("@p_diasEmprestimo", 1);
                         }
-
-                            cmd.ExecuteNonQuery();
-
-                        MessageBox.Show("Registro inserido com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cmd.ExecuteNonQuery();
 
                         return true;
                     }
@@ -280,7 +277,7 @@ namespace Projeto_ViraPagina.DAO
                                     return 7;
                                 case "professor":
                                     return 15;
-                                case "funcionario":
+                                case "funcionário":
                                     return 10;
                                 default:
                                     return 5;

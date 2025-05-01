@@ -71,5 +71,12 @@ namespace Projeto_ViraPagina.View
             reserva.IdUsuario = textCodigoTomador.Text;
             reserva.IdMaterialImpresso = textCodigoMaterialImpresso.Text;
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Principal form = new Principal();
+            form.Show();
+            this.Hide();
+        }
     }
 }

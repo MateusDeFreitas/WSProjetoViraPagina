@@ -45,12 +45,10 @@
             labelAtualizacaoInstrumentos = new Label();
             panelLivro = new Panel();
             pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
             pictureBoxLupa = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvVisualizacaoInstrumentos).BeginInit();
             panelLivro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLupa).BeginInit();
             SuspendLayout();
             // 
@@ -183,16 +181,6 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(554, 76);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(22, 19);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 196;
-            pictureBox2.TabStop = false;
-            // 
             // pictureBoxLupa
             // 
             pictureBoxLupa.Image = (Image)resources.GetObject("pictureBoxLupa.Image");
@@ -210,7 +198,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(250, 243, 224);
             ClientSize = new Size(800, 450);
-            Controls.Add(pictureBox2);
             Controls.Add(pictureBoxLupa);
             Controls.Add(dgvVisualizacaoInstrumentos);
             Controls.Add(btnVoltar);
@@ -224,7 +211,6 @@
             ((System.ComponentModel.ISupportInitialize)dgvVisualizacaoInstrumentos).EndInit();
             panelLivro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLupa).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -244,7 +230,6 @@
         private DataGridViewTextBoxColumn Modelo;
         private DataGridViewTextBoxColumn NumeroSerie;
         private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
         private PictureBox pictureBoxLupa;
     }
 }

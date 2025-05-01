@@ -46,12 +46,10 @@
             panelLivro = new Panel();
             pictureBox1 = new PictureBox();
             pictureBoxLupa = new PictureBox();
-            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvVisualizacaoMaterialImpresso).BeginInit();
             panelLivro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLupa).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // dgvVisualizacaoMaterialImpresso
@@ -208,23 +206,12 @@
             pictureBoxLupa.TabStop = false;
             pictureBoxLupa.Click += pictureBoxLupa_Click;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(556, 78);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(22, 19);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 191;
-            pictureBox2.TabStop = false;
-            // 
             // VisualizacaoMaterialImpresso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(250, 243, 224);
             ClientSize = new Size(800, 450);
-            Controls.Add(pictureBox2);
             Controls.Add(pictureBoxLupa);
             Controls.Add(dgvVisualizacaoMaterialImpresso);
             Controls.Add(btnVoltar);
@@ -239,7 +226,6 @@
             panelLivro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLupa).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -259,6 +245,5 @@
         private DataGridViewTextBoxColumn Idioma;
         private PictureBox pictureBox1;
         private PictureBox pictureBoxLupa;
-        private PictureBox pictureBox2;
     }
 }
