@@ -8,18 +8,17 @@ namespace Projeto_ViraPagina.Model
 {
     public class Emprestimo
     {
-        public string? Id { get; set; } // INT UNSIGNED -> uint
-        public string? IdUsuario { get; set; } // Pode ser nulo
-        public string? IdMaterialImpresso { get; set; } // Pode ser nulo
-        public string? IdInstrumento { get; set; } // Pode ser nulo
-        public string? IdMidia { get; set; } // Pode ser nulo
-        public string? IdJogo { get; set; } // Pode ser nulo
+        public string? Id { get; set; } 
+        public string? IdUsuario { get; set; } 
+        public string? IdMaterialImpresso { get; set; }
+        public string? IdInstrumento { get; set; }
+        public string? IdMidia { get; set; } 
+        public string? IdJogo { get; set; } 
         public string? DataEmprestimo { get; set; }
         public string? DataDevolucao { get; set; }
         public bool? Finalizado { get; set; }
-
-        public string IdAcervo { get; set; }
-
+        public string? nomeTomador { get; set; }
+        public string? IdAcervo { get; set; }
 
 
         public static List<Emprestimo> ListaEmprestimo = new List<Emprestimo>();

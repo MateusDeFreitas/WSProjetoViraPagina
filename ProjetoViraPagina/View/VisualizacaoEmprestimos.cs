@@ -45,12 +45,19 @@ namespace Projeto_ViraPagina.View
 
             dgvVisualizacaoEmprestimos.Columns.Add(new DataGridViewTextBoxColumn()
             {
+                HeaderText = "Nome tomador",
+                DataPropertyName = "nomeTomador",
+                Width = 145,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
+                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+            });
+
+            dgvVisualizacaoEmprestimos.Columns.Add(new DataGridViewTextBoxColumn()
+            {
                 Name = "CodigoTomador",
                 HeaderText = "Cód. Tomador",
                 DataPropertyName = "IdUsuario",
-                Width = 140,
-                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
-                HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
+                Visible = false
             });
 
             dgvVisualizacaoEmprestimos.Columns.Add(new DataGridViewTextBoxColumn()
@@ -58,7 +65,7 @@ namespace Projeto_ViraPagina.View
                 Name = "CodigoAcervo",
                 HeaderText = "Cód. Acervo",
                 DataPropertyName = "IdAcervo",
-                Width = 165,
+                Width = 160,
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
                 HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
             });

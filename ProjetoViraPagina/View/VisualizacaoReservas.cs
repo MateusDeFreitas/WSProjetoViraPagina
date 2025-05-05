@@ -45,9 +45,9 @@ namespace Projeto_ViraPagina.View
 
             dgvVisualizacaoReservas.Columns.Add(new DataGridViewTextBoxColumn()
             {
-                HeaderText = "Cód. Tomador",
-                DataPropertyName = "IdUsuario",
-                Width = 135,
+                HeaderText = "Nome tomador",
+                DataPropertyName = "nomeTomador",
+                Width = 145,
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
                 HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
             });
@@ -74,7 +74,7 @@ namespace Projeto_ViraPagina.View
             {
                 HeaderText = "Período",
                 DataPropertyName = "TempoReserva",
-                Width = 130,
+                Width = 120,
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
                 HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
             });
@@ -119,9 +119,9 @@ namespace Projeto_ViraPagina.View
 
             dgvVisualizacaoReservas.Columns.Add(new DataGridViewTextBoxColumn()
             {
-                HeaderText = "Cód. Tomador",
-                DataPropertyName = "IdUsuario",
-                Width = 135,
+                HeaderText = "Nome tomador",
+                DataPropertyName = "nomeTomador",
+                Width = 145,
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
                 HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
             });
@@ -148,7 +148,7 @@ namespace Projeto_ViraPagina.View
             {
                 HeaderText = "Período",
                 DataPropertyName = "TempoReserva",
-                Width = 130,
+                Width = 120,
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
                 HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
             });

@@ -47,6 +47,7 @@ namespace Projeto_ViraPagina.DAO
         public List<Reserva> BuscarReservas()
         {
             List<Reserva> lista = new List<Reserva>();
+            TomadorDAO tomadorDAO = new TomadorDAO();
             Reserva funcao = new Reserva();
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -68,7 +69,8 @@ namespace Projeto_ViraPagina.DAO
                                 IdUsuario = reader["idUsuario"].ToString(),
                                 IdMaterialImpresso = reader["idMaterialImpresso"].ToString(),
                                 DataReserva = funcao.ConverterDataParaFormatoBR(reader["dataReserva"].ToString()),
-                                TempoReserva = reader["tempoReserva"].ToString()
+                                TempoReserva = reader["tempoReserva"].ToString(),
+                                nomeTomador = tomadorDAO.LerNomeTomador(reader["idUsuario"].ToString())
                             };
 
                             lista.Add(reserva);

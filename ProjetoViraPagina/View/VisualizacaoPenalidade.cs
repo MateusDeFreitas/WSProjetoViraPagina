@@ -40,14 +40,14 @@ namespace Projeto_ViraPagina.View
                 Name = "Codigo",
                 HeaderText = "Código",
                 DataPropertyName = "Id",
-                Width = 90
+                Width = 85
             });
 
             dgvPenalidades.Columns.Add(new DataGridViewTextBoxColumn()
             {
-                HeaderText = "Cód. Tomador",
-                DataPropertyName = "IdUsuario",
-                Width = 130,
+                HeaderText = "Nome tomador",
+                DataPropertyName = "nomeTomador",
+                Width = 145,
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
                 HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
             });
@@ -56,7 +56,7 @@ namespace Projeto_ViraPagina.View
             {
                 HeaderText = "Cód. Empréstimo",
                 DataPropertyName = "IdEmprestimo",
-                Width = 155,
+                Width = 150,
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
                 HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
             });
@@ -65,7 +65,7 @@ namespace Projeto_ViraPagina.View
             {
                 HeaderText = "Data de Ocorrência",
                 DataPropertyName = "DataPenalidade",
-                Width = 180,
+                Width = 175,
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
                 HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
             });
@@ -106,14 +106,14 @@ namespace Projeto_ViraPagina.View
                 Name = "Codigo",
                 HeaderText = "Código",
                 DataPropertyName = "Id",
-                Width = 90
+                Width = 85
             });
 
             dgvPenalidades.Columns.Add(new DataGridViewTextBoxColumn()
             {
-                HeaderText = "Cód. Tomador",
-                DataPropertyName = "IdUsuario",
-                Width = 130,
+                HeaderText = "Nome tomador",
+                DataPropertyName = "nomeTomador",
+                Width = 145,
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
                 HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
             });
@@ -122,7 +122,7 @@ namespace Projeto_ViraPagina.View
             {
                 HeaderText = "Cód. Empréstimo",
                 DataPropertyName = "IdEmprestimo",
-                Width = 155,
+                Width = 150,
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
                 HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
             });
@@ -131,7 +131,7 @@ namespace Projeto_ViraPagina.View
             {
                 HeaderText = "Data de Ocorrência",
                 DataPropertyName = "DataPenalidade",
-                Width = 180,
+                Width = 175,
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
                 HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
             });
@@ -172,14 +172,14 @@ namespace Projeto_ViraPagina.View
                 Name = "Codigo",
                 HeaderText = "Código",
                 DataPropertyName = "Id",
-                Width = 90
+                Width = 85
             });
 
             dgvPenalidades.Columns.Add(new DataGridViewTextBoxColumn()
             {
-                HeaderText = "Cód. Tomador",
-                DataPropertyName = "IdUsuario",
-                Width = 130,
+                HeaderText = "Nome tomador",
+                DataPropertyName = "nomeTomador",
+                Width = 145,
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
                 HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
             });
@@ -188,7 +188,7 @@ namespace Projeto_ViraPagina.View
             {
                 HeaderText = "Cód. Empréstimo",
                 DataPropertyName = "IdEmprestimo",
-                Width = 155,
+                Width = 150,
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
                 HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
             });
@@ -197,7 +197,7 @@ namespace Projeto_ViraPagina.View
             {
                 HeaderText = "Data de Ocorrência",
                 DataPropertyName = "DataPenalidade",
-                Width = 180,
+                Width = 175,
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter },
                 HeaderCell = { Style = { Alignment = DataGridViewContentAlignment.MiddleCenter } }
             });

@@ -55,5 +55,44 @@ namespace Projeto_ViraPagina.DAO
             }
             return tomador;
         }
+
+        public string LerNomeTomador(string idTomador)
+        {
+            string nomeTomador = "";
+            UtilDAO utilDAO = new UtilDAO();
+
+            bool registroExistente = utilDAO.IdTomadorExiste(idTomador);
+
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                if (registroExistente)
+                {
+                    con.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("lerNomeTomador", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        // Parâmetro de entrada
+                        cmd.Parameters.AddWithValue("p_idTomador", idTomador);
+
+                        // Parâmetro de saída
+                        MySqlParameter paramOut = new MySqlParameter("p_nome", MySqlDbType.VarChar, 100);
+                        paramOut.Direction = ParameterDirection.Output;
+                        cmd.Parameters.Add(paramOut);
+
+                        cmd.ExecuteNonQuery();
+
+                        nomeTomador = paramOut.Value?.ToString();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Tomador inexistente", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+
+            return nomeTomador;
+        }
+
     }
 }

@@ -46,6 +46,7 @@ namespace Projeto_ViraPagina.DAO
         public List<Penalidade> BuscarPenalidades()
         {
             List<Penalidade> lista = new List<Penalidade>();
+            TomadorDAO tomadorDAO = new TomadorDAO();
             Penalidade funçao = new Penalidade();
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -67,7 +68,8 @@ namespace Projeto_ViraPagina.DAO
                                 IdUsuario = reader["idTomador"].ToString(),
                                 DataPenalidade = funçao.ConverterDataParaFormatoBR(reader["dataPenalidade"].ToString()),
                                 IdEmprestimo = reader["idEmprestimo"].ToString(),
-                                CodPenalidade = reader["codPenalidade"].ToString()
+                                CodPenalidade = reader["codPenalidade"].ToString(),
+                                nomeTomador = tomadorDAO.LerNomeTomador(reader["idTomador"].ToString())
                             };
 
                             lista.Add(penalidade);

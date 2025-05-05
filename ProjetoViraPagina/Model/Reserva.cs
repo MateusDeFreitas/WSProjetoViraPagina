@@ -15,6 +15,7 @@ namespace Projeto_ViraPagina.Model
         public string? DataDisponibilidade { get; set; }
         public bool? Resgatado { get; set; }
         public string? TempoReserva { get; set; } // Pode representar um período
+        public string? nomeTomador { get; set; }
 
         public static List<Reserva> ListaReserva = new List<Reserva>();
 

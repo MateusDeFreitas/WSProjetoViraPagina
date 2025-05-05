@@ -14,7 +14,8 @@ namespace Projeto_ViraPagina.Model
         public string? DataPenalidade { get; set; }
         public string? CodPenalidade { get; set; } 
         public bool PenalidadeAtiva { get; set; }
-        public string PenalidadeAtivaStr { get; set; }
+        public string? PenalidadeAtivaStr { get; set; }
+        public string? nomeTomador { get; set; }
 
         public static List<Penalidade> ListaPenalidade = new List<Penalidade>();
 

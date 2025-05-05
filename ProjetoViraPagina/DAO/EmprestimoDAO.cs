@@ -69,6 +69,7 @@ namespace Projeto_ViraPagina.DAO
         public List<Emprestimo> BuscarEmprestimos()
         {
             List<Emprestimo> lista = new List<Emprestimo>();
+            TomadorDAO tomadorDAO = new TomadorDAO();
             Emprestimo funcao = new Emprestimo();
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -94,7 +95,8 @@ namespace Projeto_ViraPagina.DAO
                                 Id = reader["id"].ToString(),
                                 IdUsuario = reader["idUsuario"].ToString(),
                                 DataDevolucao = funcao.ConverterDataParaFormatoBR(reader["dataDevolucao"].ToString()),
-                                IdAcervo = funcao.ReceberIdAcervo(idMaterialImpresso, idJogo, idMidia, idInstrumento)
+                                IdAcervo = funcao.ReceberIdAcervo(idMaterialImpresso, idJogo, idMidia, idInstrumento),
+                                nomeTomador = tomadorDAO.LerNomeTomador(reader["idUsuario"].ToString())
                             };
 
                             lista.Add(emprestimo);
