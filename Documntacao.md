@@ -98,5 +98,5 @@ Projetado para ambiente desktop, o ViraPágina foi implementado utilizando C# co
 - O sistema só deve permitir a reserva de livros que estão emprestados.
 
 ## Apresentação:
-- [Link]([https://docs.google.com/presentation/d/18aAgKfP8k1C5HtvFbrITIqT0-pTgzXuJt4cF9tlsJDg/edit?usp=drive_link](https://docs.google.com/document/d/1isAigQMeH7-1w15TsnL7N2rWXMETIE05/edit?usp=drive_link&ouid=107318619799026584832&rtpof=true&sd=true))
+- [Link](https://docs.google.com/presentation/d/1xbCE_IiUQZOlpbFjKCj96x09qUgWWlNs/edit?usp=drive_web&ouid=107318619799026584832&rtpof=true)
 
